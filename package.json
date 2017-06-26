@@ -1,0 +1,27 @@
+{
+  "name": "test-node-server",
+  "title": "",
+  "description": "",
+  "main": "./index.js",
+  "version": "1.0.0",
+  "homepage": "",
+  "license": "Apache-2.0",
+  "keywords": [
+  ],
+  "repository": {
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha"
+  },
+  "dependencies": {
+    "express": "^4.14.0",
+    "body-parser": "^1.16.0",
+    "commander": "^2.9.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "mocha": "^3.2.0"
+  }
+}
