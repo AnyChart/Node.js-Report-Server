@@ -2,7 +2,11 @@
 
 ## API
 
-### Create PNG image
+### Create PDF report
+
+### Export as PDF file
+
+### Export as PNG image
 Create PNG image from SVG or JavaScript input.
 ```
 POST /png
@@ -13,10 +17,10 @@ POST /png
 | ------------- | ------------- | ------------- |
 | file_name  | string  | todo desc |
 | data  | string | todo desc |
-| data_type  | string  | todo desc |
+| data_type  | string  | script, svg, json, xml |
 | response_type  | string  | file, base64string or url |
 
-##### Example
+#### Example
 ```
 {
   "file_name": "anychart.png",
@@ -25,4 +29,23 @@ POST /png
   "response_type": "file"
 }
 ```
+
+#### Curl
+```
+todo
+```
+
+#### Response
+```
+todo
+```
+
+
+### Export as JPG image
+
+### Export as csv file
+
+### Export as xlsx (Exel) file
+
+
 
