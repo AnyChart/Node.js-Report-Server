@@ -37,15 +37,20 @@ todo
 
 #### Response
 ```
+HTTP/1.1 200 OK
+Content-Type: image/png
+todo
+```
+```
 todo
 ```
 
 
 ### Export as JPG image
 
-### Export as csv file
+### Export as CSV file
 
-### Export as xlsx (Exel) file
+### Export as XLSX (Excel) file
 
 
 
