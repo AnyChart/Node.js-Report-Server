@@ -1,3 +1,5 @@
+[<img src="https://cdn.anychart.com/images/logo-transparent-segoe.png" width="234px" alt="AnyChart - Robust JavaScript/HTML5 Chart library for any project">](https://anychart.com)
+
 # AnyChart Export Server 
 
 ## Installation and running
@@ -93,4 +95,6 @@ todo
 - как добавить свой
 
 
+## License
+[© AnyChart.com - JavaScript charts](http://www.anychart.com). AnyChart Export Server released under the [Apache 2.0 License](https://github.com/AnyChart/node-export-server/blob/master/LICENSE).
 
