@@ -1,6 +1,21 @@
 # AnyChart Export Server 
 
-## API
+## Installation and running
+
+### Installation
+- Ставим через npm
+- Ставим через git
+- Ставим image magic или вторую как его там
+
+### Running
+- Запускаем через консоль
+
+### Tutorials
+- Running AnyChart Export Server on Digital Ocean
+- Running AnyChart Export Server on AWS S2
+- Running AnyChart Export Server on Microsoft Asure
+
+## Server API
 
 ### Create PDF report
 
@@ -51,6 +66,31 @@ todo
 ### Export as CSV file
 
 ### Export as XLSX (Excel) file
+
+### Get server status
+
+## Security recommendations
+ - allow access origin
+ - https
+ - авторизация
+ 
+## System recommendations 
+- рассказываем про аналог супервизора
+- рассказываем про рекомендованную мощьность
+ 
+## CJK and Custom fonts 
+Рассказываем как сетапить фонты
+
+## Troubleshooting
+Рассказываем что делать в проблемных случаях
+- как проверить что image magic или кто у нас там второй установлен
+- как провер курлом или чем нибудь еще что /status доступен
+- как понять что нужно ставить доп шрифты
+
+## Tests
+Рассказываем как у нас устроены тесты
+- как запустить
+- как добавить свой
 
 
 
