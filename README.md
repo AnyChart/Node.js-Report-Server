@@ -23,13 +23,28 @@
 
 ### Export as PDF file
 
-### Export as vector (SVG) image
+### Export as vector (PDF/SVG/PS) image
+todo: description
+```
+POST /vector-image
+```
+
+| Name  | Type | Description |
+| ------------- | ------------- | ------------- |
+| file_name  | string  | todo desc |
+| image_type  | string  | PDF/SVG/PS |
+| data  | string | JavaScript string, SVG string, JSON string or XML string |
+| data_type  | string  | script, svg, json, xml |
+| response_type  | string  | file, base64string or url |
+| width  | ???  | ??? |
+| height  | ???  | ??? |
+| aspect-ratio  | ???  | ??? |
+| background  | ???  | ??? |
 
 ### Export as raster image (PNG/JPG) image
-Create raster image in one of the supported formats (PNG/JPG).
-Нужно будет еще описать про инпуты и все остальное
+todo: description
 ```
-POST /image
+POST /raster-image
 ```
 
 #### Input
