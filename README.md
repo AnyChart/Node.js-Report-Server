@@ -7,10 +7,18 @@
 ### Installation
 - Ставим через npm
 - Ставим через git
-- Ставим image magic или вторую как его там
+- Ставим зависимости: rsvf-convert, imagemagic
 
 ### Running
 - Запускаем через консоль
+
+#### Options
+
+| Name  | Type | Description |
+| ------------- | ------------- | ------------- |
+| port  | number  | todo desc |
+| output-dir  | string | то куда будем сохранять все файлы |
+| allow-scripts-executing  | boolean | можно ли запускать скрипты |
 
 ### Tutorials
 - Running AnyChart Export Server on Digital Ocean
@@ -62,7 +70,7 @@ POST /vector-image
 | Name  | Type | Description |
 | ------------- | ------------- | ------------- |
 | file_name  | string  | todo desc |
-| image_type  | string  | PDF/SVG/PS |
+| file_type  | string  | PDF/SVG/PS |
 | data  | string | JavaScript string, SVG string, JSON string or XML string |
 | data_type  | string  | script, svg, json, xml |
 | response_type  | string  | file, base64string or url |
@@ -99,10 +107,11 @@ POST /raster-image
 | Name  | Type | Description |
 | ------------- | ------------- | ------------- |
 | file_name  | string  | todo desc |
-| image_type  | string  | PNG/JPG/TIFF |
-| data  | string | JavaScript string, SVG string, JSON string or XML string |
+| file_type  | string  | PNG/JPG/TIFF |
+| data  | string | JavaScript, SVG, JSON or XML |
 | data_type  | string  | script, svg, json, xml |
 | response_type  | string  | file, base64string or url |
+
 | background  | ???  | ??? |
 | border  | ???  | ??? |
 | blur  | ???  | ??? |
