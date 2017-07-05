@@ -19,16 +19,46 @@
 
 ## Server API
 
-### Create PDF report
+### Generate PDF report
+todo: description
+```
+POST /pdf-report
+```
 
-### Export as PDF file
+#### Input
+| Name  | Type | Description |
+| ------------- | ------------- | ------------- |
+| file_name  | string  | todo desc |
+| data  | string | JavaScript string, SVG string, JSON string or XML string |
+| data_type  | string  | script, svg, json, xml |
+| response_type  | string  | file, base64string or url |
+| content | JSON | http://pdfmake.org/index.html#/gettingstarted |
 
-### Export as vector (PDF/SVG/PS) image
+#### Example
+```
+todo
+```
+
+#### Curl
+```
+todo
+```
+
+#### Response
+```
+todo
+```
+```
+todo
+```
+
+### Generate vector image - PDF/SVG/PS
 todo: description
 ```
 POST /vector-image
 ```
 
+#### Input
 | Name  | Type | Description |
 | ------------- | ------------- | ------------- |
 | file_name  | string  | todo desc |
@@ -41,7 +71,25 @@ POST /vector-image
 | aspect-ratio  | ???  | ??? |
 | background  | ???  | ??? |
 
-### Export as raster image (PNG/JPG) image
+#### Example
+```
+todo
+```
+
+#### Curl
+```
+todo
+```
+
+#### Response
+```
+todo
+```
+```
+todo
+```
+
+### Generate raster image - PNG/JPG/TIFF
 todo: description
 ```
 POST /raster-image
@@ -51,7 +99,7 @@ POST /raster-image
 | Name  | Type | Description |
 | ------------- | ------------- | ------------- |
 | file_name  | string  | todo desc |
-| image_type  | string  | svg, png, jpg |
+| image_type  | string  | PNG/JPG/TIFF |
 | data  | string | JavaScript string, SVG string, JSON string or XML string |
 | data_type  | string  | script, svg, json, xml |
 | response_type  | string  | file, base64string or url |
@@ -93,12 +141,39 @@ todo
 todo
 ```
 
+### Export as data file - CSV/XLSX (Excel)
+todo: description
+```
+POST /data-file
+```
 
-### Export as JPG image
+#### Input
+| Name  | Type | Description |
+| ------------- | ------------- | ------------- |
+| file_name  | string  | todo desc |
+| file_type  | string  | CSV/XLSX |
+| data  | string | CSV string |
+| response_type  | string  | file, url |
 
-### Export as CSV file
+#### Example
+```
+todo
+```
 
-### Export as XLSX (Excel) file
+#### Curl
+```
+todo
+```
+
+#### Response
+```
+todo
+```
+```
+todo
+```
+
+
 
 ### Get server status
 
