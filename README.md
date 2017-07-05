@@ -106,12 +106,11 @@ POST /raster-image
 #### Input
 | Name  | Type | Description |
 | ------------- | ------------- | ------------- |
+| data  | string | **required** JavaScript, SVG, JSON or XML |
+| data_type  | string  | **required** script, svg, json, xml |
 | file_name  | string  | todo desc |
 | file_type  | string  | PNG/JPG/TIFF |
-| data  | string | JavaScript, SVG, JSON or XML |
-| data_type  | string  | script, svg, json, xml |
 | response_type  | string  | file, base64string or url |
-
 | background  | ???  | ??? |
 | border  | ???  | ??? |
 | blur  | ???  | ??? |
