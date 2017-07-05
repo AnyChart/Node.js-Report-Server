@@ -23,19 +23,32 @@
 
 ### Export as PDF file
 
-### Export as PNG image
+### Export as PNG/JPG/SVG image
 Create PNG image from SVG or JavaScript input.
 ```
-POST /png
+POST /image
 ```
 
 #### Input
 | Name  | Type | Description |
 | ------------- | ------------- | ------------- |
 | file_name  | string  | todo desc |
-| data  | string | todo desc |
+| image_type  | string  | svg, png, jpg |
+| data  | string | JavaScript string, SVG string, JSON string or XML string |
 | data_type  | string  | script, svg, json, xml |
 | response_type  | string  | file, base64string or url |
+| background  | ???  | ??? |
+| border  | ???  | ??? |
+| blur  | ???  | ??? |
+| contrast  | ???  | ??? |
+| crop  | ???  | ??? |
+| frame  | ???  | ??? |
+| gamma  | ???  | ??? |
+| monochrome  | ???  | ??? |
+| negative  | ???  | ??? |
+| noize  | ???  | ??? |
+| quality  | ???  | ??? |
+
 
 #### Example
 ```
