@@ -7,10 +7,18 @@
 ### Installation
 - Ставим через npm
 - Ставим через git
-- Ставим image magic или вторую как его там
+- Ставим зависимости: rsvf-convert, imagemagic
 
 ### Running
 - Запускаем через консоль
+
+#### Options
+
+| Name  | Type | Description |
+| ------------- | ------------- | ------------- |
+| port  | number  | todo desc |
+| output-dir  | string | то куда будем сохранять все файлы |
+| allow-scripts-executing  | boolean | можно ли запускать скрипты |
 
 ### Tutorials
 - Running AnyChart Export Server on Digital Ocean
@@ -19,23 +27,102 @@
 
 ## Server API
 
-### Create PDF report
-
-### Export as PDF file
-
-### Export as PNG image
-Create PNG image from SVG or JavaScript input.
+### Generate PDF report
+todo: description
 ```
-POST /png
+POST /pdf-report
 ```
 
 #### Input
 | Name  | Type | Description |
 | ------------- | ------------- | ------------- |
 | file_name  | string  | todo desc |
-| data  | string | todo desc |
+| data  | string | JavaScript string, SVG string, JSON string or XML string |
 | data_type  | string  | script, svg, json, xml |
 | response_type  | string  | file, base64string or url |
+| content | JSON | http://pdfmake.org/index.html#/gettingstarted |
+
+#### Example
+```
+todo
+```
+
+#### Curl
+```
+todo
+```
+
+#### Response
+```
+todo
+```
+```
+todo
+```
+
+### Generate vector image - PDF/SVG/PS
+todo: description
+```
+POST /vector-image
+```
+
+#### Input
+| Name  | Type | Description |
+| ------------- | ------------- | ------------- |
+| file_name  | string  | todo desc |
+| file_type  | string  | PDF/SVG/PS |
+| data  | string | JavaScript string, SVG string, JSON string or XML string |
+| data_type  | string  | script, svg, json, xml |
+| response_type  | string  | file, base64string or url |
+| width  | ???  | ??? |
+| height  | ???  | ??? |
+| aspect-ratio  | ???  | ??? |
+| background  | ???  | ??? |
+
+#### Example
+```
+todo
+```
+
+#### Curl
+```
+todo
+```
+
+#### Response
+```
+todo
+```
+```
+todo
+```
+
+### Generate raster image - PNG/JPG/TIFF
+todo: description
+```
+POST /raster-image
+```
+
+#### Input
+| Name  | Type | Description |
+| ------------- | ------------- | ------------- |
+| data  | string | **required** JavaScript, SVG, JSON or XML |
+| data_type  | string  | **required** script, svg, json, xml |
+| file_name  | string  | todo desc |
+| file_type  | string  | PNG/JPG/TIFF |
+| response_type  | string  | file, base64string or url |
+| background  | ???  | ??? |
+| border  | ???  | ??? |
+| blur  | ???  | ??? |
+| contrast  | ???  | ??? |
+| crop  | ???  | ??? |
+| frame  | ???  | ??? |
+| gamma  | ???  | ??? |
+| monochrome  | ???  | ??? |
+| negative  | ???  | ??? |
+| noize  | ???  | ??? |
+| quality  | ???  | ??? |
+
 
 #### Example
 ```
@@ -62,12 +149,39 @@ todo
 todo
 ```
 
+### Export as data file - CSV/XLSX (Excel)
+todo: description
+```
+POST /data-file
+```
 
-### Export as JPG image
+#### Input
+| Name  | Type | Description |
+| ------------- | ------------- | ------------- |
+| file_name  | string  | todo desc |
+| file_type  | string  | CSV/XLSX |
+| data  | string | CSV string |
+| response_type  | string  | file, url |
 
-### Export as CSV file
+#### Example
+```
+todo
+```
 
-### Export as XLSX (Excel) file
+#### Curl
+```
+todo
+```
+
+#### Response
+```
+todo
+```
+```
+todo
+```
+
+
 
 ### Get server status
 
