@@ -23,8 +23,11 @@
 
 ### Export as PDF file
 
-### Export as PNG/JPG/SVG image
-Create PNG image from SVG or JavaScript input.
+### Export as vector (SVG) image
+
+### Export as raster image (PNG/JPG) image
+Create raster image in one of the supported formats (PNG/JPG).
+Нужно будет еще описать про инпуты и все остальное
 ```
 POST /image
 ```
