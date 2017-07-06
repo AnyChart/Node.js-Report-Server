@@ -2,9 +2,6 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var program = require('commander');
 var uuidv1 = require('uuid/v1');
-var path = require('path');
-
-
 var fs = require('fs');
 var jsdom = require('jsdom').jsdom;
 
@@ -23,7 +20,6 @@ var anychart = require('anychart')(window);
 // var anychart_nodejs = require('anychart-nodejs')(anychart);
 var anychart_nodejs = require('../AnyChart-NodeJS')(anychart);
 var indexTemplate = fs.readFileSync('./template.html', 'utf-8');
-
 var pdfMake = require('pdfmake');
 var fontDescriptors = {
   Roboto: {
@@ -48,16 +44,18 @@ app.post('/pdf-report', function (req, res) {
   var autoFileName = 'anychart_' + uuidv1() + '.pdf';
   var fileName = responseType === 'file' ? req.body.file_name || autoFileName : autoFileName;
 
+  // var data = JSON.parse(req.body.content);
   eval(req.body.content);
 
-  convertCharts(data, function(data) {
-    var pdfDoc = printer.createPdfKitDocument(data);
-
+  convertCharts(data, function(dd) {
+    var pdfDoc = printer.createPdfKitDocument(dd);
     var chunks = [];
+
     pdfDoc.on('data', function(chunk) {
       chunks.push(chunk);
     });
     pdfDoc.on('end', function() {
+      console.log('end');
       var result = Buffer.concat(chunks);
 
       res.writeHead(200, {
@@ -71,7 +69,6 @@ app.post('/pdf-report', function (req, res) {
     pdfDoc.on('error', function(err) {
       console.log(err.message)
     });
-
     pdfDoc.end();
   });
 });
@@ -114,7 +111,9 @@ function convertCharts(obj, callback) {
     var chart = getChartData(data, dataType);
     if (chart) {
       chartsToConvert++;
+      console.log('+++ ', chartsToConvert);
       anychart_nodejs.exportTo(chart, 'png', function(err, data) {
+        console.log('--- ', chartsToConvert);
         o.image = 'data:image/png;base64,' + data.toString('base64');
         delete o[key];
         chartsToConvert--;
