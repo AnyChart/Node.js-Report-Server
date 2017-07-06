@@ -2,6 +2,8 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var program = require('commander');
 var uuidv1 = require('uuid/v1');
+var path = require('path');
+
 
 var fs = require('fs');
 var jsdom = require('jsdom').jsdom;
@@ -22,29 +24,142 @@ var anychart = require('anychart')(window);
 var anychart_nodejs = require('../AnyChart-NodeJS')(anychart);
 var indexTemplate = fs.readFileSync('./template.html', 'utf-8');
 
+var pdfMake = require('pdfmake');
+var fontDescriptors = {
+  Roboto: {
+    normal: './fonts/Roboto-Regular.ttf',
+    bold: './fonts/Roboto-Medium.ttf',
+    italics: './fonts/Roboto-Italic.ttf',
+    bolditalics: './fonts/Roboto-Italic.ttf'
+  }
+};
+var printer = new pdfMake(fontDescriptors);
+
 var app = express();
-app.use(bodyParser.json());       // to support JSON-encoded bodies
-app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
-  extended: true
-}));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({parameterLimit: 100000, limit: '50mb', extended: true}));
 
 app.get('/', function (req, res) {
   res.send(indexTemplate)
 });
 
+app.post('/pdf-report', function (req, res) {
+  var responseType = req.body.response_type.toLowerCase() || 'file';
+  var autoFileName = 'anychart_' + uuidv1() + '.pdf';
+  var fileName = responseType === 'file' ? req.body.file_name || autoFileName : autoFileName;
+
+  eval(req.body.content);
+
+  convertCharts(data, function(data) {
+    var pdfDoc = printer.createPdfKitDocument(data);
+
+    var chunks = [];
+    pdfDoc.on('data', function(chunk) {
+      chunks.push(chunk);
+    });
+    pdfDoc.on('end', function() {
+      var result = Buffer.concat(chunks);
+
+      res.writeHead(200, {
+        'Content-Type': getContentType('pdf'),
+        'Content-Length': result.length,
+        'Content-Disposition': 'attachment; filename=' + fileName
+      });
+
+      res.end(result);
+    });
+    pdfDoc.on('error', function(err) {
+      console.log(err.message)
+    });
+
+    pdfDoc.end();
+  });
+});
+
+app.post('/vector-image', function (req, res) {
+  generateOutput(req, res);
+});
 
 app.post('/raster-image', function (req, res) {
-  var dataType = req.body.data_type.toLowerCase();
-  var fileType = req.body.file_type.toLowerCase() || 'png';
-  var responseType = req.body.response_type.toLowerCase() || 'file';
-  var autoFileName = 'anychart_' + uuidv1() + '.' + fileType;
-  var fileName = responseType === 'file' ? req.body.file_name || autoFileName : autoFileName;
-  var data = req.body.data;
+  generateOutput(req, res);
+});
 
+function recursiveTraverse(obj, func) {
+  if (obj instanceof Array) {
+    for (var i = 0; i < obj.length; i++) {
+      if (i in obj)
+        recursiveTraverse(obj[i], func);
+    }
+  } else if (obj instanceof Object) {
+    for (var key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        if (key === 'chart') {
+          func(obj, key)
+        } else {
+          recursiveTraverse(obj[key], func)
+        }
+      }
+    }
+  }
+}
+
+function convertCharts(obj, callback) {
+  var chartsToConvert = 0;
+
+  recursiveTraverse(obj, function(o, key) {
+    var ch = o[key];
+    var data = ch.data;
+    var dataType = ch.dataType;
+
+    var chart = getChartData(data, dataType);
+    if (chart) {
+      chartsToConvert++;
+      anychart_nodejs.exportTo(chart, 'png', function(err, data) {
+        o.image = 'data:image/png;base64,' + data.toString('base64');
+        delete o[key];
+        chartsToConvert--;
+        if (chartsToConvert === 0) {
+          callback(obj)
+        }
+      });
+    }
+  });
+
+  if (chartsToConvert === 0) {
+    callback(obj)
+  }
+}
+
+function getContentType(type) {
+  var contentType;
+  switch (type) {
+    case 'png':
+      contentType = 'image/png';
+      break;
+    case 'jpg':
+      contentType = 'image/jpg';
+      break;
+    case 'tiff':
+      contentType = 'image/tiff';
+      break;
+    case 'svg':
+      contentType = 'image/svf+xm;';
+      break;
+    case 'pdf':
+      contentType = 'application/pdf';
+      break;
+    case 'ps':
+      contentType = 'application/postscript';
+      break;
+    default:
+      contentType = 'text/plain'
+  }
+  return contentType;
+}
+
+function getChartData(data, type) {
   var chart = null;
-
-
-  switch (dataType) {
+  switch (type) {
     case 'json':
       chart = anychart.fromJson(data);
       break;
@@ -64,34 +179,30 @@ app.post('/raster-image', function (req, res) {
       }
       break;
   }
+  if (chart && type !== 'svg')
+    chart.container('container');
 
+  return chart;
+}
+
+function generateOutput(req, res) {
+  var dataType = req.body.data_type.toLowerCase();
+  var fileType = req.body.file_type.toLowerCase() || 'png';
+  var responseType = req.body.response_type.toLowerCase() || 'file';
+  var autoFileName = 'anychart_' + uuidv1() + '.' + fileType;
+  var fileName = responseType === 'file' ? req.body.file_name || autoFileName : autoFileName;
+  var data = req.body.data;
+
+  var chart = getChartData(data, dataType);
   if (chart) {
-    if (dataType !== 'svg')
-      chart.container('container');
-
     anychart_nodejs.exportTo(chart, fileType, function(err, data) {
       if (responseType === 'file') {
-        var contentType;
-        switch (fileType) {
-          case 'png':
-            contentType = 'image/png';
-            break;
-          case 'jpg':
-            contentType = 'image/jpg';
-            break;
-          case 'svg':
-            contentType = 'image/svf+xm;';
-            break;
-          case 'pdf':
-            contentType = 'application/pdf';
-            break;
-        }
-
         res.writeHead(200, {
-          'Content-Type': contentType,
+          'Content-Type': getContentType(fileType),
           'Content-Length': data.length,
           'Content-Disposition': 'attachment; filename=' + fileName
         });
+
         res.end(data);
       } else if (responseType === 'base64') {
         var base64Data = data.toString('base64');
@@ -125,7 +236,8 @@ app.post('/raster-image', function (req, res) {
   } else {
     res.send('');
   }
-});
+}
+
 
 app.get('/status', function (req, res) {
   res.send('ok');
