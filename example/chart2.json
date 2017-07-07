@@ -1,0 +1,154 @@
+{
+  "chart": {
+    "bounds": {
+      "top": 0,
+      "left": 0,
+      "width": 450,
+      "height": 300
+    },
+    "enabled": true,
+    "title": {
+      "enabled": true,
+      "text": "Earnings Estimate"
+    },
+    "tooltip": {
+      "format": "${%Value}{groupsSeparator: }",
+      "enabled": true
+    },
+    "credits": {
+      "text": "AnyChart",
+      "url": "https://www.anychart.com/?utm_source=registered",
+      "alt": "AnyChart - JavaScript Charts designed to be embedded and integrated",
+      "imgAlt": "AnyChart - JavaScript Charts",
+      "logoSrc": "https://static.anychart.com/logo.png",
+      "enabled": false
+    },
+    "selectMarqueeFill": {
+      "color": "#d3d3d3",
+      "opacity": 0.4
+    },
+    "legend": {
+      "enabled": true,
+      "fontSize": 13,
+      "padding": {
+        "left": 0,
+        "top": 0,
+        "bottom": 20,
+        "right": 0
+      }
+    },
+    "xScale": 0,
+    "yScale": 1,
+    "series": [
+      {
+        "enabled": true,
+        "seriesType": "column",
+        "meta": {},
+        "name": "Avg",
+        "selectFill": {
+          "color": "#f48fb1",
+          "opacity": 0.8
+        },
+        "selectStroke": {
+          "color": "#c2185b",
+          "thickness": 1.5
+        },
+        "data": [
+          {
+            "x": "Jun-17",
+            "value": 1.57
+          },
+          {
+            "x": "Sep-17",
+            "value": 1.89
+          },
+          {
+            "x": "2017",
+            "value": 8.94
+          },
+          {
+            "x": "2018",
+            "value": 10.53
+          }
+        ],
+        "xScale": 0,
+        "yScale": 1
+      },
+      {
+        "enabled": true,
+        "seriesType": "column",
+        "meta": {},
+        "name": "High",
+        "selectFill": {
+          "color": "#f48fb1",
+          "opacity": 0.8
+        },
+        "selectStroke": {
+          "color": "#c2185b",
+          "thickness": 1.5
+        },
+        "data": [
+          {
+            "x": "Jun-17",
+            "value": 1.68
+          },
+          {
+            "x": "Sep-17",
+            "value": 2.18
+          },
+          {
+            "x": "2017",
+            "value": 9.6
+          },
+          {
+            "x": "2018",
+            "value": 12.49
+          }
+        ],
+        "xScale": 0,
+        "yScale": 1
+      },
+      {
+        "enabled": true,
+        "seriesType": "column",
+        "meta": {},
+        "name": "Low",
+        "selectFill": {
+          "color": "#f48fb1",
+          "opacity": 0.8
+        },
+        "selectStroke": {
+          "color": "#c2185b",
+          "thickness": 1.5
+        },
+        "data": [
+          {
+            "x": "Jun-17",
+            "value": 1.5
+          },
+          {
+            "x": "Sep-17",
+            "value": 1.61
+          },
+          {
+            "x": "2017",
+            "value": 8.64
+          },
+          {
+            "x": "2018",
+            "value": 9.16
+          }
+        ],
+        "xScale": 0,
+        "yScale": 1
+      }
+    ],
+    "yAxes": [
+      {
+        "enabled": false
+      }
+    ],
+    "type": "column",
+    "barGroupsPadding": 0.3
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "pageMargins": [ 30, 70, 30, 20 ],
+  "header": {
+    "margin": [ 10, 10, 15, 0 ],
+    "columns": [
+      {
+        "margin": 0,
+        "image": "",
+        "width": 50,
+        "height": 50
+      },
+      {
+        "text": "AnyChart",
+        "margin": [ 0, 17, 0, 0 ],
+        "fontWeight": "bold"
+      },
+      {
+        "width": "*",
+        "alignment": "right",
+        "text": "PDF Report sample",
+        "margin": [ 0, 17, 0, 0 ]
+      }
+    ]
+  },
+  "content": [
+    {
+      "alignment": "center",
+      "chart": {
+        "data": "",
+        "dataType": "javascript"
+      },
+      "fit": [500, 500]
+    },
+    {
+      "columns": [
+        {
+          "style": "tables",
+          "table": {
+            "headerRows": 1,
+            "widths": [65, "*", "*", "*", "*"],
+
+            "body": [
+              [
+                {"text": "Earnings History", "style": 'tableHeader'},
+                {"text": "Mar 31, 17", "style": 'tableHeader'},
+                {"text": "Dec 31, 16", "style": 'tableHeader'},
+                {"text": "Sep 30, 16", "style": 'tableHeader'},
+                {"text": "Jun 30, 16", "style": 'tableHeader'},
+              ],
+              [ {"text": "EPS Actual", "alignment": "left"}, "2.10", "3.33", "1.67", "1.42" ],
+              [ {"text": "EPS Estimate", "alignment": "left"}, "2.02", "3.21", "1.65", "1.38" ],
+              [ {"text": "Difference", "alignment": "left"}, "0.08", "0.15", "0.01", "0.04" ],
+              [ {"text": "Surprise, %", "alignment": "left"}, "4.0%", "4.7%", "0.6%", "2.9%" ]
+            ]
+          },
+          "layout": {
+            "hLineWidth": function (i, node) {return (i === 0 || i === node['table']['body']['length']) ? 1 : 0;},
+        "vLineWidth": function (i, node) {return 0;},
+        "fillColor": function (i, node) {return i === 0 ? '#7FDBFF' : null;}
+      }
+      },
+        {
+          "style": "tables",
+          "table": {
+            "headerRows": 1,
+            "widths": [65, "*", "*", "*", "*"],
+
+            "body": [
+              [
+                {"text": "Earnings History", "style": 'tableHeader'},
+                {"text": "Mar 31, 17", "style": 'tableHeader'},
+                {"text": "Dec 31, 16", "style": 'tableHeader'},
+                {"text": "Sep 30, 16", "style": 'tableHeader'},
+                {"text": "Jun 30, 16", "style": 'tableHeader'},
+              ],
+              [ {"text": "Average Estimate", "alignment": "left"}, "1.57", "1.89", "8.94", "10.53" ],
+              [ {"text": "High Estimate", "alignment": "left"}, "1.68", "2.18", "9.60", "12.49" ],
+              [ {"text": "Low Estimate", "alignment": "left"}, "1.50", "1.61", "8.64", "9.16" ],
+              [ {"text": "Year Ago EPS", "alignment": "left"}, "1.42", "1.67", "8.31", "8.94" ]
+            ]
+          },
+          "layout": {
+            "hLineWidth": function (i, node) {return (i === 0 || i === node['table']['body']['length']) ? 1 : 0;},
+        "vLineWidth": function (i, node) {return 0;},
+        "fillColor": function (i, node) {return i === 0 ? '#7FDBFF' : null;}
+      }
+      }
+      ],
+      "columnGap": 10,
+      "margin": [0, 20, 0, 10]
+    },
+    {
+      "columns": [
+        {
+          "chart": {
+            "data": {},
+            "dataType": "json"
+          },
+          "fit": [250, 300]
+        },
+        {
+          "chart": {
+            "data": {},
+            "dataType": "json"
+          },
+          "fit": [250, 300]
+        }
+      ],
+      "columnGap": 10
+    }
+  ],
+  "styles": {
+    "tables": {
+      "fontSize": 7,
+      "alignment": "right",
+    },
+    "tableHeader": {
+      "alignment": "left",
+      "bold": true,
+      "fontSize": 7.5
+    }
+  }
+}
