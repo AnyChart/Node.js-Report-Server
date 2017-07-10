@@ -31,7 +31,33 @@
     </style>
 
     <script>
-//      $(document).ready(function() {
+      $(document).ready(function() {
+        var host = $('#host').val();
+
+        $.ajax({
+          url: '/report.js',
+          async: false,
+          success: function(data) {
+            var regex = /chart"*:\s*{\s*\n*\s*"*data"*:\s*"*(.*[^",])"*[,\n]/g;
+            var res;
+            while(res = regex.exec(data)) {
+              var name = res[1];
+
+              $.ajax({
+                url: '/' + name,
+                async: false,
+                dataType: 'text',
+                success: function(new_data) {
+                  var str = new_data.replace(/\n/g, '').replace(/"/g, '\\"');
+                  console.log(str);
+                  data = data.replace(name, str);
+                }
+              });
+            }
+            $('#content').text(data);
+          }
+        });
+
 //        $('#generate').click(function() {
 //          $.ajax({
 //            method: 'POST',
@@ -48,11 +74,11 @@
 //            console.log(e);
 //          });
 //        });
-//      });
+      });
     </script>
 </head>
 <body>
-<form action="http://192.168.1.105:3000/pdf-report" method="post">
+<form action="/pdf-report" method="post">
     <div class="container">
         <h2>Chart converter</h2>
         <div class="row">
@@ -73,7 +99,7 @@
                         <option>svg</option>
                     </select>
 
-                    Output type
+                    Output type 
                     <select id="outputType" name="file_type">
                         <option>png</option>
                         <option>jpg</option>

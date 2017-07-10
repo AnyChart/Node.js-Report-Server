@@ -19,7 +19,7 @@ var window = d.defaultView;
 var anychart = require('anychart')(window);
 // var anychart_nodejs = require('anychart-nodejs')(anychart);
 var anychart_nodejs = require('../AnyChart-NodeJS')(anychart);
-var indexTemplate = fs.readFileSync('./template.html', 'utf-8');
+var indexTemplate = fs.readFileSync('./example/template.html', 'utf-8');
 var pdfMake = require('pdfmake');
 var fontDescriptors = {
   Roboto: {
@@ -34,52 +34,7 @@ var printer = new pdfMake(fontDescriptors);
 var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({parameterLimit: 100000, limit: '50mb', extended: true}));
-
-app.get('/', function (req, res) {
-  res.send(indexTemplate)
-});
-
-app.post('/pdf-report', function (req, res) {
-  var responseType = req.body.response_type.toLowerCase() || 'file';
-  var autoFileName = 'anychart_' + uuidv1() + '.pdf';
-  var fileName = responseType === 'file' ? req.body.file_name || autoFileName : autoFileName;
-
-  // var data = JSON.parse(req.body.content);
-  eval(req.body.content);
-
-  convertCharts(data, function(dd) {
-    var pdfDoc = printer.createPdfKitDocument(dd);
-    var chunks = [];
-
-    pdfDoc.on('data', function(chunk) {
-      chunks.push(chunk);
-    });
-    pdfDoc.on('end', function() {
-      console.log('end');
-      var result = Buffer.concat(chunks);
-
-      res.writeHead(200, {
-        'Content-Type': getContentType('pdf'),
-        'Content-Length': result.length,
-        'Content-Disposition': 'attachment; filename=' + fileName
-      });
-
-      res.end(result);
-    });
-    pdfDoc.on('error', function(err) {
-      console.log(err.message)
-    });
-    pdfDoc.end();
-  });
-});
-
-app.post('/vector-image', function (req, res) {
-  generateOutput(req, res);
-});
-
-app.post('/raster-image', function (req, res) {
-  generateOutput(req, res);
-});
+app.use(express.static('example'));
 
 function recursiveTraverse(obj, func) {
   if (obj instanceof Array) {
@@ -184,6 +139,45 @@ function getChartData(data, type) {
   return chart;
 }
 
+function sendResult(res, data, responseType, fileName, fileType) {
+  if (responseType === 'file') {
+    res.writeHead(200, {
+      'Content-Type': getContentType(fileType),
+      'Content-Length': data.length,
+      'Content-Disposition': 'attachment; filename=' + fileName
+    });
+
+    res.end(data);
+  } else if (responseType === 'base64') {
+    var base64Data = data.toString('base64');
+    var result = {data: base64Data};
+
+    res.send(JSON.stringify(result));
+  } else if (responseType === 'url') {
+    var path = program.outputDir + '/' + autoFileName;
+    fs.access(program.outputDir, fs.constants.F_OK | fs.constants.R_OK | fs.constants.W_OK, function(err) {
+      if (err) {
+        if (err.code === 'ENOENT') {
+          fs.mkdirSync(program.outputDir);
+          console.log('Directory ' + program.outputDir + ' was created.');
+        } else {
+          console.log(err.message);
+          return;
+        }
+      }
+
+      fs.writeFile(path, data, function(err) {
+        if (err) {
+          console.log(err.message);
+        } else {
+          console.log('Written to file ' + path);
+          res.send(JSON.stringify({'url': path}));
+        }
+      });
+    });
+  }
+}
+
 function generateOutput(req, res) {
   var dataType = req.body.data_type.toLowerCase();
   var fileType = req.body.file_type.toLowerCase() || 'png';
@@ -195,48 +189,49 @@ function generateOutput(req, res) {
   var chart = getChartData(data, dataType);
   if (chart) {
     anychart_nodejs.exportTo(chart, fileType, function(err, data) {
-      if (responseType === 'file') {
-        res.writeHead(200, {
-          'Content-Type': getContentType(fileType),
-          'Content-Length': data.length,
-          'Content-Disposition': 'attachment; filename=' + fileName
-        });
-
-        res.end(data);
-      } else if (responseType === 'base64') {
-        var base64Data = data.toString('base64');
-        var result = {data: base64Data};
-
-        res.send(JSON.stringify(result));
-      } else if (responseType === 'url') {
-        var path = program.outputDir + '/' + autoFileName;
-        fs.access(program.outputDir, fs.constants.F_OK | fs.constants.R_OK | fs.constants.W_OK, function(err) {
-          if (err) {
-            if (err.code === 'ENOENT') {
-              fs.mkdirSync(program.outputDir);
-              console.log('Directory ' + program.outputDir + ' was created.');
-            } else {
-              console.log(err.message);
-              return;
-            }
-          }
-
-          fs.writeFile(path, data, function(err) {
-            if (err) {
-              console.log(err.message);
-            } else {
-              console.log('Written to file ' + path);
-              res.send(JSON.stringify({'url': path}));
-            }
-          });
-        });
-      }
+      sendResult(res, data, responseType, fileName, fileType)
     });
   } else {
     res.send('');
   }
 }
 
+app.get('/', function (req, res) {
+  res.send(indexTemplate)
+});
+
+app.post('/pdf-report', function (req, res) {
+  var responseType = req.body.response_type.toLowerCase() || 'file';
+  var autoFileName = 'anychart_' + uuidv1() + '.pdf';
+  var fileName = responseType === 'file' ? req.body.file_name || autoFileName : autoFileName;
+
+  // var data = JSON.parse(req.body.content);
+  eval(req.body.content);
+
+  convertCharts(data, function(dd) {
+    var pdfDoc = printer.createPdfKitDocument(dd);
+    var chunks = [];
+
+    pdfDoc.on('data', function(chunk) {
+      chunks.push(chunk);
+    });
+    pdfDoc.on('end', function() {
+      sendResult(res, Buffer.concat(chunks), responseType, fileName, 'pdf');
+    });
+    pdfDoc.on('error', function(err) {
+      console.log(err.message)
+    });
+    pdfDoc.end();
+  });
+});
+
+app.post('/vector-image', function (req, res) {
+  generateOutput(req, res);
+});
+
+app.post('/raster-image', function (req, res) {
+  generateOutput(req, res);
+});
 
 app.get('/status', function (req, res) {
   res.send('ok');
