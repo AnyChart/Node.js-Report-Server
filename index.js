@@ -19,7 +19,6 @@ var window = d.defaultView;
 var anychart = require('anychart')(window);
 // var anychart_nodejs = require('anychart-nodejs')(anychart);
 var anychart_nodejs = require('../AnyChart-NodeJS')(anychart);
-var indexTemplate = fs.readFileSync('./example/template.html', 'utf-8');
 var pdfMake = require('pdfmake');
 var fontDescriptors = {
   Roboto: {
@@ -139,7 +138,12 @@ function getChartData(data, type) {
   return chart;
 }
 
-function sendResult(res, data, responseType, fileName, fileType) {
+function sendResult(req, res, data) {
+  var fileType = req.body.file_type.toLowerCase() || 'png';
+  var responseType = req.body.response_type.toLowerCase() || 'file';
+  var autoFileName = 'anychart_' + uuidv1() + '.pdf';
+  var fileName = responseType === 'file' ? req.body.file_name || autoFileName : autoFileName;
+
   if (responseType === 'file') {
     res.writeHead(200, {
       'Content-Type': getContentType(fileType),
@@ -181,31 +185,21 @@ function sendResult(res, data, responseType, fileName, fileType) {
 function generateOutput(req, res) {
   var dataType = req.body.data_type.toLowerCase();
   var fileType = req.body.file_type.toLowerCase() || 'png';
-  var responseType = req.body.response_type.toLowerCase() || 'file';
-  var autoFileName = 'anychart_' + uuidv1() + '.' + fileType;
-  var fileName = responseType === 'file' ? req.body.file_name || autoFileName : autoFileName;
   var data = req.body.data;
 
   var chart = getChartData(data, dataType);
   if (chart) {
     anychart_nodejs.exportTo(chart, fileType, function(err, data) {
-      sendResult(res, data, responseType, fileName, fileType)
+      sendResult(req, res, data)
     });
   } else {
     res.send('');
   }
 }
 
-app.get('/', function (req, res) {
-  res.send(indexTemplate)
-});
-
 app.post('/pdf-report', function (req, res) {
-  var responseType = req.body.response_type.toLowerCase() || 'file';
-  var autoFileName = 'anychart_' + uuidv1() + '.pdf';
-  var fileName = responseType === 'file' ? req.body.file_name || autoFileName : autoFileName;
-
   // var data = JSON.parse(req.body.content);
+  req.body.file_type = 'pdf';
   eval(req.body.content);
 
   convertCharts(data, function(dd) {
@@ -216,7 +210,7 @@ app.post('/pdf-report', function (req, res) {
       chunks.push(chunk);
     });
     pdfDoc.on('end', function() {
-      sendResult(res, Buffer.concat(chunks), responseType, fileName, 'pdf');
+      sendResult(req, res, Buffer.concat(chunks));
     });
     pdfDoc.on('error', function(err) {
       console.log(err.message)
