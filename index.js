@@ -4,6 +4,8 @@ var program = require('commander');
 var uuidv1 = require('uuid/v1');
 var fs = require('fs');
 var jsdom = require('jsdom').jsdom;
+var DOMParser = require('xmldom').DOMParser;
+var XMLparser = new DOMParser();
 
 program
     .version('0.0.1')
@@ -117,7 +119,7 @@ function getChartData(data, type) {
       chart = anychart.fromJson(data);
       break;
     case 'xml':
-      chart = anychart.fromXml(data);
+      chart = anychart.fromXml(XMLparser.parseFromString(data));
       break;
     case 'svg':
       chart = data;
@@ -200,7 +202,7 @@ function generateOutput(req, res) {
 app.post('/pdf-report', function (req, res) {
   // var data = JSON.parse(req.body.content);
   req.body.file_type = 'pdf';
-  eval(req.body.content);
+  eval(req.body.data);
 
   convertCharts(data, function(dd) {
     var pdfDoc = printer.createPdfKitDocument(dd);

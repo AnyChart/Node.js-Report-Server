@@ -1,0 +1,203 @@
+{
+  "chart": {
+    "enabled": true,
+    "title": {
+      "enabled": true,
+      "text": "Top 3 Products with Region Sales Data"
+    },
+    "padding": {
+      "left": 20,
+      "top": 10,
+      "bottom": 5,
+      "right": 40
+    },
+    "tooltip": {
+      "format": "${%Value}",
+      "offsetX": 5,
+      "offsetY": 0,
+      "positionMode": "point",
+      "enabled": true
+    },
+    "credits": {
+      "text": "AnyChart",
+      "url": "https://www.anychart.com/?utm_source=registered",
+      "alt": "AnyChart - JavaScript Charts designed to be embedded and integrated",
+      "imgAlt": "AnyChart - JavaScript Charts",
+      "logoSrc": "https://static.anychart.com/logo.png",
+      "enabled": false
+    },
+    "selectMarqueeFill": {
+      "color": "#d3d3d3",
+      "opacity": 0.4
+    },
+    "legend": {
+      "enabled": true,
+      "fontSize": 13,
+      "padding": {
+        "left": 0,
+        "top": 0,
+        "bottom": 20,
+        "right": 0
+      }
+    },
+    "xScale": 0,
+    "yScale": 1,
+    "series": [
+      {
+        "enabled": true,
+        "seriesType": "bar",
+        "meta": {},
+        "name": "Florida",
+        "labels": {
+          "enabled": true,
+          "fontColor": "#fff",
+          "format": "${%Value}{groupsSeparator: }",
+          "position": "rightCenter",
+          "anchor": "leftCenter",
+          "offsetY": -65
+        },
+        "data": [
+          {
+            "x": "Nail polish",
+            "value": 6814
+          },
+          {
+            "x": "Eyebrow pencil",
+            "value": 7012
+          },
+          {
+            "x": "Pomade",
+            "value": 8814
+          }
+        ],
+        "xScale": 0,
+        "yScale": 1
+      },
+      {
+        "enabled": true,
+        "seriesType": "bar",
+        "meta": {},
+        "name": "Texas",
+        "labels": {
+          "enabled": true,
+          "fontColor": "#fff",
+          "format": "${%Value}{groupsSeparator: }",
+          "position": "rightCenter",
+          "anchor": "leftCenter",
+          "offsetY": -65
+        },
+        "data": [
+          {
+            "x": "Nail polish",
+            "value": 3054
+          },
+          {
+            "x": "Eyebrow pencil",
+            "value": 5067
+          },
+          {
+            "x": "Pomade",
+            "value": 9054
+          }
+        ],
+        "xScale": 0,
+        "yScale": 1
+      },
+      {
+        "enabled": true,
+        "seriesType": "bar",
+        "meta": {},
+        "name": "Arizona",
+        "labels": {
+          "enabled": true,
+          "fontColor": "#fff",
+          "format": "${%Value}{groupsSeparator: }",
+          "position": "rightCenter",
+          "anchor": "leftCenter",
+          "offsetY": -65
+        },
+        "data": [
+          {
+            "x": "Nail polish",
+            "value": 4376
+          },
+          {
+            "x": "Eyebrow pencil",
+            "value": 8987
+          },
+          {
+            "x": "Pomade",
+            "value": 4376
+          }
+        ],
+        "xScale": 0,
+        "yScale": 1
+      },
+      {
+        "enabled": true,
+        "seriesType": "bar",
+        "meta": {},
+        "name": "Nevada",
+        "labels": {
+          "enabled": true,
+          "fontColor": "#fff",
+          "format": "${%Value}{groupsSeparator: }",
+          "position": "rightCenter",
+          "anchor": "leftCenter",
+          "offsetY": -65
+        },
+        "data": [
+          {
+            "x": "Nail polish",
+            "value": 4229
+          },
+          {
+            "x": "Eyebrow pencil",
+            "value": 3932
+          },
+          {
+            "x": "Pomade",
+            "value": 9256
+          }
+        ],
+        "xScale": 0,
+        "yScale": 1
+      }
+    ],
+    "xAxes": [
+      {
+        "enabled": true,
+        "labels": {
+          "enabled": true,
+          "padding": {
+            "left": 0,
+            "top": 0,
+            "bottom": 20,
+            "right": 0
+          },
+          "rotation": -90
+        }
+      }
+    ],
+    "yAxes": [
+      {
+        "enabled": true,
+        "title": {
+          "enabled": true,
+          "text": "Revenue in Dollars"
+        },
+        "labels": {
+          "enabled": true,
+          "format": "{%Value}{groupsSeparator: }"
+        }
+      }
+    ],
+    "scales": [
+      {},
+      {
+        "minimum": 0
+      }
+    ],
+    "type": "bar3d"
+  }
+}

@@ -67,7 +67,7 @@
                             <option>tiff</option>
                             <option>pdf</option>
                             <option>svg</option>
-                            <option>ps</option>
+                            <option disabled>ps</option>
                         </select>
                     </div>
                 </form>
@@ -76,7 +76,7 @@
                 </form>
             </div>
         </nav>
-        <ul class="nav nav-tabs" role="tablist">
+        <ul class="nav nav-tabs" id="tabs" role="tablist">
             <li role="presentation" class="active"><a href="#report" aria-controls="report" role="tab" data-toggle="tab">PDF
                 Report</a></li>
             <li role="presentation"><a href="#json" aria-controls="json" role="tab" data-toggle="tab">JSON</a></li>
@@ -84,7 +84,7 @@
             <li role="presentation"><a href="#js" aria-controls="js" role="tab" data-toggle="tab">JS</a></li>
             <li role="presentation"><a href="#svg" aria-controls="svg" role="tab" data-toggle="tab">SVG</a></li>
         </ul>
-        <div class="tab-content">
+        <div class="tab-content" id="tab-panes">
             <div role="tabpanel" class="tab-pane active" id="report">
                 <div id="content"></div>
             </div>
@@ -103,7 +103,9 @@
         </div>
     </div>
     <div class="col-md-6" style="padding: 0; margin: 0;">
-        <embed width="100%" height="630px" name="plugin" id="viewpdf" src="" type="application/pdf" internalinstanceid="19" title="">
+        <embed width="100%" height="630px" name="plugin" id="viewpdf" src="" type="application/pdf" internalinstanceid="19">
+        <img id="viewimage" style="display: none"/>
+        <div id="viewsvg" style="width: 100%; height: 630px; display: none">
     </div>
 </body>
 </html>

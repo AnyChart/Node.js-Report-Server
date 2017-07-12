@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<anychart xmlns="http://anychart.com/schemas/7.14.3/xml-schema.xsd">
+    <chart enabled="true" x_scale="0" y_scale="1" type="bar3d" z_aspect="10%" z_distribution="true" z_padding="20">
+        <title enabled="true" text="Top 3 Products with Region Sales Data"/>
+        <padding left="20" top="10" bottom="5" right="40"/>
+        <tooltip format="${%Value}" offset_x="5" offset_y="0" position_mode="point" enabled="true"/>
+        <credits text="AnyChart" url="https://www.anychart.com/?utm_source=registered"
+                 alt="AnyChart - JavaScript Charts designed to be embedded and integrated"
+                 img_alt="AnyChart - JavaScript Charts" logo_src="https://static.anychart.com/logo.png"
+                 enabled="false"/>
+        <select_marquee_fill color="#d3d3d3" opacity="0.4"/>
+        <legend enabled="true" font_size="13">
+            <padding left="0" top="0" bottom="20" right="0"/>
+        </legend>
+        <series_list>
+            <series enabled="true" series_type="bar" name="Florida" x_scale="0" y_scale="1">
+                <meta/>
+                <data>
+                    <point x="Nail polish" value="6229"/>
+                    <point x="Eyebrow pencil" value="9332"/>
+                    <point x="Lipstick" value="9256"/>
+                </data>
+            </series>
+            <series enabled="true" series_type="bar" name="Texas" x_scale="0" y_scale="1">
+                <meta/>
+                <data>
+                    <point x="Nail polish" value="4376"/>
+                    <point x="Eyebrow pencil" value="8987"/>
+                    <point x="Lipstick" value="7376"/>
+                </data>
+            </series>
+            <series enabled="true" series_type="bar" name="Arizona" x_scale="0" y_scale="1">
+                <meta/>
+                <data>
+                    <point x="Nail polish" value="4054"/>
+                    <point x="Eyebrow pencil" value="5067"/>
+                    <point x="Lipstick" value="5054"/>
+                </data>
+            </series>
+            <series enabled="true" series_type="bar" name="Nevada" x_scale="0" y_scale="1">
+                <meta/>
+                <data>
+                    <point x="Nail polish" value="2381"/>
+                    <point x="Eyebrow pencil" value="1401"/>
+                    <point x="Lipstick" value="981"/>
+                </data>
+            </series>
+        </series_list>
+        <x_axes>
+            <axis enabled="true">
+                <labels enabled="true" rotation="-90">
+                    <padding left="0" top="0" bottom="20" right="0"/>
+                </labels>
+            </axis>
+        </x_axes>
+        <y_axes>
+            <axis enabled="true">
+                <title enabled="true" text="Revenue in Dollars"/>
+                <labels enabled="true" format="${%Value}{groupsSeparator: }"/>
+            </axis>
+        </y_axes>
+        <scales>
+            <scale/>
+            <scale minimum="0"/>
+        </scales>
+    </chart>
+</anychart>
