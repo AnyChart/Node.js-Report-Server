@@ -1,3 +1,5 @@
+var loadedFiles = {};
+
 function parseReport(data) {
   var regex = /chart"*:\s*{\s*\n*\s*"*data"*:\s*"*(.*[^",])"*[,\n]\s*\n*\s*"*dataType"*:\s*"*(.*[^",])"*[,\n]/g;
   var res;
@@ -89,57 +91,68 @@ function generate() {
     url = '/pdf-report';
   }
 
+  if (!loadedFiles[fileName]) {
+    $.ajax({
+      url: '/' + fileName,
+      dataType: 'text',
+      async: false,
+      success: function(data) {
+        var editor = ace.edit(container.attr('id'));
+        var session = editor.getSession();
+        session.setMode(mode);
+        session.setValue(data);
+
+        loadedFiles[fileName] = {
+          editor: editor
+        };
+        convert(data, data_type, file_type, contentType, url);
+      }
+    });
+  } else {
+    var editorSession = loadedFiles[fileName].editor.getSession();
+    convert(editorSession.getValue(), data_type, file_type, contentType, url);
+  }
+}
+
+function convert(data, data_type, file_type, contentType, url) {
+  if (data_type === 'report') {
+    data = parseReport(data);
+  }
 
   $.ajax({
-    url: '/' + fileName,
-    dataType: 'text',
-    async: false,
-    success: function(data) {
-      var editor = ace.edit(container.attr('id'));
-      var session = editor.getSession();
-      session.setMode(mode);
-      session.setValue(data);
-
-      if (data_type === 'report') {
-        data = parseReport(data);
-      }
-
-      $.ajax({
-        method: 'POST',
-        dataType: 'json',
-        url: url,
-        data: {
-          data_type: data_type,
-          file_type: file_type,
-          response_type: 'base64',
-          data: data
-        }
-      }).done(function(resData) {
-        if (contentType === 'application/pdf' || contentType ===  'image/tiff') {
-          $('#viewpdf').attr("src", 'data:' + contentType + ';base64,' + resData.data);
-          $('#viewpdf').attr("type", contentType);
-
-          $('#viewimage').css('display', 'none');
-          $('#viewsvg').css('display', 'none');
-          $('#viewpdf').css('display', 'inline-block');
-        } else if (contentType === 'image/svf+xm') {
-          $('#viewsvg').html(resData.data);
-
-          $('#viewimage').css('display', 'none');
-          $('#viewpdf').css('display', 'none');
-          $('#viewsvg').css('display', 'inline-block');
-        } else {
-          $('#viewimage').attr("src", 'data:' + contentType + ';base64,' + resData.data);
-
-          $('#viewimage').css('display', 'inline-block');
-          $('#viewpdf').css('display', 'none');
-          $('#viewsvg').css('display', 'none');
-        }
-      }).fail(function(e) {
-        console.log(e);
-      });
-
+    method: 'POST',
+    dataType: 'json',
+    url: url,
+    data: {
+      data_type: data_type,
+      file_type: file_type,
+      response_type: 'base64',
+      data: data
     }
+  }).done(function(resData) {
+    console.log(contentType);
+    if (contentType === 'application/pdf' || contentType ===  'image/tiff') {
+      $('#viewpdf').attr("src", 'data:' + contentType + ';base64,' + resData.data);
+      $('#viewpdf').attr("type", contentType);
+
+      $('#viewimage').css('display', 'none');
+      $('#viewsvg').css('display', 'none');
+      $('#viewpdf').css('display', 'inline-block');
+    } else if (contentType === 'image/svf+xm') {
+      $('#viewsvg').html(resData.data);
+
+      $('#viewimage').css('display', 'none');
+      $('#viewpdf').css('display', 'none');
+      $('#viewsvg').css('display', 'inline-block');
+    } else {
+      $('#viewimage').attr("src", 'data:' + contentType + ';base64,' + resData.data);
+
+      $('#viewimage').css('display', 'inline-block');
+      $('#viewpdf').css('display', 'none');
+      $('#viewsvg').css('display', 'none');
+    }
+  }).fail(function(e) {
+    console.log(e);
   });
 }
 
