@@ -200,7 +200,6 @@ function generateOutput(req, res) {
 }
 
 app.post('/pdf-report', function (req, res) {
-  // var data = JSON.parse(req.body.content);
   req.body.file_type = 'pdf';
   eval(req.body.data);
 
@@ -229,6 +228,10 @@ app.post('/raster-image', function (req, res) {
   generateOutput(req, res);
 });
 
+app.post('/data-file', function (req, res) {
+  res.send('coming soon');
+});
+
 app.get('/status', function (req, res) {
   res.send('ok');
 });
@@ -236,7 +239,6 @@ app.get('/status', function (req, res) {
 app.listen(program.port, function () {
   console.log('Export server listening on port ' + program.port + '!')
 });
-
 
 module.exports = app;
 
