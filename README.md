@@ -18,7 +18,7 @@
 | ------------- | ------------- | ------------- |
 | port  | number  | todo desc |
 | output-dir  | string | то куда будем сохранять все файлы |
-| allow-scripts-executing  | boolean | можно ли запускать скрипты |
+| disable-scripts-executing  | boolean | можно ли запускать скрипты |
 
 ### Tutorials
 - Running AnyChart Export Server on Digital Ocean
@@ -37,8 +37,8 @@ POST /pdf-report
 | Name  | Type | Description |
 | ------------- | ------------- | ------------- |
 | file_name  | string  | todo desc |
-| data | JSON | http://pdfmake.org/index.html#/gettingstarted |
-| data_type  | string  | script, svg, json, xml |
+| data | JSON, JavaScript | http://pdfmake.org/index.html#/gettingstarted |
+| data_type  | string  | JSON, JavaScript |
 | response_type  | string  | file, base64string or url |
 
 
