@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <anychart xmlns="http://anychart.com/schemas/7.14.3/xml-schema.xsd">
-    <chart enabled="true" x_scale="0" y_scale="1" type="bar3d" z_aspect="10%" z_distribution="true" z_padding="20">
+    <chart enabled="true" x_scale="0" y_scale="1" type="bar-3d" z_aspect="10%" z_distribution="true" z_padding="20">
         <title enabled="true" text="Top 3 Products with Region Sales Data"/>
         <padding left="20" top="10" bottom="5" right="40"/>
         <tooltip format="${%Value}" offset_x="5" offset_y="0" position_mode="point" enabled="true"/>

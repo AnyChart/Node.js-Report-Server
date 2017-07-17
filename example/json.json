@@ -198,6 +198,6 @@
         "minimum": 0
       }
     ],
-    "type": "bar3d"
+    "type": "bar-3d"
   }
 }

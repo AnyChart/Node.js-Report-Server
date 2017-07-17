@@ -7,6 +7,7 @@ var mapping = dataTable.mapAs({'open': 1, 'high': 2, 'low': 3, 'close': 4, 'valu
 var scrollerMapping = dataTable.mapAs();
 scrollerMapping.addField('value', 5);
 chart = anychart.stock();
+chart.bounds({left: 0, top: 0, width: 1024, height: 768});
 var plot = chart.plot();
 plot.grid(0).enabled(true);
 plot.grid(1).enabled(true).layout('vertical');

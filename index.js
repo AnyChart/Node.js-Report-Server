@@ -6,6 +6,9 @@ var fs = require('fs');
 var jsdom = require('jsdom').jsdom;
 var DOMParser = require('xmldom').DOMParser;
 var XMLparser = new DOMParser();
+var safeEval = require('safe-eval');
+var vm = require('vm');
+// var type = require('type-of-is');
 
 program
     .version('0.0.1')
@@ -18,7 +21,8 @@ program.parse(process.argv);
 var d = jsdom('<body><div id="container"></div></body>');
 var window = d.defaultView;
 
-var anychart = require('anychart')(window);
+// var anychart = require('anychart')(window);
+var anychart = require('../ACDVF/out/anychart-bundle.min')(window);
 // var anychart_nodejs = require('anychart-nodejs')(anychart);
 var anychart_nodejs = require('../AnyChart-NodeJS')(anychart);
 var pdfMake = require('pdfmake');
@@ -31,6 +35,7 @@ var fontDescriptors = {
   }
 };
 var printer = new pdfMake(fontDescriptors);
+var evalCtx = {anychart: anychart};
 
 var app = express();
 app.use(bodyParser.json());
@@ -43,7 +48,7 @@ function recursiveTraverse(obj, func) {
       if (i in obj)
         recursiveTraverse(obj[i], func);
     }
-  } else if (obj instanceof Object) {
+  } else if (typeof obj === 'object') {
     for (var key in obj) {
       if (obj.hasOwnProperty(key)) {
         if (key === 'chart') {
@@ -73,6 +78,7 @@ function convertCharts(obj, callback) {
         o.image = 'data:image/png;base64,' + data.toString('base64');
         delete o[key];
         chartsToConvert--;
+        d.getElementById('container').innerHTML = '';
         if (chartsToConvert === 0) {
           callback(obj)
         }
@@ -127,14 +133,17 @@ function getChartData(data, type) {
     case 'javascript':
       if (program.allowScriptsExecuting) {
         try {
-          chart = eval(data);
+          // var context = vm.createContext();
+          // var script = new vm.Script(req.body.data);
+          // chart = script.runInContext(context);
+          chart = data;
         } catch (e) {
           console.log(e.message);
         }
       }
       break;
   }
-  if (chart && type !== 'svg')
+  if (chart && type !== 'svg' && type !== 'javascript')
     chart.container('container');
 
   return chart;
@@ -192,7 +201,8 @@ function generateOutput(req, res) {
   var chart = getChartData(data, dataType);
   if (chart) {
     anychart_nodejs.exportTo(chart, fileType, function(err, data) {
-      sendResult(req, res, data)
+      sendResult(req, res, data);
+      d.getElementById('container').innerHTML = '';
     });
   } else {
     res.send('');
@@ -201,7 +211,11 @@ function generateOutput(req, res) {
 
 app.post('/pdf-report', function (req, res) {
   req.body.file_type = 'pdf';
-  eval(req.body.data);
+  // var data = safeEval(req.body.data);
+
+  var context = vm.createContext();
+  var script = new vm.Script(req.body.data);
+  var data = script.runInContext(context);
 
   convertCharts(data, function(dd) {
     var pdfDoc = printer.createPdfKitDocument(dd);
