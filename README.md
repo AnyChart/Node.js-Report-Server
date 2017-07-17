@@ -37,10 +37,10 @@ POST /pdf-report
 | Name  | Type | Description |
 | ------------- | ------------- | ------------- |
 | file_name  | string  | todo desc |
-| data  | string | JavaScript string, SVG string, JSON string or XML string |
+| data | JSON | http://pdfmake.org/index.html#/gettingstarted |
 | data_type  | string  | script, svg, json, xml |
 | response_type  | string  | file, base64string or url |
-| content | JSON | http://pdfmake.org/index.html#/gettingstarted |
+
 
 #### Example
 ```
