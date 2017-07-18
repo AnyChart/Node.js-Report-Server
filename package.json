@@ -17,10 +17,12 @@
     "anychart-nodejs": "^1.0.0",
     "body-parser": "^1.16.0",
     "commander": "^2.9.0",
+    "csv": "^1.1.1",
     "express": "^4.14.0",
     "jsdom": "^9.9.1",
     "pdfmake": "^0.1.31",
     "uuid": "^3.1.0",
+    "xlsx": "^0.10.8",
     "xmldom": "^0.1.27"
   },
   "devDependencies": {

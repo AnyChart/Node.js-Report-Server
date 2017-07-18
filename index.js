@@ -18,13 +18,16 @@ program
 
 program.parse(process.argv);
 
-var d = jsdom('<body><div id="container"></div></body>');
+var d = jsdom('<body><iframe><div id="container"></div></iframe></body>');
 var window = d.defaultView;
 
+console.time('anychart init');
 // var anychart = require('anychart')(window);
 var anychart = require('../ACDVF/out/anychart-bundle.min.js')(window);
 // var anychart_nodejs = require('anychart-nodejs')(anychart);
 var anychart_nodejs = require('../AnyChart-NodeJS')(anychart);
+console.timeEnd('anychart init');
+
 var pdfMake = require('pdfmake');
 var fontDescriptors = {
   Roboto: {
