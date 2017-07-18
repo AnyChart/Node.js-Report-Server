@@ -6,9 +6,9 @@ var fs = require('fs');
 var jsdom = require('jsdom').jsdom;
 var DOMParser = require('xmldom').DOMParser;
 var XMLparser = new DOMParser();
-var safeEval = require('safe-eval');
 var vm = require('vm');
-// var type = require('type-of-is');
+var csv = require('csv');
+var xlsx = require('xlsx');
 
 program
     .version('0.0.1')
@@ -22,7 +22,7 @@ var d = jsdom('<body><div id="container"></div></body>');
 var window = d.defaultView;
 
 // var anychart = require('anychart')(window);
-var anychart = require('../ACDVF/out/anychart-bundle.min')(window);
+var anychart = require('../ACDVF/out/anychart-bundle.min.js')(window);
 // var anychart_nodejs = require('anychart-nodejs')(anychart);
 var anychart_nodejs = require('../AnyChart-NodeJS')(anychart);
 var pdfMake = require('pdfmake');
@@ -35,7 +35,6 @@ var fontDescriptors = {
   }
 };
 var printer = new pdfMake(fontDescriptors);
-var evalCtx = {anychart: anychart};
 
 var app = express();
 app.use(bodyParser.json());
@@ -112,6 +111,12 @@ function getContentType(type) {
     case 'ps':
       contentType = 'application/postscript';
       break;
+    case 'xlsx':
+      contentType = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
+      break;
+    case 'csv':
+      contentType = 'text/csv';
+      break;
     default:
       contentType = 'text/plain'
   }
@@ -149,10 +154,9 @@ function getChartData(data, type) {
   return chart;
 }
 
-function sendResult(req, res, data) {
-  var fileType = req.body.file_type.toLowerCase() || 'png';
+function sendResult(req, res, data, fileType) {
+  var autoFileName = 'anychart_' + uuidv1() + '.' + fileType;
   var responseType = req.body.response_type.toLowerCase() || 'file';
-  var autoFileName = 'anychart_' + uuidv1() + '.pdf';
   var fileName = responseType === 'file' ? req.body.file_name || autoFileName : autoFileName;
 
   if (responseType === 'file') {
@@ -201,7 +205,7 @@ function generateOutput(req, res) {
   var chart = getChartData(data, dataType);
   if (chart) {
     anychart_nodejs.exportTo(chart, fileType, function(err, data) {
-      sendResult(req, res, data);
+      sendResult(req, res, data, fileType);
       d.getElementById('container').innerHTML = '';
     });
   } else {
@@ -211,11 +215,10 @@ function generateOutput(req, res) {
 
 app.post('/pdf-report', function (req, res) {
   req.body.file_type = 'pdf';
-  // var data = safeEval(req.body.data);
-
   var context = vm.createContext();
   var script = new vm.Script(req.body.data);
   var data = script.runInContext(context);
+  var fileType = 'pdf';
 
   convertCharts(data, function(dd) {
     var pdfDoc = printer.createPdfKitDocument(dd);
@@ -225,7 +228,7 @@ app.post('/pdf-report', function (req, res) {
       chunks.push(chunk);
     });
     pdfDoc.on('end', function() {
-      sendResult(req, res, Buffer.concat(chunks));
+      sendResult(req, res, Buffer.concat(chunks), fileType);
     });
     pdfDoc.on('error', function(err) {
       console.log(err.message)
@@ -243,7 +246,19 @@ app.post('/raster-image', function (req, res) {
 });
 
 app.post('/data-file', function (req, res) {
-  res.send('coming soon');
+  var data = req.body.data;
+  var fileType = req.body.file_type.toLowerCase() || 'xlsx';
+
+  var outputData;
+  if (fileType === 'xlsx') {
+    csv.parse(data, function(err, data) {
+      outputData = xlsx.utils.aoa_to_sheet(data);
+    })
+  } else if (fileType === 'csv') {
+    outputData = data;
+  }
+
+  sendResult(req, res, outputData, fileType)
 });
 
 app.get('/status', function (req, res) {
