@@ -18,8 +18,9 @@ program
 
 program.parse(process.argv);
 
-var d = jsdom('<body></body>');
-var window = d.defaultView;
+var rootDoc = jsdom('<body></body>');
+var window = rootDoc.defaultView;
+var iframeDoc = null;
 
 console.time('anychart init');
 // var anychart = require('anychart')(window);
@@ -63,6 +64,31 @@ function recursiveTraverse(obj, func) {
   }
 }
 
+function createSndbox() {
+  console.time('sandbox creating');
+
+  var iframe = rootDoc.createElement('iframe');
+  rootDoc.body.appendChild(iframe);
+  iframeDoc = iframe.contentDocument;
+  var div = iframeDoc.createElement('div');
+  div.setAttribute('id', 'container');
+  iframeDoc.documentElement.appendChild(div);
+  var window = iframeDoc.defaultView;
+  window.anychart = anychart;
+  window.acgraph = anychart.graphics;
+  anychart.setGlobal(window);
+
+  console.timeEnd('sandbox creating');
+}
+
+function clearSendbox() {
+  console.time('clear sandbox');
+
+  rootDoc.body.innerHTML = '';
+
+  console.timeEnd('clear sandbox');
+}
+
 function convertCharts(obj, callback) {
   var chartsToConvert = 0;
 
@@ -74,21 +100,13 @@ function convertCharts(obj, callback) {
     var chart = getChartData(data, dataType);
     if (chart) {
       chartsToConvert++;
-      console.log('+++ ', chartsToConvert);
-
-      var iframe = d.createElement('iframe');
-      d.body.appendChild(iframe);
-      var ifDoc = iframe.contentDocument;
-      var div = ifDoc.createElement('div');
-      div.setAttribute('id', 'container');
-      ifDoc.documentElement.appendChild(div);
-
-      anychart_nodejs.exportTo(chart, {type: 'png', document: ifDoc, selector: '#container'}, function(err, data) {
-        console.log('--- ', chartsToConvert);
+      console.log('>>> PDF Report. Chart ' + chartsToConvert + ' exporting.');
+      anychart_nodejs.exportTo(chart, {type: 'png', document: iframeDoc, selector: '#container'}, function(err, data) {
+        clearSendbox();
+        console.log('<<< PDF Report. Chart ' + chartsToConvert + ' exporting.');
         o.image = 'data:image/png;base64,' + data.toString('base64');
         delete o[key];
         chartsToConvert--;
-        d.body.innerHTML = '';
         if (chartsToConvert === 0) {
           callback(obj)
         }
@@ -148,19 +166,16 @@ function getChartData(data, type) {
       break;
     case 'javascript':
       if (program.allowScriptsExecuting) {
-        try {
-          // var context = vm.createContext();
-          // var script = new vm.Script(req.body.data);
-          // chart = script.runInContext(context);
-          chart = data;
-        } catch (e) {
-          console.log(e.message);
-        }
+        chart = data;
       }
       break;
   }
-  if (chart && type !== 'svg' && type !== 'javascript')
-    chart.container('container');
+
+  if (chart) {
+    createSndbox();
+    if (type !== 'svg' && type !== 'javascript')
+      chart.container('container');
+  }
 
   return chart;
 }
@@ -215,19 +230,9 @@ function generateOutput(req, res) {
 
   var chart = getChartData(data, dataType);
   if (chart) {
-
-    var iframe = d.createElement('iframe');
-    d.body.appendChild(iframe);
-    var ifDoc = iframe.contentDocument;
-    var div = ifDoc.createElement('div');
-    div.setAttribute('id', 'container');
-    ifDoc.documentElement.appendChild(div);
-
-    anychart_nodejs.exportTo(chart, {type: fileType, document: ifDoc, selector: '#container'}, function(err, data) {
-      d.body.innerHTML = '';
+    anychart_nodejs.exportTo(chart, {type: fileType, document: iframeDoc, selector: '#container'}, function(err, data) {
       sendResult(req, res, data, fileType);
-      // d.getElementById('container').innerHTML = '';
-      // document.getElementsByTagName('svg')[0].parentNode.parentNode.innerHTML = '';
+      clearSendbox();
     });
   } else {
     res.send('');
