@@ -18,7 +18,7 @@ program
 
 program.parse(process.argv);
 
-var d = jsdom('<body><iframe><div id="container"></div></iframe></body>');
+var d = jsdom('<body></body>');
 var window = d.defaultView;
 
 console.time('anychart init');
@@ -75,12 +75,20 @@ function convertCharts(obj, callback) {
     if (chart) {
       chartsToConvert++;
       console.log('+++ ', chartsToConvert);
-      anychart_nodejs.exportTo(chart, 'png', function(err, data) {
+
+      var iframe = d.createElement('iframe');
+      d.body.appendChild(iframe);
+      var ifDoc = iframe.contentDocument;
+      var div = ifDoc.createElement('div');
+      div.setAttribute('id', 'container');
+      ifDoc.documentElement.appendChild(div);
+
+      anychart_nodejs.exportTo(chart, {type: 'png', document: ifDoc, selector: '#container'}, function(err, data) {
         console.log('--- ', chartsToConvert);
         o.image = 'data:image/png;base64,' + data.toString('base64');
         delete o[key];
         chartsToConvert--;
-        d.getElementById('container').innerHTML = '';
+        d.body.innerHTML = '';
         if (chartsToConvert === 0) {
           callback(obj)
         }
@@ -207,9 +215,19 @@ function generateOutput(req, res) {
 
   var chart = getChartData(data, dataType);
   if (chart) {
-    anychart_nodejs.exportTo(chart, fileType, function(err, data) {
+
+    var iframe = d.createElement('iframe');
+    d.body.appendChild(iframe);
+    var ifDoc = iframe.contentDocument;
+    var div = ifDoc.createElement('div');
+    div.setAttribute('id', 'container');
+    ifDoc.documentElement.appendChild(div);
+
+    anychart_nodejs.exportTo(chart, {type: fileType, document: ifDoc, selector: '#container'}, function(err, data) {
+      d.body.innerHTML = '';
       sendResult(req, res, data, fileType);
-      d.getElementById('container').innerHTML = '';
+      // d.getElementById('container').innerHTML = '';
+      // document.getElementsByTagName('svg')[0].parentNode.parentNode.innerHTML = '';
     });
   } else {
     res.send('');
