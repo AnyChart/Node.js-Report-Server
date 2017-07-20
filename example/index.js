@@ -22,7 +22,7 @@ function parseReport(data) {
   return data;
 }
 
-function generate() {
+function getParams() {
   var controlID = $('#tabs').find('li.active a').attr('aria-controls');
   var tab = $('#' + controlID);
   var container = $('#' + controlID + ' div:first');
@@ -91,6 +91,28 @@ function generate() {
     url = '/pdf-report';
   }
 
+  return {
+    mode: mode,
+    container: container,
+    fileName: fileName,
+    data_type: data_type,
+    file_type: file_type,
+    contentType: contentType,
+    url: url
+  }
+}
+
+function generate() {
+  var params = getParams();
+  var mode = params.mode;
+  var container = params.container;
+  var fileName = params.fileName;
+  var data_type = params.data_type;
+  var file_type = params.file_type;
+  var contentType = params.contentType;
+  var url = params.url;
+  var responseType = 'base64';
+
   if (!loadedFiles[fileName]) {
     $.ajax({
       url: '/' + fileName,
@@ -105,18 +127,125 @@ function generate() {
         loadedFiles[fileName] = {
           editor: editor
         };
-        convert(data, data_type, file_type, contentType, url);
+        convert(data, data_type, file_type, contentType, responseType, url);
       }
     });
   } else {
     var editorSession = loadedFiles[fileName].editor.getSession();
-    convert(editorSession.getValue(), data_type, file_type, contentType, url);
+    convert(editorSession.getValue(), data_type, file_type, contentType, responseType, url);
   }
 }
 
-function convert(data, data_type, file_type, contentType, url) {
+function generateAvailableOutputTypes() {
+  var params = getParams();
+  var data_type = params.data_type;
+
+  var types;
+  switch (data_type) {
+    case 'report':
+      types = ['pdf'];
+      break;
+    case 'json':
+    case 'xml':
+    case 'javascript':
+    case 'svg':
+      types = ['png', 'jpg', 'tiff', 'pdf', 'svg', 'ps'];
+      break;
+  }
+  var outputTypeControl = $('#outputType');
+  var value = outputTypeControl.val();
+  outputTypeControl.html('');
+  $(types).each(function(index, elem) {
+    var option = $('<option>' + elem + '</option>');
+    option.attr('value', elem);
+    outputTypeControl.append(option);
+  });
+  if (outputTypeControl.find('option[value=' + value + ']').length !== 0)
+    outputTypeControl.val(value)
+}
+
+function saveFile() {
+  var params = getParams();
+  var data_type = params.data_type;
+  var file_type = params.file_type;
+  var fileName = params.fileName;
+  var responseType = params.responseType;
+  var url = params.url;
+  var editorSession = loadedFiles[fileName].editor.getSession();
+
+  var data = editorSession.getValue();
   if (data_type === 'report') {
     data = parseReport(data);
+  }
+
+  var form = $('<form></form>');
+  form.attr({
+    method: 'post',
+    action: url
+  });
+  var dataTypeInput = $('<input/>');
+  dataTypeInput.appendTo(form);
+  dataTypeInput.attr({
+    type: 'hidden',
+    name: 'data_type',
+    value: data_type
+  });
+  var fileTypeInput = $('<input/>');
+  fileTypeInput.appendTo(form);
+  fileTypeInput.attr({
+    type: 'hidden',
+    name: 'file_type',
+    value: file_type
+  });
+  var responseTypeInput = $('<input/>');
+  responseTypeInput.appendTo(form);
+  responseTypeInput.attr({
+    type: 'hidden',
+    name: 'response_type',
+    value: responseType
+  });
+  var dataInput = $('<input/>');
+  dataInput.appendTo(form);
+  dataInput.attr({
+    type: 'hidden',
+    name: 'data',
+    value: data
+  });
+  form.appendTo('body');
+  form.submit();
+  form.remove();
+}
+
+function showContent(contentType, resData) {
+  if (contentType === 'application/pdf' || contentType === 'image/tiff') {
+    $('#viewpdf').attr("src", 'data:' + contentType + ';base64,' + resData.data);
+    $('#viewpdf').attr("type", contentType);
+
+    $('#viewimage').css('display', 'none');
+    $('#viewsvg').css('display', 'none');
+    $('#viewpdf').css('display', 'inline-block');
+  } else if (contentType === 'image/svf+xm') {
+    $('#viewsvg').html(resData.data);
+
+    $('#viewimage').css('display', 'none');
+    $('#viewpdf').css('display', 'none');
+    $('#viewsvg').css('display', 'inline-block');
+  } else {
+    $('#viewimage').attr("src", 'data:' + contentType + ';base64,' + resData.data);
+
+    $('#viewimage').css('display', 'inline-block');
+    $('#viewpdf').css('display', 'none');
+    $('#viewsvg').css('display', 'none');
+  }
+}
+
+function convert(data, data_type, file_type, contentType, responseType, url) {
+  if (data_type === 'report') {
+    data = parseReport(data);
+  }
+
+  if (file_type === 'ps') {
+    file_type = 'png';
   }
 
   $.ajax({
@@ -126,47 +255,33 @@ function convert(data, data_type, file_type, contentType, url) {
     data: {
       data_type: data_type,
       file_type: file_type,
-      response_type: 'base64',
+      response_type: responseType,
       data: data
     }
   }).done(function(resData) {
-    console.log(contentType);
-    if (contentType === 'application/pdf' || contentType ===  'image/tiff') {
-      $('#viewpdf').attr("src", 'data:' + contentType + ';base64,' + resData.data);
-      $('#viewpdf').attr("type", contentType);
-
-      $('#viewimage').css('display', 'none');
-      $('#viewsvg').css('display', 'none');
-      $('#viewpdf').css('display', 'inline-block');
-    } else if (contentType === 'image/svf+xm') {
-      $('#viewsvg').html(resData.data);
-
-      $('#viewimage').css('display', 'none');
-      $('#viewpdf').css('display', 'none');
-      $('#viewsvg').css('display', 'inline-block');
-    } else {
-      $('#viewimage').attr("src", 'data:' + contentType + ';base64,' + resData.data);
-
-      $('#viewimage').css('display', 'inline-block');
-      $('#viewpdf').css('display', 'none');
-      $('#viewsvg').css('display', 'none');
-    }
+    showContent(contentType, resData);
   }).fail(function(e) {
     console.log(e);
   });
 }
 
 $(document).ready(function() {
+  generateAvailableOutputTypes();
   generate();
 
   $('#tabs').find('a').click(function (e) {
     e.preventDefault();
     $(this).tab('show');
 
+    generateAvailableOutputTypes();
     generate();
   });
 
-  $('#generate').click(function() {
+  $('#save').click(function() {
+    saveFile();
+  });
+
+  $('#refresh').click(function() {
     generate();
   });
 

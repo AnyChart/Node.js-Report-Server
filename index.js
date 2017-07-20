@@ -84,7 +84,7 @@ function recursiveTraverse(obj, func) {
   }
 }
 
-function createSndbox(containerTd) {
+function createSandbox(containerTd) {
   // console.time('sandbox creating');
 
   var iframeId = 'iframe_' + uuidv4();
@@ -106,7 +106,7 @@ function createSndbox(containerTd) {
   return iframeId;
 }
 
-function clearSendbox(iframeId) {
+function clearSandbox(iframeId) {
   // console.time('clear sandbox');
   rootDoc.body.removeChild(rootDoc.getElementById(iframeId));
   // console.timeEnd('clear sandbox');
@@ -124,15 +124,15 @@ function convertCharts(obj, callback) {
 
     var chart = getChartData(data, dataType);
     if (chart) {
-      var iframeId = createSndbox(containerId);
+      var iframeId = createSandbox(containerId);
       if (dataType !== 'svg' && dataType !== 'javascript') {
         chart.container(containerId);
       }
 
       chartsToConvert++;
-      // console.log('>>> PDF Report. Chart ' + chartsToConvert + ' exporting.', ' ', iframeId);
+      console.log('>>> PDF Report. Chart ' + chartsToConvert + ' exporting.', ' ', iframeId);
       var imgConvertCallback = partial(function imgConvertCallback(id, chartNum, err, data) {
-        clearSendbox(id);
+        clearSandbox(id);
         console.log('<<< PDF Report. Chart ' + chartNum + ' exporting.', id);
 
         if (data) {
@@ -266,16 +266,16 @@ function generateOutput(req, res) {
 
   var chart = getChartData(data, dataType);
   if (chart) {
-    var iframeId = createSndbox(containerId);
+    var iframeId = createSandbox(containerId);
     if (dataType !== 'svg' && dataType !== 'javascript') {
       chart.container(containerId);
     }
 
-    // console.log('>>> ' + fileType.toUpperCase() + ' ' + dataType + '. Image.', ' ', iframeId);
+    console.log('>>> ' + fileType.toUpperCase() + ' ' + dataType + '. Image.', ' ', iframeId);
     var imgConvertCallback = partial(function imgConvertCallback(id, fileType, dataType, err, data) {
       console.log('<<< ' + fileType.toUpperCase() + ' ' + dataType + '. Image.', ' ', id);
       sendResult(req, res, data, fileType);
-      clearSendbox(iframeId);
+      clearSandbox(iframeId);
     }, iframeId, fileType, dataType);
 
     var params = {type: fileType, document: iframeDoc, containerId: containerId, iframeId: iframeId};

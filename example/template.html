@@ -48,16 +48,16 @@
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <form class="navbar-form navbar-left">
-                    <div class="form-group">
-                        <span>Response type:</span>
-                        <select id="responseType" class="form-control" name="response_type">
-                            <option>file</option>
-                            <option>base64</option>
-                            <option>url</option>
-                        </select>
-                    </div>
-                </form>
+                <!--<form class="navbar-form navbar-left">-->
+                    <!--<div class="form-group">-->
+                        <!--<span>Response type:</span>-->
+                        <!--<select id="responseType" class="form-control" name="response_type">-->
+                            <!--<option>file</option>-->
+                            <!--<option>base64</option>-->
+                            <!--<option>url</option>-->
+                        <!--</select>-->
+                    <!--</div>-->
+                <!--</form>-->
                 <form class="navbar-form navbar-left">
                     <div class="form-group">
                         <span>Output type:</span>
@@ -67,12 +67,13 @@
                             <option>tiff</option>
                             <option>pdf</option>
                             <option>svg</option>
-                            <option disabled>ps</option>
+                            <option>ps</option>
                         </select>
                     </div>
                 </form>
                 <form class="navbar-form navbar-right">
-                    <input type="button" class="btn btn-default" value="Generate" id="generate">
+                    <input type="button" class="btn btn-default" value="Save as file" id="save">
+                    <input type="button" class="btn btn-default" value="Refresh" id="refresh">
                 </form>
             </div>
         </nav>
