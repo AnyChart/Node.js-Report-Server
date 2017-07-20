@@ -28,7 +28,9 @@
         "alignment": "center",
         "chart": {
           "data": "chart1.js",
-          "dataType": "javascript"
+          "dataType": "javascript",
+          "containerId": "customId",
+          "noise": 3
         },
         "fit": [500, 500]
       },

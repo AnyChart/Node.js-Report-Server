@@ -1,12 +1,12 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var program = require('commander');
-var uuidv1 = require('uuid/v1');
+var uuidv4 = require('uuid/v4');
 var fs = require('fs');
+var vm = require('vm');
 var jsdom = require('jsdom').jsdom;
 var DOMParser = require('xmldom').DOMParser;
 var XMLparser = new DOMParser();
-var vm = require('vm');
 var csv = require('csv');
 var xlsx = require('xlsx');
 
@@ -21,6 +21,8 @@ program.parse(process.argv);
 var rootDoc = jsdom('<body></body>');
 var window = rootDoc.defaultView;
 var iframeDoc = null;
+var iframes = {};
+var vectorImageParams = ['background', 'border', 'blur', 'contrast', 'crop', 'frame', 'gamma', 'monochrome', 'negative', 'noise', 'quality'];
 
 console.time('anychart init');
 // var anychart = require('anychart')(window);
@@ -45,8 +47,26 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({parameterLimit: 100000, limit: '50mb', extended: true}));
 app.use(express.static('example'));
 
+function partial(fn, var_args) {
+  var args = Array.prototype.slice.call(arguments, 1);
+  return function() {
+    var newArgs = args.slice();
+    newArgs.push.apply(newArgs, arguments);
+    return fn.apply(this, newArgs);
+  };
+}
+
+function applyImageParams(params, chartSettings) {
+  for (var i = 0, len = vectorImageParams.length; i < len; i++) {
+    var paramName = vectorImageParams[i];
+    var value = chartSettings[paramName];
+    if (value)
+      params[paramName] = value
+  }
+}
+
 function recursiveTraverse(obj, func) {
-  if (obj instanceof Array) {
+  if (Object.prototype.toString.call(obj) === '[object Array]') {
     for (var i = 0; i < obj.length; i++) {
       if (i in obj)
         recursiveTraverse(obj[i], func);
@@ -64,29 +84,33 @@ function recursiveTraverse(obj, func) {
   }
 }
 
-function createSndbox() {
-  console.time('sandbox creating');
+function createSndbox(containerTd) {
+  // console.time('sandbox creating');
 
+  var iframeId = 'iframe_' + uuidv4();
   var iframe = rootDoc.createElement('iframe');
+  iframes[iframeId] = iframe;
+  iframe.setAttribute('id', iframeId);
   rootDoc.body.appendChild(iframe);
   iframeDoc = iframe.contentDocument;
   var div = iframeDoc.createElement('div');
-  div.setAttribute('id', 'container');
+  div.setAttribute('id', containerTd);
   iframeDoc.documentElement.appendChild(div);
   var window = iframeDoc.defaultView;
   window.anychart = anychart;
   window.acgraph = anychart.graphics;
   anychart.setGlobal(window);
 
-  console.timeEnd('sandbox creating');
+  // console.timeEnd('sandbox creating');
+
+  return iframeId;
 }
 
-function clearSendbox() {
-  console.time('clear sandbox');
-
-  rootDoc.body.innerHTML = '';
-
-  console.timeEnd('clear sandbox');
+function clearSendbox(iframeId) {
+  // console.time('clear sandbox');
+  rootDoc.body.removeChild(rootDoc.getElementById(iframeId));
+  // console.timeEnd('clear sandbox');
+  // console.log('clear sandbox', iframeId);
 }
 
 function convertCharts(obj, callback) {
@@ -96,21 +120,38 @@ function convertCharts(obj, callback) {
     var ch = o[key];
     var data = ch.data;
     var dataType = ch.dataType;
+    var containerId = ch.containerId || 'container';
 
     var chart = getChartData(data, dataType);
     if (chart) {
+      var iframeId = createSndbox(containerId);
+      if (dataType !== 'svg' && dataType !== 'javascript') {
+        chart.container(containerId);
+      }
+
       chartsToConvert++;
-      console.log('>>> PDF Report. Chart ' + chartsToConvert + ' exporting.');
-      anychart_nodejs.exportTo(chart, {type: 'png', document: iframeDoc, selector: '#container'}, function(err, data) {
-        clearSendbox();
-        console.log('<<< PDF Report. Chart ' + chartsToConvert + ' exporting.');
-        o.image = 'data:image/png;base64,' + data.toString('base64');
+      // console.log('>>> PDF Report. Chart ' + chartsToConvert + ' exporting.', ' ', iframeId);
+      var imgConvertCallback = partial(function imgConvertCallback(id, chartNum, err, data) {
+        clearSendbox(id);
+        console.log('<<< PDF Report. Chart ' + chartNum + ' exporting.', id);
+
+        if (data) {
+          o.image = 'data:image/png;base64,' + data.toString('base64');
+        } else {
+          o.image = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+          console.log('Something went wrong. Image wasn\'t generate');
+        }
+
         delete o[key];
         chartsToConvert--;
         if (chartsToConvert === 0) {
           callback(obj)
         }
-      });
+      }, iframeId, chartsToConvert);
+
+      var params = {type: 'png', document: iframeDoc, containerId: containerId, iframeId: iframeId};
+      applyImageParams(params, ch);
+      anychart_nodejs.exportTo(chart, params, imgConvertCallback);
     }
   });
 
@@ -171,17 +212,11 @@ function getChartData(data, type) {
       break;
   }
 
-  if (chart) {
-    createSndbox();
-    if (type !== 'svg' && type !== 'javascript')
-      chart.container('container');
-  }
-
   return chart;
 }
 
 function sendResult(req, res, data, fileType) {
-  var autoFileName = 'anychart_' + uuidv1() + '.' + fileType;
+  var autoFileName = 'anychart_' + uuidv4() + '.' + fileType;
   var responseType = req.body.response_type.toLowerCase() || 'file';
   var fileName = responseType === 'file' ? req.body.file_name || autoFileName : autoFileName;
 
@@ -227,13 +262,25 @@ function generateOutput(req, res) {
   var dataType = req.body.data_type.toLowerCase();
   var fileType = req.body.file_type.toLowerCase() || 'png';
   var data = req.body.data;
+  var containerId = req.body.containerId || 'container';
 
   var chart = getChartData(data, dataType);
   if (chart) {
-    anychart_nodejs.exportTo(chart, {type: fileType, document: iframeDoc, selector: '#container'}, function(err, data) {
+    var iframeId = createSndbox(containerId);
+    if (dataType !== 'svg' && dataType !== 'javascript') {
+      chart.container(containerId);
+    }
+
+    // console.log('>>> ' + fileType.toUpperCase() + ' ' + dataType + '. Image.', ' ', iframeId);
+    var imgConvertCallback = partial(function imgConvertCallback(id, fileType, dataType, err, data) {
+      console.log('<<< ' + fileType.toUpperCase() + ' ' + dataType + '. Image.', ' ', id);
       sendResult(req, res, data, fileType);
-      clearSendbox();
-    });
+      clearSendbox(iframeId);
+    }, iframeId, fileType, dataType);
+
+    var params = {type: fileType, document: iframeDoc, containerId: containerId, iframeId: iframeId};
+    applyImageParams(params, req.body);
+    anychart_nodejs.exportTo(chart, params, imgConvertCallback);
   } else {
     res.send('');
   }
@@ -247,19 +294,23 @@ app.post('/pdf-report', function (req, res) {
   var fileType = 'pdf';
 
   convertCharts(data, function(dd) {
-    var pdfDoc = printer.createPdfKitDocument(dd);
-    var chunks = [];
+    try {
+      var pdfDoc = printer.createPdfKitDocument(dd);
+      var chunks = [];
 
-    pdfDoc.on('data', function(chunk) {
-      chunks.push(chunk);
-    });
-    pdfDoc.on('end', function() {
-      sendResult(req, res, Buffer.concat(chunks), fileType);
-    });
-    pdfDoc.on('error', function(err) {
-      console.log(err.message)
-    });
-    pdfDoc.end();
+      pdfDoc.on('data', function(chunk) {
+        chunks.push(chunk);
+      });
+      pdfDoc.on('end', function() {
+        sendResult(req, res, Buffer.concat(chunks), fileType);
+      });
+      pdfDoc.on('error', function(err) {
+        console.log(err.message)
+      });
+      pdfDoc.end();
+    } catch (e) {
+      sendResult(req, res, '', fileType);
+    }
   });
 });
 

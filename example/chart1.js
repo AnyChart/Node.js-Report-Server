@@ -25,5 +25,6 @@ var bBandsBIndicator = indicatorPlot.bbandsB(mapping, 30, 3);
 bBandsBIndicator.series().stroke('1.5 #6E9C4E');
 chart.scroller().candlestick(mapping);
 chart.selectRange('1995-10-24', '1996-07-02');
-chart.container('container');
+chart.background(null);
+chart.container('customId');
 chart.draw();
