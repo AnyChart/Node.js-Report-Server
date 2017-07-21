@@ -289,11 +289,21 @@ $(document).ready(function() {
     generate();
   });
 
-  var offsetContent = $('#content').offset();
-  var offsetOffset = $('#viewpdf').offset();
-  var docHeight = $(document).height();
 
-  $('#content, #json_data, #xml_data, #js_data, #svg_data').height(docHeight - offsetContent.top - 5);
-  $('#viewpdf').height(docHeight - offsetOffset.top - 5);
-  $('#viewsvg').height(docHeight - offsetOffset.top - 5);
+
+  function resize() {
+    var offsetContent = $('#content').offset();
+    var offsetOffset = $('#viewpdf').offset();
+    var docHeight = $(window).height();
+
+    $('#content, #json_data, #xml_data, #js_data, #svg_data').height(docHeight - offsetContent.top - 5);
+    $('#viewpdf').height(docHeight - offsetOffset.top - 5);
+    $('#viewsvg').height(docHeight - offsetOffset.top - 5);
+  }
+
+  $(window).resize(function() {
+    resize();
+  });
+
+  resize();
 });

@@ -5,10 +5,7 @@
         throw new Error('AnyChart requires a window with a document');
       }
       factory.call(w, w, w.document);
-      w.acgraph.isNodeJS = true;
-      w.anychart.getGlobal = function() {
-        return w;
-      };
+      w.isNodeJS = true;
       return w.anychart;
     };
     module.exports = global.document ? wrapper(global) : wrapper;

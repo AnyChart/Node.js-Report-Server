@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var express = require('express');
 var bodyParser = require('body-parser');
 var program = require('commander');
@@ -9,6 +11,7 @@ var DOMParser = require('xmldom').DOMParser;
 var XMLparser = new DOMParser();
 var csv = require('csv');
 var xlsx = require('xlsx');
+var path = require('path');
 
 program
     .version('0.0.1')
@@ -25,19 +28,19 @@ var iframes = {};
 var vectorImageParams = ['background', 'border', 'blur', 'contrast', 'crop', 'frame', 'gamma', 'monochrome', 'negative', 'noise', 'quality'];
 
 console.time('anychart init');
-// var anychart = require('anychart')(window);
-var anychart = require('../ACDVF/out/anychart-bundle.min.js')(window);
-// var anychart_nodejs = require('anychart-nodejs')(anychart);
-var anychart_nodejs = require('../AnyChart-NodeJS')(anychart);
+var anychart = require('anychart')(window);
+// var anychart = require('../ACDVF/out/anychart-bundle.min.js')(window);
+var anychart_nodejs = require('anychart-nodejs')(anychart);
+// var anychart_nodejs = require('../AnyChart-NodeJS')(anychart);
 console.timeEnd('anychart init');
 
 var pdfMake = require('pdfmake');
 var fontDescriptors = {
   Roboto: {
-    normal: './fonts/Roboto-Regular.ttf',
-    bold: './fonts/Roboto-Medium.ttf',
-    italics: './fonts/Roboto-Italic.ttf',
-    bolditalics: './fonts/Roboto-Italic.ttf'
+    normal: path.join(__dirname, 'fonts', 'Roboto-Regular.ttf'),
+    bold: path.join(__dirname, 'fonts', 'Roboto-Medium.ttf'),
+    italics: path.join(__dirname, 'fonts', 'Roboto-Italic.ttf'),
+    bolditalics: path.join(__dirname, 'fonts', 'Roboto-Italic.ttf')
   }
 };
 var printer = new pdfMake(fontDescriptors);
@@ -45,7 +48,7 @@ var printer = new pdfMake(fontDescriptors);
 var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({parameterLimit: 100000, limit: '50mb', extended: true}));
-app.use(express.static('example'));
+app.use(express.static(path.join(__dirname, 'example')));
 
 function partial(fn, var_args) {
   var args = Array.prototype.slice.call(arguments, 1);
@@ -97,9 +100,10 @@ function createSandbox(containerTd) {
   div.setAttribute('id', containerTd);
   iframeDoc.documentElement.appendChild(div);
   var window = iframeDoc.defaultView;
+  window.isNodeJS = true;
   window.anychart = anychart;
   window.acgraph = anychart.graphics;
-  anychart.setGlobal(window);
+  anychart.global(window);
 
   // console.timeEnd('sandbox creating');
 
@@ -110,7 +114,6 @@ function clearSandbox(iframeId) {
   // console.time('clear sandbox');
   rootDoc.body.removeChild(rootDoc.getElementById(iframeId));
   // console.timeEnd('clear sandbox');
-  // console.log('clear sandbox', iframeId);
 }
 
 function convertCharts(obj, callback) {
@@ -130,7 +133,7 @@ function convertCharts(obj, callback) {
       }
 
       chartsToConvert++;
-      console.log('>>> PDF Report. Chart ' + chartsToConvert + ' exporting.', ' ', iframeId);
+      console.log('>>> PDF Report. Chart ' + chartsToConvert + ' exporting.', iframeId);
       var imgConvertCallback = partial(function imgConvertCallback(id, chartNum, err, data) {
         clearSandbox(id);
         console.log('<<< PDF Report. Chart ' + chartNum + ' exporting.', id);
@@ -271,9 +274,9 @@ function generateOutput(req, res) {
       chart.container(containerId);
     }
 
-    console.log('>>> ' + fileType.toUpperCase() + ' ' + dataType + '. Image.', ' ', iframeId);
+    console.log('>>> ' + fileType.toUpperCase() + ' ' + dataType + '. Image.', iframeId);
     var imgConvertCallback = partial(function imgConvertCallback(id, fileType, dataType, err, data) {
-      console.log('<<< ' + fileType.toUpperCase() + ' ' + dataType + '. Image.', ' ', id);
+      console.log('<<< ' + fileType.toUpperCase() + ' ' + dataType + '. Image.', id);
       sendResult(req, res, data, fileType);
       clearSandbox(iframeId);
     }, iframeId, fileType, dataType);
