@@ -6,11 +6,33 @@
 
 ### Installation
 - Ставим через npm
+```
+npm install anychart-export-server -g
+```
 - Ставим через git
+```
+git clone git@github.com:AnyChart/node-export-server.git
+```
 - Ставим зависимости: rsvf-convert, imagemagic
+Ububntu
+```
+apt-get install imagemagick librsvg2-dev
+```
+Mac OS X
+```
+brew install imagemagick librsvg
+```
+Windows
+```
+GTK+ https://www.gtk.org/download/windows.php
+all-in-one bundle http://win32builder.gnome.org/gtk+-bundle_3.6.4-20131201_win64.zip
+```
 
 ### Running
 - Запускаем через консоль
+```
+> anychart-export-server
+```
 
 #### Options
 

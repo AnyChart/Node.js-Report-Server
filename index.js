@@ -14,10 +14,10 @@ var xlsx = require('xlsx');
 var path = require('path');
 
 program
-    .version('0.0.1')
+    .version('1.0.0')
     .option('-p, --port [value]', 'TCP port of server ', 3000)
-    .option('-od, --output-dir [value]', 'Output directory', 'shared')
-    .option('-as, --allow-scripts-executing [value]', 'Whether allow script execution', false);
+    .option('-o, --output-dir [value]', 'Output directory', 'shared')
+    .option('-a, --allow-scripts-executing [value]', 'Whether allow script execution', false);
 
 program.parse(process.argv);
 
@@ -30,8 +30,8 @@ var vectorImageParams = ['background', 'border', 'blur', 'contrast', 'crop', 'fr
 console.time('anychart init');
 var anychart = require('anychart')(window);
 // var anychart = require('../ACDVF/out/anychart-bundle.min.js')(window);
-var anychart_nodejs = require('anychart-nodejs')(anychart);
-// var anychart_nodejs = require('../AnyChart-NodeJS')(anychart);
+// var anychart_nodejs = require('anychart-nodejs')(anychart);
+var anychart_nodejs = require('../AnyChart-NodeJS')(anychart);
 console.timeEnd('anychart init');
 
 var pdfMake = require('pdfmake');
@@ -319,7 +319,9 @@ app.post('/pdf-report', function (req, res) {
       });
       pdfDoc.end();
     } catch (e) {
-      sendResult(req, res, '', fileType);
+      console.warn(e.message);
+      res.writeHead(500);
+      res.send();
     }
   });
 });
