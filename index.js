@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var program = require('commander');
 var uuidv4 = require('uuid/v4');
 var fs = require('fs');
-var vm = require('vm');
+var vm = require('vm2');
 var jsdom = require('jsdom').jsdom;
 var DOMParser = require('xmldom').DOMParser;
 var XMLparser = new DOMParser();
@@ -133,16 +133,16 @@ function convertCharts(obj, callback) {
       }
 
       chartsToConvert++;
-      console.log('>>> PDF Report. Chart ' + chartsToConvert + ' exporting.', iframeId);
+      console.log('----> PDF Report. Chart ' + chartsToConvert + ' exporting.', iframeId);
       var imgConvertCallback = partial(function imgConvertCallback(id, chartNum, err, data) {
         clearSandbox(id);
-        console.log('<<< PDF Report. Chart ' + chartNum + ' exporting.', id);
+        console.log('<---- PDF Report. Chart ' + chartNum + ' exporting.', id);
 
         if (data) {
           o.image = 'data:image/png;base64,' + data.toString('base64');
         } else {
           o.image = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
-          console.log('Something went wrong. Image wasn\'t generate');
+          console.warn('Something went wrong. Image wasn\'t generate');
         }
 
         delete o[key];
@@ -244,14 +244,14 @@ function sendResult(req, res, data, fileType) {
           fs.mkdirSync(program.outputDir);
           console.log('Directory ' + program.outputDir + ' was created.');
         } else {
-          console.log(err.message);
+          console.warn(err.message);
           return;
         }
       }
 
       fs.writeFile(path, data, function(err) {
         if (err) {
-          console.log(err.message);
+          console.warn(err.message);
         } else {
           console.log('Written to file ' + path);
           res.send(JSON.stringify({'url': path}));
@@ -274,10 +274,18 @@ function generateOutput(req, res) {
       chart.container(containerId);
     }
 
-    console.log('>>> ' + fileType.toUpperCase() + ' ' + dataType + '. Image.', iframeId);
+    console.log('----> Input. Convert ' + dataType.toUpperCase() + ' to ' + fileType.toUpperCase() + '. Image.', iframeId);
     var imgConvertCallback = partial(function imgConvertCallback(id, fileType, dataType, err, data) {
-      console.log('<<< ' + fileType.toUpperCase() + ' ' + dataType + '. Image.', id);
-      sendResult(req, res, data, fileType);
+      console.log('<---- Output. Convert ' + dataType.toUpperCase() + ' to ' + fileType.toUpperCase() + '. Image.', id);
+      if (err)
+        console.warn('Error. Output. Convert ' + dataType.toUpperCase() + ' to ' + fileType.toUpperCase() + '.', err.message.trim(), id);
+
+      if (!data || err) {
+        res.writeHead(500);
+        res.send();
+      } else {
+        sendResult(req, res, data, fileType);
+      }
       clearSandbox(iframeId);
     }, iframeId, fileType, dataType);
 
@@ -291,9 +299,8 @@ function generateOutput(req, res) {
 
 app.post('/pdf-report', function (req, res) {
   req.body.file_type = 'pdf';
-  var context = vm.createContext();
-  var script = new vm.Script(req.body.data);
-  var data = script.runInContext(context);
+  var script = new vm.VM();
+  var data = script.run(req.body.data);
   var fileType = 'pdf';
 
   convertCharts(data, function(dd) {
@@ -307,8 +314,8 @@ app.post('/pdf-report', function (req, res) {
       pdfDoc.on('end', function() {
         sendResult(req, res, Buffer.concat(chunks), fileType);
       });
-      pdfDoc.on('error', function(err) {
-        console.log(err.message)
+      pdfDoc.on('error', function(e) {
+        console.warn(e.message)
       });
       pdfDoc.end();
     } catch (e) {
@@ -318,11 +325,19 @@ app.post('/pdf-report', function (req, res) {
 });
 
 app.post('/vector-image', function (req, res) {
-  generateOutput(req, res);
+  try {
+    generateOutput(req, res);
+  } catch (e) {
+    console.warn(e.message);
+  }
 });
 
 app.post('/raster-image', function (req, res) {
-  generateOutput(req, res);
+  try {
+    generateOutput(req, res);
+  } catch (e) {
+    console.warn(e.message);
+  }
 });
 
 app.post('/data-file', function (req, res) {
