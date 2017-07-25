@@ -9,6 +9,7 @@
   "keywords": [],
   "repository": {},
   "scripts": {
+    "postinstall": "node cli.js",
     "start": "node index.js",
     "test": "mocha"
   },

@@ -5,15 +5,17 @@
 ## Installation and running
 
 ### Installation
-- Ставим через npm
+npm
 ```
 npm install anychart-export-server -g
 ```
-- Ставим через git
+git
 ```
 git clone git@github.com:AnyChart/node-export-server.git
+npm install
 ```
-- Ставим зависимости: rsvf-convert, imagemagic
+Binary dependency<br>
+
 Ububntu
 ```
 apt-get install imagemagick librsvg2-dev
@@ -23,10 +25,10 @@ Mac OS X
 brew install imagemagick librsvg
 ```
 Windows
-```
-GTK+ https://www.gtk.org/download/windows.php
-all-in-one bundle http://win32builder.gnome.org/gtk+-bundle_3.6.4-20131201_win64.zip
-```
+- [imagemagick](https://www.imagemagick.org/script/download.php)<br>
+- [GTK+ bundle](http://win32builder.gnome.org/gtk+-bundle_3.6.4-20131201_win64.zip)<br>
+- [RSVG lib](https://downloads.sourceforge.net/project/tumagcc/converters/rsvg-convert.exe?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Ftumagcc%2Ffiles%2Frsvg-convert.exe%2Fdownload&ts=1500995628&use_mirror=netix)
+
 
 ### Running
 - Запускаем через консоль

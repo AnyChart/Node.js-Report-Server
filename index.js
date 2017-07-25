@@ -17,7 +17,7 @@ program
     .version('1.0.0')
     .option('-p, --port [value]', 'TCP port of server ', 3000)
     .option('-o, --output-dir [value]', 'Output directory', 'shared')
-    .option('-a, --allow-scripts-executing [value]', 'Whether allow script execution', false);
+    .option('-d, --disable-scripts-executing [value]', 'Whether script execution disabled', false);
 
 program.parse(process.argv);
 
@@ -209,7 +209,7 @@ function getChartData(data, type) {
       chart = data;
       break;
     case 'javascript':
-      if (program.allowScriptsExecuting) {
+      if (!program.disableScriptsExecuting) {
         chart = data;
       }
       break;
