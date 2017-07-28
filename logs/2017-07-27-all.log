@@ -1,0 +1,299 @@
+{"level":"info","message":"Export server listening on port 3000!","timestamp":"12:42:03 PM"}
+{"level":"warn","message":"Script executing disabled.","timestamp":"12:43:50 PM"}
+{"level":"warn","message":"Script executing disabled.","timestamp":"12:46:19 PM"}
+{"level":"info","message":"----> PDF Report. Chart 1 exporting. iframe_f830a9b0-aeb1-4bb1-ad23-329da32893f2","timestamp":"12:46:19 PM"}
+{"level":"info","message":"----> PDF Report. Chart 2 exporting. iframe_f50d87c2-8f3d-43c4-a141-239a4111cec9","timestamp":"12:46:19 PM"}
+{"level":"info","message":"<---- PDF Report. Chart 1 exporting. iframe_f830a9b0-aeb1-4bb1-ad23-329da32893f2","timestamp":"12:46:20 PM"}
+{"level":"info","message":"<---- PDF Report. Chart 2 exporting. iframe_f50d87c2-8f3d-43c4-a141-239a4111cec9","timestamp":"12:46:20 PM"}
+{"level":"error","message":"","timestamp":"12:46:20 PM"}
+{"level":"info","message":"----> Input. Convert JSON to PDF. Image. iframe_aa6ed8d8-9319-4858-ab7d-dfa15c77698c","timestamp":"12:47:42 PM"}
+{"level":"info","message":"<---- Output. Convert JSON to PDF. Image. iframe_aa6ed8d8-9319-4858-ab7d-dfa15c77698c","timestamp":"12:47:42 PM"}
+{"level":"warn","message":"Script executing disabled.","timestamp":"12:47:44 PM"}
+{"level":"info","message":"----> PDF Report. Chart 1 exporting. iframe_df7af9f5-63f9-43e1-8f13-65b85afbe704","timestamp":"12:47:44 PM"}
+{"level":"info","message":"----> PDF Report. Chart 2 exporting. iframe_1ce22239-eec7-4291-a6f6-163c829b543c","timestamp":"12:47:45 PM"}
+{"level":"info","message":"<---- PDF Report. Chart 1 exporting. iframe_df7af9f5-63f9-43e1-8f13-65b85afbe704","timestamp":"12:47:45 PM"}
+{"level":"info","message":"<---- PDF Report. Chart 2 exporting. iframe_1ce22239-eec7-4291-a6f6-163c829b543c","timestamp":"12:47:45 PM"}
+{"level":"error","message":"","timestamp":"12:47:45 PM"}
+{"level":"info","message":"Export server listening on port 3000!","timestamp":"12:49:46 PM"}
+{"level":"warn","message":"Script executing disabled.","timestamp":"12:49:49 PM"}
+{"level":"error","message":"Something went wrong. Image wasn't generate","timestamp":"12:49:49 PM"}
+{"level":"info","message":"----> PDF Report. Chart 1 exporting. iframe_35ab73d4-14e8-4545-91ff-21dfd1a71fe7","timestamp":"12:49:50 PM"}
+{"level":"info","message":"----> PDF Report. Chart 2 exporting. iframe_1a29f481-3740-45c3-a2e0-fbc77858844a","timestamp":"12:49:50 PM"}
+{"level":"info","message":"<---- PDF Report. Chart 2 exporting. iframe_1a29f481-3740-45c3-a2e0-fbc77858844a","timestamp":"12:49:50 PM"}
+{"level":"info","message":"<---- PDF Report. Chart 1 exporting. iframe_35ab73d4-14e8-4545-91ff-21dfd1a71fe7","timestamp":"12:49:50 PM"}
+{"level":"error","message":"","timestamp":"12:49:50 PM"}
+{"level":"info","message":"Export server listening on port 3000!","timestamp":"12:52:08 PM"}
+{"level":"warn","message":"Script executing disabled.","timestamp":"12:52:14 PM"}
+{"level":"error","message":"Something went wrong. Image wasn't generate","timestamp":"12:52:14 PM"}
+{"level":"info","message":"----> PDF Report. Chart 1 exporting. iframe_b23edd82-d0e0-41f8-83a9-cd11d4cb86b8","timestamp":"12:52:14 PM"}
+{"level":"info","message":"----> PDF Report. Chart 2 exporting. iframe_066d07b4-065a-4c8e-9cca-8bdda94e5ab7","timestamp":"12:52:14 PM"}
+{"level":"info","message":"<---- PDF Report. Chart 1 exporting. iframe_b23edd82-d0e0-41f8-83a9-cd11d4cb86b8","timestamp":"12:52:15 PM"}
+{"level":"info","message":"<---- PDF Report. Chart 2 exporting. iframe_066d07b4-065a-4c8e-9cca-8bdda94e5ab7","timestamp":"12:52:15 PM"}
+{"level":"error","message":"","timestamp":"12:52:15 PM"}
+{"level":"info","message":"Export server listening on port 3000!","timestamp":"12:53:39 PM"}
+{"level":"warn","message":"Script executing disabled.","timestamp":"12:54:05 PM"}
+{"level":"warn","message":"Chart was replaced with blank Image","timestamp":"12:54:05 PM"}
+{"level":"info","message":"----> PDF Report. Chart 1 exporting. iframe_3846a9e3-db11-4754-9a41-2160f07e6780","timestamp":"12:54:05 PM"}
+{"level":"info","message":"----> PDF Report. Chart 2 exporting. iframe_ee03c1a0-fa78-4876-8a12-181c7472b168","timestamp":"12:54:06 PM"}
+{"level":"info","message":"<---- PDF Report. Chart 2 exporting. iframe_ee03c1a0-fa78-4876-8a12-181c7472b168","timestamp":"12:54:06 PM"}
+{"level":"info","message":"<---- PDF Report. Chart 1 exporting. iframe_3846a9e3-db11-4754-9a41-2160f07e6780","timestamp":"12:54:06 PM"}
+{"level":"error","message":"","timestamp":"12:54:06 PM"}
+{"level":"info","message":"Export server listening on port 3000!","timestamp":"12:58:25 PM"}
+{"level":"warn","message":"Script executing disabled.","timestamp":"12:58:29 PM"}
+{"level":"warn","message":"Chart was replaced with blank Image","timestamp":"12:58:29 PM"}
+{"level":"info","message":"----> PDF Report. Chart 1 exporting. iframe_a3d8071c-4df0-4c8f-b44f-8e06aafae49f","timestamp":"12:58:30 PM"}
+{"level":"info","message":"----> PDF Report. Chart 2 exporting. iframe_694af34c-2ba1-46e1-8ee1-37b1d7bad6f7","timestamp":"12:58:30 PM"}
+{"level":"info","message":"<---- PDF Report. Chart 2 exporting. iframe_694af34c-2ba1-46e1-8ee1-37b1d7bad6f7","timestamp":"12:58:30 PM"}
+{"level":"info","message":"<---- PDF Report. Chart 1 exporting. iframe_a3d8071c-4df0-4c8f-b44f-8e06aafae49f","timestamp":"12:58:30 PM"}
+{"level":"error","message":"invalid image, images dictionary should contain dataURL entries (or local file paths in node.js)","timestamp":"12:58:30 PM"}
+{"level":"info","message":"Export server listening on port 3000!","timestamp":"1:09:16 PM"}
+{"level":"warn","message":"Script executing disabled.","timestamp":"1:09:20 PM"}
+{"level":"warn","message":"Chart was replaced with blank Image","timestamp":"1:09:20 PM"}
+{"level":"info","message":"----> PDF Report. Chart 1 exporting. iframe_08bcef0f-0d1d-4e6a-bbe5-b5a86cf05c44","timestamp":"1:09:21 PM"}
+{"level":"info","message":"----> PDF Report. Chart 2 exporting. iframe_6a158e30-0cde-480c-ad09-caa87639b890","timestamp":"1:09:21 PM"}
+{"level":"info","message":"<---- PDF Report. Chart 2 exporting. iframe_6a158e30-0cde-480c-ad09-caa87639b890","timestamp":"1:09:22 PM"}
+{"level":"info","message":"<---- PDF Report. Chart 1 exporting. iframe_08bcef0f-0d1d-4e6a-bbe5-b5a86cf05c44","timestamp":"1:09:22 PM"}
+{"level":"warn","message":"Script executing disabled.","timestamp":"1:10:30 PM"}
+{"level":"warn","message":"Chart was replaced with blank Image","timestamp":"1:10:30 PM"}
+{"level":"info","message":"----> PDF Report. Chart 1 exporting. iframe_0b07507a-e1df-4ec5-ad68-74d911127cfe","timestamp":"1:10:31 PM"}
+{"level":"info","message":"----> PDF Report. Chart 2 exporting. iframe_4fef2ec3-6b4d-4ae6-acdc-35e535659313","timestamp":"1:10:31 PM"}
+{"level":"info","message":"<---- PDF Report. Chart 2 exporting. iframe_4fef2ec3-6b4d-4ae6-acdc-35e535659313","timestamp":"1:10:32 PM"}
+{"level":"info","message":"<---- PDF Report. Chart 1 exporting. iframe_0b07507a-e1df-4ec5-ad68-74d911127cfe","timestamp":"1:10:32 PM"}
+{"level":"warn","message":"Script executing disabled.","timestamp":"1:10:56 PM"}
+{"level":"warn","message":"Script executing disabled.","timestamp":"1:25:34 PM"}
+{"level":"info","message":"Export server listening on port 3000!","timestamp":"1:27:33 PM"}
+{"level":"info","message":"info","timestamp":"1:28:15 PM"}
+{"level":"info","message":"Export server listening on port 3000!","timestamp":"1:28:16 PM"}
+{"level":"info","message":"info","timestamp":"1:29:07 PM"}
+{"PATH":"/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/Wireshark.app/Contents/MacOS","SHELL":"/bin/zsh","FORCE_COLOR":"true","PAGER":"less","LSCOLORS":"Gxfxcxdxbxegedabagacad","DEBUG_FD":"1","ELECTRON_NO_ATTACH_CONSOLE":"true","SECURITYSESSIONID":"186a9","OLDPWD":"/Applications/WebStorm 2017.1.app/Contents/bin","USER":"blackart","DEBUG_COLORS":"true","ZSH":"/Users/blackart/.oh-my-zsh","TMPDIR":"/var/folders/76/_wzcmq7n47z03bsh1mh43gm80000gn/T/","SSH_AUTH_SOCK":"/private/tmp/com.apple.launchd.gf2KKtw3H7/Listeners","MOCHA_COLORS":"1","XPC_FLAGS":"0x0","__CF_USER_TEXT_ENCODING":"0x1F5:0x0:0x0","Apple_PubSub_Socket_Render":"/private/tmp/com.apple.launchd.70IC6NBMKy/Render","LESS":"-R","LOGNAME":"blackart","LC_CTYPE":"","XPC_SERVICE_NAME":"com.jetbrains.WebStorm.5792","PWD":"/Users/blackart/Work/node-export-server","HOME":"/Users/blackart","level":"info","message":"","timestamp":"1:29:07 PM"}
+{"level":"info","message":"Export server listening on port 3000!","timestamp":"1:29:08 PM"}
+{"level":"warn","message":"Script executing disabled.","timestamp":"1:31:17 PM"}
+{"level":"warn","message":"Chart was replaced with blank Image","timestamp":"1:31:17 PM"}
+{"level":"info","message":"----> PDF Report. Chart 1 exporting. iframe_1e27972d-71ed-4877-9193-17ca683b50eb","timestamp":"1:31:17 PM"}
+{"level":"info","message":"----> PDF Report. Chart 2 exporting. iframe_d4c4cb1d-b539-49fb-a0bd-c732949f534e","timestamp":"1:31:17 PM"}
+{"level":"info","message":"<---- PDF Report. Chart 1 exporting. iframe_1e27972d-71ed-4877-9193-17ca683b50eb","timestamp":"1:31:18 PM"}
+{"level":"info","message":"<---- PDF Report. Chart 2 exporting. iframe_d4c4cb1d-b539-49fb-a0bd-c732949f534e","timestamp":"1:31:18 PM"}
+{"level":"warn","message":"Script executing disabled.","timestamp":"1:31:25 PM"}
+{"level":"warn","message":"Chart was replaced with blank Image","timestamp":"1:31:25 PM"}
+{"level":"info","message":"----> PDF Report. Chart 1 exporting. iframe_16af91d1-ec7e-43b9-b95e-a2eebc1c6b0f","timestamp":"1:31:26 PM"}
+{"level":"info","message":"----> PDF Report. Chart 2 exporting. iframe_63db5260-8b83-410b-a049-9867bdafc698","timestamp":"1:31:26 PM"}
+{"level":"info","message":"<---- PDF Report. Chart 2 exporting. iframe_63db5260-8b83-410b-a049-9867bdafc698","timestamp":"1:31:26 PM"}
+{"level":"info","message":"<---- PDF Report. Chart 1 exporting. iframe_16af91d1-ec7e-43b9-b95e-a2eebc1c6b0f","timestamp":"1:31:26 PM"}
+{"level":"error","message":"Unrecognized document structure: {\"margin\":0,\"image1\":\"data:image/png;base64,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UK5vQ72gwaB4g8GqNc3o4W0GDQPEHg1Rru9HC2gwaB4g8H6j9RXN6ODtokeIPB+hkSRB9qvGMYxWL7H8DXd6He2iB4g8H6PaFPM2/AVzeh3tokeIPB+j2h+uCu70O9tEjxB4P0e0P1w17ejhbQYNA8wc/oekK95r3UyN6ONtBg0DxDkPVBzPQIEh5fZZ8s+WfLPlLo0HuTnB2qeYct7qYG9DvbRA8QeWUOScGnjd4OyFLzDlvdTE3od7aJHiDyg5JwaeF3g7IUvMOW91MTeh2tokeIPLKHJODTwu8Hap5hy3upib0OdtEDxBxZQ5JwaeF3g7IUvMOW91MDehztBg0DxB5Qck4NPC7wdqnmHLe6mBvQ520QPEHFlDknBp4XeDshS9w5b3UwN6HO2iB4g4sock4NPC7wdkKXmHLe6mhvQ720QPEHFByTg08LvB+QpeYct7qYG9DnbRA8QeWUAQHchFE7pppStZMen3LtOEsmaAnUAAAAM1MngIqBgfRZss+WbLNlnyn+Bmfh3oc7aJHiDyzSdfycraIHiDyzXO9tEBQfkXlHIeogP8Q1u+CHZoNAMwuxCObEhOf8LuJn29qfw9jyFPVgwAHXl17PQQ3Z2EPtQJaH+OLcIhASI7qdAd1JZ/2DLVUpSlOUpTlKUpSlKUpSlKUlQ176lOl2eBAY0hdQOn+aOayPeOyHQkPTsiCO4IUwui6KYXRTCmFMKYU1NTC6LouimF0XRTCmF0XRTC6LpD1JoBNGPEAkdT/UCiASAHjSED3AK7+f6Cx1Y+sZWHrGVjKxlYysZWMrGVjKxlYysZWMrGVjKxlYysfWMrGVjKx9dOTFNq/wDTj//aAAwDAQACAAMAAAAQ88888888888888888888888888888888888888888888888888888888888888888888888888888888zy26y3/y7/6yz9y088888884KnDiDARDDjDDDCE9z8888888vkV8888888888888tv8APPPPPPLk1PPPPPPPPMPPPPKa/PPPPPPPg1PPPPPPPPDzzzPKa/PPPPPPPo1PPPPPPPPP8s6/Ka/PPPPPPPg1PPPPOPsutb/f/Ka/PPPPPPPq1PPPPPUc9fH7f/KYvPPPPPPPh1PPPPPYwAPG+U/Ka/PPPPPPOl1Od9tvYwBIwgmPL6/PPPPPPKlV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\",\"width\":50,\"height\":50}","timestamp":"1:31:26 PM"}
+{"level":"info","message":"----> Input. Convert JSON to PDF. Image. iframe_a64a1087-cad6-4d29-b1a9-b18f1608ecaf","timestamp":"1:33:00 PM"}
+{"level":"info","message":"<---- Output. Convert JSON to PDF. Image. iframe_a64a1087-cad6-4d29-b1a9-b18f1608ecaf","timestamp":"1:33:01 PM"}
+{"level":"info","message":"----> Input. Convert XML to PDF. Image. iframe_a8db0b43-8e65-4b89-ae03-ea48963d55d8","timestamp":"1:33:03 PM"}
+{"level":"info","message":"<---- Output. Convert XML to PDF. Image. iframe_a8db0b43-8e65-4b89-ae03-ea48963d55d8","timestamp":"1:33:03 PM"}
+{"level":"warn","message":"Script executing disabled.","timestamp":"1:33:05 PM"}
+{"level":"info","message":"info","timestamp":"1:33:29 PM"}
+{"PATH":"/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/Wireshark.app/Contents/MacOS","SHELL":"/bin/zsh","FORCE_COLOR":"true","PAGER":"less","LSCOLORS":"Gxfxcxdxbxegedabagacad","DEBUG_FD":"1","ELECTRON_NO_ATTACH_CONSOLE":"true","SECURITYSESSIONID":"186a9","OLDPWD":"/Applications/WebStorm 2017.1.app/Contents/bin","USER":"blackart","DEBUG_COLORS":"true","ZSH":"/Users/blackart/.oh-my-zsh","TMPDIR":"/var/folders/76/_wzcmq7n47z03bsh1mh43gm80000gn/T/","SSH_AUTH_SOCK":"/private/tmp/com.apple.launchd.gf2KKtw3H7/Listeners","MOCHA_COLORS":"1","XPC_FLAGS":"0x0","__CF_USER_TEXT_ENCODING":"0x1F5:0x0:0x0","Apple_PubSub_Socket_Render":"/private/tmp/com.apple.launchd.70IC6NBMKy/Render","LESS":"-R","LOGNAME":"blackart","LC_CTYPE":"","XPC_SERVICE_NAME":"com.jetbrains.WebStorm.5792","PWD":"/Users/blackart/Work/node-export-server","HOME":"/Users/blackart","level":"info","message":"","timestamp":"1:33:29 PM"}
+{"level":"info","message":"Export server listening on port 3000!","timestamp":"1:33:31 PM"}
+{"level":"info","message":"info","timestamp":"1:36:10 PM"}
+{"level":"info","message":"Export server listening on port 3000!","timestamp":"1:36:11 PM"}
+{"level":"debug","message":"debug","timestamp":"1:36:50 PM"}
+{"level":"info","message":"Export server listening on port 3000!","timestamp":"1:36:51 PM"}
+{"level":"debug","message":"debug","timestamp":"1:39:59 PM"}
+{"level":"info","message":"Export server listening on port 3000!","timestamp":"1:40:00 PM"}
+{"level":"warn","message":"debug","timestamp":"1:41:04 PM"}
+{"level":"info","message":"Export server listening on port 3000!","timestamp":"1:41:06 PM"}
+{"level":"debug","message":"debug","timestamp":"1:41:27 PM"}
+{"level":"info","message":"Export server listening on port 3000!","timestamp":"1:41:28 PM"}
+{"level":"info","message":"Export server listening on port 3000!","timestamp":"1:41:47 PM"}
+{"level":"info","message":"Export server listening on port 3000!","timestamp":"1:42:03 PM"}
+{"level":"silly","message":"silly","timestamp":"1:43:36 PM"}
+{"level":"info","message":"Export server listening on port 3000!","timestamp":"1:43:38 PM"}
+{"level":"verbose","message":"silly","timestamp":"1:44:09 PM"}
+{"level":"info","message":"Export server listening on port 3000!","timestamp":"1:44:11 PM"}
+{"level":"verbose","message":"log level: silly","timestamp":"1:44:27 PM"}
+{"level":"info","message":"Export server listening on port 3000!","timestamp":"1:44:29 PM"}
+{"level":"verbose","message":"log level: silly","timestamp":"1:56:28 PM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"1:56:29 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_3026fd85-aeb2-4db1-88b7-5207dc1da506","timestamp":"1:56:51 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 2 exporting. iframe_a068358c-d347-4e39-ba3c-a95830c23e94","timestamp":"1:56:52 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 3 exporting. iframe_bc71c3cf-f3b0-4a2a-813d-c14c260ae0f4","timestamp":"1:56:52 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 3 exporting. iframe_bc71c3cf-f3b0-4a2a-813d-c14c260ae0f4","timestamp":"1:56:53 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 2 exporting. iframe_a068358c-d347-4e39-ba3c-a95830c23e94","timestamp":"1:56:53 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_3026fd85-aeb2-4db1-88b7-5207dc1da506","timestamp":"1:56:53 PM"}
+{"level":"verbose","message":"log level: silly","timestamp":"1:57:09 PM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"1:57:11 PM"}
+{"level":"info","message":"   ----> Input. Convert XML to PDF. Image. iframe_d53c04c5-5ea4-4956-9a20-5bf6346c3277","timestamp":"1:57:17 PM"}
+{"level":"info","message":"   <---- Output. Convert XML to PDF. Image. iframe_d53c04c5-5ea4-4956-9a20-5bf6346c3277","timestamp":"1:57:18 PM"}
+{"level":"info","message":"   ----> Input. Convert JAVASCRIPT to PDF. Image. iframe_6fa7146b-9564-4cf3-a56c-dc07b8dec65c","timestamp":"1:57:19 PM"}
+{"level":"info","message":"   <---- Output. Convert JAVASCRIPT to PDF. Image. iframe_6fa7146b-9564-4cf3-a56c-dc07b8dec65c","timestamp":"1:57:20 PM"}
+{"level":"info","message":"   ----> Input. Convert JSON to PDF. Image. iframe_efd2bbfc-d918-4df4-94a9-1be16c7612e2","timestamp":"1:57:22 PM"}
+{"level":"info","message":"   <---- Output. Convert JSON to PDF. Image. iframe_efd2bbfc-d918-4df4-94a9-1be16c7612e2","timestamp":"1:57:22 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_864215d2-5331-4729-8ee9-614c57235102","timestamp":"1:57:23 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 2 exporting. iframe_e4f96567-3959-48ff-abfe-6ace8bdfbcf5","timestamp":"1:57:24 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 3 exporting. iframe_f19df46f-82ab-424e-ab35-435d92589d65","timestamp":"1:57:24 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 2 exporting. iframe_e4f96567-3959-48ff-abfe-6ace8bdfbcf5","timestamp":"1:57:24 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 3 exporting. iframe_f19df46f-82ab-424e-ab35-435d92589d65","timestamp":"1:57:24 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_864215d2-5331-4729-8ee9-614c57235102","timestamp":"1:57:24 PM"}
+{"level":"info","message":"   ----> Input. Convert JSON to PDF. Image. iframe_5d140d09-1164-4771-bbc4-94d43503779f","timestamp":"2:06:02 PM"}
+{"level":"info","message":"   <---- Output. Convert JSON to PDF. Image. iframe_5d140d09-1164-4771-bbc4-94d43503779f","timestamp":"2:06:02 PM"}
+{"level":"info","message":"   ----> Input. Convert JAVASCRIPT to PDF. Image. iframe_a9e15ad7-4e6f-4f97-a480-f74607a590bc","timestamp":"2:06:04 PM"}
+{"level":"info","message":"   <---- Output. Convert JAVASCRIPT to PDF. Image. iframe_a9e15ad7-4e6f-4f97-a480-f74607a590bc","timestamp":"2:06:04 PM"}
+{"level":"info","message":"   ----> Input. Convert JAVASCRIPT to PDF. Image. iframe_81604bbb-7c04-411f-aeff-dc8fd6a9c469","timestamp":"2:06:09 PM"}
+{"level":"info","message":"   <---- Output. Convert JAVASCRIPT to PDF. Image. iframe_81604bbb-7c04-411f-aeff-dc8fd6a9c469","timestamp":"2:06:09 PM"}
+{"level":"error","message":"  Error. Output. Convert JAVASCRIPT to PDF. Error reading SVG:Error domain 1 code 4 on line 1 column 1 of data: Start tag expected, '<' not found iframe_81604bbb-7c04-411f-aeff-dc8fd6a9c469","timestamp":"2:06:09 PM"}
+{"level":"verbose","message":"log level: silly","timestamp":"2:10:34 PM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"2:10:35 PM"}
+{"level":"info","message":"   ----> Input. Convert JAVASCRIPT to PDF. Image. iframe_c68c06c0-0af6-4b11-9dc8-42d061e086d8","timestamp":"2:10:37 PM"}
+{"level":"error","message":"  fdsf is not defined","timestamp":"2:10:37 PM"}
+{"level":"verbose","message":"log level: silly","timestamp":"2:11:32 PM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"2:11:33 PM"}
+{"level":"info","message":"   ----> Input. Convert JAVASCRIPT to PDF. Image. iframe_007ac3b6-c319-48d9-962f-19a110d3edeb","timestamp":"2:11:36 PM"}
+{"level":"info","message":"   <---- Output. Convert JAVASCRIPT to PDF. Image. iframe_007ac3b6-c319-48d9-962f-19a110d3edeb","timestamp":"2:11:36 PM"}
+{"level":"error","message":"  Error. Output. Convert JAVASCRIPT to PDF. Error reading SVG:Error domain 1 code 4 on line 1 column 1 of data: Start tag expected, '<' not found iframe_007ac3b6-c319-48d9-962f-19a110d3edeb","timestamp":"2:11:36 PM"}
+{"level":"verbose","message":"log level: silly","timestamp":"2:26:36 PM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"2:26:38 PM"}
+{"level":"info","message":"   ----> Input. Convert JAVASCRIPT to PDF. Image. iframe_95c6b4a2-859f-407e-bac8-3cb8ac3b87bc","timestamp":"2:26:42 PM"}
+{"level":"info","message":"   <---- Output. Convert JAVASCRIPT to PDF. Image. iframe_95c6b4a2-859f-407e-bac8-3cb8ac3b87bc","timestamp":"2:26:42 PM"}
+{"level":"error","message":"  Error. Output. Convert JAVASCRIPT to PDF. fdsf is not defined iframe_95c6b4a2-859f-407e-bac8-3cb8ac3b87bc","timestamp":"2:26:42 PM"}
+{"level":"info","message":"   ----> Input. Convert JAVASCRIPT to PDF. Image. iframe_5e25127d-0be8-44d9-b845-76d5a37e24c2","timestamp":"2:26:58 PM"}
+{"level":"info","message":"   <---- Output. Convert JAVASCRIPT to PDF. Image. iframe_5e25127d-0be8-44d9-b845-76d5a37e24c2","timestamp":"2:26:58 PM"}
+{"level":"error","message":"  Error. Output. Convert JAVASCRIPT to PDF. fdsf is not defined iframe_5e25127d-0be8-44d9-b845-76d5a37e24c2","timestamp":"2:26:58 PM"}
+{"level":"info","message":"   ----> Input. Convert JAVASCRIPT to PDF. Image. iframe_b6f0df75-7227-4b37-b277-cb25f7ed39e3","timestamp":"2:27:09 PM"}
+{"level":"info","message":"   <---- Output. Convert JAVASCRIPT to PDF. Image. iframe_b6f0df75-7227-4b37-b277-cb25f7ed39e3","timestamp":"2:27:09 PM"}
+{"level":"error","message":"  Error. Output. Convert JAVASCRIPT to PDF. fdsf is not defined iframe_b6f0df75-7227-4b37-b277-cb25f7ed39e3","timestamp":"2:27:09 PM"}
+{"level":"verbose","message":"log level: silly","timestamp":"2:28:49 PM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"2:28:50 PM"}
+{"level":"info","message":"   ----> Input. Convert JAVASCRIPT to PDF. Image.","timestamp":"2:28:53 PM"}
+{"level":"error","message":"  Error. Output. Convert fdsf is not defined to JAVASCRIPT. PDF","timestamp":"2:28:53 PM"}
+{"level":"info","message":"   ----> Input. Convert JAVASCRIPT to PDF. Image.","timestamp":"2:28:56 PM"}
+{"level":"error","message":"  Error. Output. Convert fdsf is not defined to JAVASCRIPT. PDF","timestamp":"2:28:56 PM"}
+{"level":"verbose","message":"log level: silly","timestamp":"2:30:16 PM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"2:30:18 PM"}
+{"level":"info","message":"   ----> Input. Convert JAVASCRIPT to PDF. Image.","timestamp":"2:30:20 PM"}
+{"level":"error","message":"  Error. Output. Convert JAVASCRIPT to PDF. Error: fdsf is not defined","timestamp":"2:30:20 PM"}
+{"level":"info","message":"   ----> Input. Convert SVG to PDF. Image.","timestamp":"2:31:34 PM"}
+{"level":"info","message":"   <---- Output. Convert SVG to PDF. Image.","timestamp":"2:31:35 PM"}
+{"level":"info","message":"   ----> Input. Convert XML to PDF. Image.","timestamp":"2:31:37 PM"}
+{"level":"info","message":"   <---- Output. Convert XML to PDF. Image.","timestamp":"2:31:37 PM"}
+{"level":"info","message":"   ----> Input. Convert JSON to PDF. Image.","timestamp":"2:31:55 PM"}
+{"level":"info","message":"   <---- Output. Convert JSON to PDF. Image.","timestamp":"2:31:56 PM"}
+{"level":"info","message":"   ----> Input. Convert JSON to TIFF. Image.","timestamp":"2:32:00 PM"}
+{"level":"info","message":"   <---- Output. Convert JSON to TIFF. Image.","timestamp":"2:32:01 PM"}
+{"level":"info","message":"   ----> Input. Convert JSON to JPG. Image.","timestamp":"2:32:02 PM"}
+{"level":"info","message":"   <---- Output. Convert JSON to JPG. Image.","timestamp":"2:32:03 PM"}
+{"level":"info","message":"   ----> Input. Convert JAVASCRIPT to JPG. Image.","timestamp":"2:32:04 PM"}
+{"level":"error","message":"  Error. Output. Convert JAVASCRIPT to JPG. Error: fdsf is not defined","timestamp":"2:32:04 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_56b61416-e64f-4bf9-bd18-398cca4237fd","timestamp":"2:32:20 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 2 exporting. iframe_04509820-de8a-4223-8204-19caad801764","timestamp":"2:32:21 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 3 exporting. iframe_d066eaac-c5c8-4c6e-9660-ae9a00a20b21","timestamp":"2:32:21 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 2 exporting. iframe_04509820-de8a-4223-8204-19caad801764","timestamp":"2:32:22 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 3 exporting. iframe_d066eaac-c5c8-4c6e-9660-ae9a00a20b21","timestamp":"2:32:22 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_56b61416-e64f-4bf9-bd18-398cca4237fd","timestamp":"2:32:22 PM"}
+{"level":"info","message":"   ----> Input. Convert JAVASCRIPT to PDF. Image.","timestamp":"2:32:23 PM"}
+{"level":"info","message":"   <---- Output. Convert JAVASCRIPT to PDF. Image.","timestamp":"2:32:23 PM"}
+{"level":"info","message":"   ----> Input. Convert JAVASCRIPT to PDF. Image.","timestamp":"2:32:32 PM"}
+{"level":"error","message":"  Error. Output. Convert JAVASCRIPT to PDF. Error: Error reading SVG:Error domain 1 code 4 on line 1 column 1 of data: Start tag expected, '<' not found","timestamp":"2:32:32 PM"}
+{"level":"verbose","message":"log level: silly","timestamp":"2:38:44 PM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"2:38:46 PM"}
+{"level":"info","message":"   ----> Input. Convert JAVASCRIPT to PDF. Image.","timestamp":"2:38:52 PM"}
+{"level":"error","message":"  Error. Output. Convert JAVASCRIPT to PDF. Error: Error reading SVG:Error domain 1 code 4 on line 1 column 1 of data: Start tag expected, '<' not found","timestamp":"2:38:52 PM"}
+{"level":"info","message":"   ----> Input. Convert JAVASCRIPT to PDF. Image.","timestamp":"2:39:07 PM"}
+{"level":"info","message":"   <---- Output. Convert JAVASCRIPT to PDF. Image.","timestamp":"2:39:08 PM"}
+{"level":"info","message":"   ----> Input. Convert JAVASCRIPT to PDF. Image.","timestamp":"2:39:18 PM"}
+{"level":"info","message":"   <---- Output. Convert JAVASCRIPT to PDF. Image.","timestamp":"2:39:19 PM"}
+{"level":"info","message":"   ----> Input. Convert SVG to PDF. Image.","timestamp":"2:39:20 PM"}
+{"level":"info","message":"   <---- Output. Convert SVG to PDF. Image.","timestamp":"2:39:21 PM"}
+{"level":"info","message":"   ----> Input. Convert SVG to PDF. Image.","timestamp":"2:39:22 PM"}
+{"level":"info","message":"   <---- Output. Convert SVG to PDF. Image.","timestamp":"2:39:22 PM"}
+{"level":"info","message":"   ----> Input. Convert SVG to PDF. Image.","timestamp":"2:45:09 PM"}
+{"level":"info","message":"   <---- Output. Convert SVG to PDF. Image.","timestamp":"2:45:09 PM"}
+{"level":"info","message":"   ----> Input. Convert SVG to PDF. Image.","timestamp":"2:45:10 PM"}
+{"level":"info","message":"   <---- Output. Convert SVG to PDF. Image.","timestamp":"2:45:10 PM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"2:49:04 PM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"2:50:57 PM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"3:00:27 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_2d7b74df-e383-42ec-bf8c-828ada0193f5","timestamp":"3:04:33 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 2 exporting. iframe_083bfc53-b84f-4bbe-9bd7-9f2961a73082","timestamp":"3:04:35 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 3 exporting. iframe_fc734045-dcdb-4b73-b86c-2a34cd4fc66a","timestamp":"3:04:36 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 3 exporting. iframe_fc734045-dcdb-4b73-b86c-2a34cd4fc66a","timestamp":"3:04:36 PM"}
+{"level":"error","message":"  Something went wrong. Image wasn't generate","timestamp":"3:04:36 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_2d7b74df-e383-42ec-bf8c-828ada0193f5","timestamp":"3:04:36 PM"}
+{"level":"error","message":"  Something went wrong. Image wasn't generate","timestamp":"3:04:36 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 2 exporting. iframe_083bfc53-b84f-4bbe-9bd7-9f2961a73082","timestamp":"3:04:36 PM"}
+{"level":"error","message":"  Something went wrong. Image wasn't generate","timestamp":"3:04:36 PM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"3:25:23 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_f71e00c1-acdc-47ca-acba-8bdb65af139f","timestamp":"3:25:42 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 2 exporting. iframe_f06a3209-8674-4204-b8dd-0f3cbf5a5bde","timestamp":"3:25:44 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 3 exporting. iframe_422acf18-4ffb-4279-9c30-128b501e0b5b","timestamp":"3:25:44 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 2 exporting. iframe_f06a3209-8674-4204-b8dd-0f3cbf5a5bde","timestamp":"3:25:45 PM"}
+{"level":"error","message":"  Something went wrong. Image wasn't generate","timestamp":"3:25:45 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 3 exporting. iframe_422acf18-4ffb-4279-9c30-128b501e0b5b","timestamp":"3:25:45 PM"}
+{"level":"error","message":"  Something went wrong. Image wasn't generate","timestamp":"3:25:45 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_f71e00c1-acdc-47ca-acba-8bdb65af139f","timestamp":"3:25:45 PM"}
+{"level":"error","message":"  Something went wrong. Image wasn't generate","timestamp":"3:25:45 PM"}
+{"level":"info","message":"   ----> Input. Convert JAVASCRIPT to PDF. Image.","timestamp":"3:25:54 PM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"3:28:58 PM"}
+{"level":"info","message":"   ----> Input. Convert JAVASCRIPT to PDF. Image.","timestamp":"3:29:04 PM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"3:30:20 PM"}
+{"level":"info","message":"   ----> Input. Convert JAVASCRIPT to PDF. Image.","timestamp":"3:30:23 PM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"3:31:45 PM"}
+{"level":"info","message":"   ----> Input. Convert JAVASCRIPT to PDF. Image.","timestamp":"3:31:48 PM"}
+{"level":"verbose","message":"log level: silly","timestamp":"3:36:10 PM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"3:36:12 PM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"3:36:23 PM"}
+{"level":"info","message":"   ----> Input. Convert JAVASCRIPT to PDF. Image.","timestamp":"3:36:27 PM"}
+{"level":"error","message":"  Error. Output. Convert JAVASCRIPT to PDF. Error: write EPIPE","timestamp":"3:36:27 PM"}
+{"level":"info","message":"   ----> Input. Convert JAVASCRIPT to PDF. Image.","timestamp":"3:36:32 PM"}
+{"level":"error","message":"  Error. Output. Convert JAVASCRIPT to PDF. Error: write EPIPE","timestamp":"3:36:32 PM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"3:37:53 PM"}
+{"level":"info","message":"   ----> Input. Convert JAVASCRIPT to PDF. Image.","timestamp":"3:37:57 PM"}
+{"level":"error","message":"  Error. Output. Convert JAVASCRIPT to PDF. Error: write EPIPE","timestamp":"3:37:57 PM"}
+{"level":"info","message":"   ----> Input. Convert JAVASCRIPT to PDF. Image.","timestamp":"3:38:57 PM"}
+{"level":"error","message":"  Error. Output. Convert JAVASCRIPT to PDF. Error: write EPIPE","timestamp":"3:38:57 PM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"3:39:57 PM"}
+{"level":"info","message":"   ----> Input. Convert JAVASCRIPT to PDF. Image.","timestamp":"3:40:02 PM"}
+{"level":"error","message":"  Error. Output. Convert JAVASCRIPT to PDF. Error: write EPIPE","timestamp":"3:40:03 PM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"3:43:06 PM"}
+{"level":"info","message":"   ----> Input. Convert JAVASCRIPT to PDF. Image.","timestamp":"3:43:07 PM"}
+{"level":"error","message":"  Error. Output. Convert JAVASCRIPT to PDF. Error: spawn rsvg-convert ENOENT","timestamp":"3:43:08 PM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"3:46:02 PM"}
+{"level":"info","message":"   ----> Input. Convert JAVASCRIPT to PDF. Image.","timestamp":"3:46:06 PM"}
+{"level":"error","message":"  Error. Output. Convert JAVASCRIPT to PDF. Error: write EPIPE","timestamp":"3:46:06 PM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"3:46:43 PM"}
+{"level":"info","message":"   ----> Input. Convert JAVASCRIPT to PDF. Image.","timestamp":"3:46:53 PM"}
+{"level":"error","message":"  Error. Output. Convert JAVASCRIPT to PDF. Error: write EPIPE","timestamp":"3:46:53 PM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"3:48:26 PM"}
+{"level":"info","message":"   ----> Input. Convert JAVASCRIPT to PDF. Image.","timestamp":"3:48:29 PM"}
+{"level":"error","message":"  Error. Output. Convert JAVASCRIPT to PDF. Error: write EPIPE","timestamp":"3:48:29 PM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"4:45:40 PM"}
+{"level":"info","message":"   ----> Input. Convert JAVASCRIPT to PDF. Image.","timestamp":"4:45:44 PM"}
+{"level":"error","message":"  Error. Output. Convert JAVASCRIPT to PDF. Error: write EPIPE","timestamp":"4:45:44 PM"}
+{"level":"info","message":"   ----> Input. Convert JAVASCRIPT to JPG. Image.","timestamp":"4:45:49 PM"}
+{"level":"error","message":"  Error. Output. Convert JAVASCRIPT to JPG. Error: Stream yields empty buffer","timestamp":"4:45:50 PM"}
+{"level":"info","message":"   ----> Input. Convert JAVASCRIPT to PNG. Image.","timestamp":"4:45:58 PM"}
+{"level":"error","message":"  Error. Output. Convert JAVASCRIPT to PNG. Error: Stream yields empty buffer","timestamp":"4:45:59 PM"}
+{"level":"info","message":"   ----> Input. Convert JAVASCRIPT to SVG. Image.","timestamp":"4:46:06 PM"}
+{"level":"info","message":"   <---- Output. Convert JAVASCRIPT to SVG. Image.","timestamp":"4:46:06 PM"}
+{"level":"info","message":"   ----> Input. Convert SVG to SVG. Image.","timestamp":"4:46:10 PM"}
+{"level":"info","message":"   <---- Output. Convert SVG to SVG. Image.","timestamp":"4:46:10 PM"}
+{"level":"info","message":"   ----> Input. Convert XML to SVG. Image.","timestamp":"4:46:12 PM"}
+{"level":"info","message":"   <---- Output. Convert XML to SVG. Image.","timestamp":"4:46:12 PM"}
+{"level":"info","message":"   ----> Input. Convert JSON to SVG. Image.","timestamp":"4:46:14 PM"}
+{"level":"info","message":"   <---- Output. Convert JSON to SVG. Image.","timestamp":"4:46:14 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_dc554696-7a29-4d08-8d5a-702ada997873","timestamp":"4:46:15 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 2 exporting. iframe_afc26773-2cc7-432b-b9c0-07a19537f3fe","timestamp":"4:46:17 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 3 exporting. iframe_0b117356-273c-4966-bb56-041548d8756d","timestamp":"4:46:17 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 3 exporting. iframe_0b117356-273c-4966-bb56-041548d8756d","timestamp":"4:46:17 PM"}
+{"level":"error","message":"  Something went wrong. Image wasn't generate","timestamp":"4:46:17 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 2 exporting. iframe_afc26773-2cc7-432b-b9c0-07a19537f3fe","timestamp":"4:46:17 PM"}
+{"level":"error","message":"  Something went wrong. Image wasn't generate","timestamp":"4:46:17 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_dc554696-7a29-4d08-8d5a-702ada997873","timestamp":"4:46:17 PM"}
+{"level":"error","message":"  Something went wrong. Image wasn't generate","timestamp":"4:46:17 PM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"16:13:33"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_0b4bfeb7-5978-444a-8b64-a97efd1b5bd9","timestamp":"16:15:28"}
+{"level":"info","message":"   ----> PDF Report. Chart 2 exporting. iframe_3528c352-bef1-4461-b9d7-e35eb8ea6bd8","timestamp":"16:15:30"}
+{"level":"info","message":"   ----> PDF Report. Chart 3 exporting. iframe_d765a0fb-07eb-4b3e-86e4-8e77812f81b0","timestamp":"16:15:30"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_0b4bfeb7-5978-444a-8b64-a97efd1b5bd9","timestamp":"16:15:30"}
+{"level":"error","message":"  Something went wrong. Image wasn't generate","timestamp":"16:15:30"}
+{"level":"info","message":"   <---- PDF Report. Chart 2 exporting. iframe_3528c352-bef1-4461-b9d7-e35eb8ea6bd8","timestamp":"16:15:30"}
+{"level":"error","message":"  Something went wrong. Image wasn't generate","timestamp":"16:15:30"}
+{"level":"info","message":"   <---- PDF Report. Chart 3 exporting. iframe_d765a0fb-07eb-4b3e-86e4-8e77812f81b0","timestamp":"16:15:30"}
+{"level":"error","message":"  Something went wrong. Image wasn't generate","timestamp":"16:15:30"}
+{"level":"info","message":"   ----> Input. Convert JAVASCRIPT to PDF. Image.","timestamp":"16:15:36"}
+{"level":"error","message":"  Error. Output. Convert JAVASCRIPT to PDF. Error: write EPIPE","timestamp":"16:15:37"}
+{"level":"info","message":"   ----> Input. Convert JAVASCRIPT to SVG. Image.","timestamp":"16:15:40"}
+{"level":"info","message":"   <---- Output. Convert JAVASCRIPT to SVG. Image.","timestamp":"16:15:40"}

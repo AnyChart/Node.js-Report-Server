@@ -1,0 +1,224 @@
+{"level":"verbose","message":"log level: silly","timestamp":"10:56:00 AM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"10:56:02 AM"}
+{"level":"verbose","message":"log level: silly","timestamp":"11:15:38 AM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"11:15:40 AM"}
+{"level":"verbose","message":"log level: silly","timestamp":"11:26:04 AM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"11:26:06 AM"}
+{"level":"verbose","message":"log level: silly","timestamp":"11:27:03 AM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"11:27:04 AM"}
+{"level":"verbose","message":"log level: silly","timestamp":"11:27:43 AM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"11:27:44 AM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_f7357369-4639-486b-9378-7f0a01ac36bb","timestamp":"11:27:47 AM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_f7357369-4639-486b-9378-7f0a01ac36bb","timestamp":"11:27:47 AM"}
+{"level":"error","message":"  Something went wrong. Image wasn't generate","timestamp":"11:27:47 AM"}
+{"level":"error","message":"  Unrecognized document structure: {\"chart\":{\"data\":\"chart2.json\",\"dataType\":\"json\"},\"fit\":[250,300]}","timestamp":"11:27:47 AM"}
+{"level":"verbose","message":"log level: silly","timestamp":"11:29:07 AM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"11:29:09 AM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_a1604e50-f0ba-49a7-a3bf-5f11b23dd8c9","timestamp":"11:30:15 AM"}
+{"level":"info","message":"   ----> PDF Report. Chart 2 exporting. iframe_fbf1807d-94c0-4813-811d-a658ba7751a7","timestamp":"11:30:16 AM"}
+{"level":"info","message":"   ----> PDF Report. Chart 3 exporting. iframe_b033a930-c941-4ea0-ad5f-ff5757fdb0c3","timestamp":"11:30:16 AM"}
+{"level":"info","message":"   <---- PDF Report. Chart 2 exporting. iframe_fbf1807d-94c0-4813-811d-a658ba7751a7","timestamp":"11:30:17 AM"}
+{"level":"info","message":"   <---- PDF Report. Chart 3 exporting. iframe_b033a930-c941-4ea0-ad5f-ff5757fdb0c3","timestamp":"11:30:17 AM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_a1604e50-f0ba-49a7-a3bf-5f11b23dd8c9","timestamp":"11:30:17 AM"}
+{"level":"info","message":"   ----> Input. Convert JSON to PDF. Image.","timestamp":"11:30:23 AM"}
+{"level":"info","message":"   <---- Output. Convert JSON to PDF. Image.","timestamp":"11:30:24 AM"}
+{"level":"info","message":"   ----> Input. Convert XML to PDF. Image.","timestamp":"11:30:25 AM"}
+{"level":"info","message":"   <---- Output. Convert XML to PDF. Image.","timestamp":"11:30:25 AM"}
+{"level":"info","message":"   ----> Input. Convert JAVASCRIPT to PDF. Image.","timestamp":"11:30:26 AM"}
+{"level":"info","message":"   <---- Output. Convert JAVASCRIPT to PDF. Image.","timestamp":"11:30:26 AM"}
+{"level":"info","message":"   ----> Input. Convert SVG to PDF. Image.","timestamp":"11:30:26 AM"}
+{"level":"info","message":"   <---- Output. Convert SVG to PDF. Image.","timestamp":"11:30:27 AM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_beb7d7fa-ce9a-4b22-b7a3-4c48de53f072","timestamp":"11:33:06 AM"}
+{"level":"info","message":"   ----> PDF Report. Chart 2 exporting. iframe_82838788-f3a0-448f-b695-7064f5aa6638","timestamp":"11:33:07 AM"}
+{"level":"info","message":"   ----> PDF Report. Chart 3 exporting. iframe_7525a7b9-3daa-45f3-b644-6f94fe6f1f0a","timestamp":"11:33:07 AM"}
+{"level":"info","message":"   <---- PDF Report. Chart 2 exporting. iframe_82838788-f3a0-448f-b695-7064f5aa6638","timestamp":"11:33:08 AM"}
+{"level":"info","message":"   <---- PDF Report. Chart 3 exporting. iframe_7525a7b9-3daa-45f3-b644-6f94fe6f1f0a","timestamp":"11:33:08 AM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_beb7d7fa-ce9a-4b22-b7a3-4c48de53f072","timestamp":"11:33:08 AM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_97872e43-9a63-46f5-aa13-9a2f2a5036f0","timestamp":"11:33:58 AM"}
+{"level":"info","message":"   ----> PDF Report. Chart 2 exporting. iframe_be89be59-61cb-4692-8744-5bde345a8f49","timestamp":"11:33:59 AM"}
+{"level":"info","message":"   ----> PDF Report. Chart 3 exporting. iframe_e0fcd444-1877-4859-bb62-69519a350c23","timestamp":"11:33:59 AM"}
+{"level":"info","message":"   <---- PDF Report. Chart 2 exporting. iframe_be89be59-61cb-4692-8744-5bde345a8f49","timestamp":"11:34:00 AM"}
+{"level":"info","message":"   <---- PDF Report. Chart 3 exporting. iframe_e0fcd444-1877-4859-bb62-69519a350c23","timestamp":"11:34:00 AM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_97872e43-9a63-46f5-aa13-9a2f2a5036f0","timestamp":"11:34:00 AM"}
+{"level":"info","message":"   ----> Input. Convert JSON to PDF. Image.","timestamp":"11:34:03 AM"}
+{"level":"info","message":"   <---- Output. Convert JSON to PDF. Image.","timestamp":"11:34:04 AM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_e8a2b9a2-9195-46de-92c4-25697731ac61","timestamp":"11:34:04 AM"}
+{"level":"info","message":"   ----> PDF Report. Chart 2 exporting. iframe_2e72c5e0-d835-42bf-940a-cf22384fac16","timestamp":"11:34:05 AM"}
+{"level":"info","message":"   ----> PDF Report. Chart 3 exporting. iframe_530df99c-f827-4469-a1ac-3e0091041993","timestamp":"11:34:05 AM"}
+{"level":"info","message":"   <---- PDF Report. Chart 3 exporting. iframe_530df99c-f827-4469-a1ac-3e0091041993","timestamp":"11:34:05 AM"}
+{"level":"info","message":"   <---- PDF Report. Chart 2 exporting. iframe_2e72c5e0-d835-42bf-940a-cf22384fac16","timestamp":"11:34:05 AM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_e8a2b9a2-9195-46de-92c4-25697731ac61","timestamp":"11:34:05 AM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_b357a5da-8581-4638-acc7-5c6dce4c41ea","timestamp":"11:34:21 AM"}
+{"level":"info","message":"   ----> PDF Report. Chart 2 exporting. iframe_909faf60-f7f0-4da1-a7ba-295d69358318","timestamp":"11:34:22 AM"}
+{"level":"info","message":"   ----> PDF Report. Chart 3 exporting. iframe_b0fb9461-61c7-46d2-ba85-a7b92cc342fd","timestamp":"11:34:22 AM"}
+{"level":"info","message":"   <---- PDF Report. Chart 2 exporting. iframe_909faf60-f7f0-4da1-a7ba-295d69358318","timestamp":"11:34:22 AM"}
+{"level":"info","message":"   <---- PDF Report. Chart 3 exporting. iframe_b0fb9461-61c7-46d2-ba85-a7b92cc342fd","timestamp":"11:34:22 AM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_b357a5da-8581-4638-acc7-5c6dce4c41ea","timestamp":"11:34:22 AM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_3ec9c249-b67f-430f-975a-2335aaf9da95","timestamp":"11:35:12 AM"}
+{"level":"info","message":"   ----> PDF Report. Chart 2 exporting. iframe_aee53144-9d97-4031-ab49-9bb13f89ccf3","timestamp":"11:35:13 AM"}
+{"level":"info","message":"   ----> PDF Report. Chart 3 exporting. iframe_6d2c084b-0b30-4fb4-bb36-3b06d0794edf","timestamp":"11:35:13 AM"}
+{"level":"info","message":"   <---- PDF Report. Chart 3 exporting. iframe_6d2c084b-0b30-4fb4-bb36-3b06d0794edf","timestamp":"11:35:14 AM"}
+{"level":"info","message":"   <---- PDF Report. Chart 2 exporting. iframe_aee53144-9d97-4031-ab49-9bb13f89ccf3","timestamp":"11:35:14 AM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_3ec9c249-b67f-430f-975a-2335aaf9da95","timestamp":"11:35:14 AM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_ba766db0-6ab5-4c81-9404-35da5c6e61b6","timestamp":"11:35:24 AM"}
+{"level":"info","message":"   ----> PDF Report. Chart 2 exporting. iframe_52671d4d-85ed-43a9-a6a1-8490b4be693a","timestamp":"11:35:25 AM"}
+{"level":"info","message":"   ----> PDF Report. Chart 3 exporting. iframe_7e0f9162-6801-49d2-8240-0d91d0cfd3ca","timestamp":"11:35:25 AM"}
+{"level":"info","message":"   <---- PDF Report. Chart 3 exporting. iframe_7e0f9162-6801-49d2-8240-0d91d0cfd3ca","timestamp":"11:35:25 AM"}
+{"level":"info","message":"   <---- PDF Report. Chart 2 exporting. iframe_52671d4d-85ed-43a9-a6a1-8490b4be693a","timestamp":"11:35:25 AM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_ba766db0-6ab5-4c81-9404-35da5c6e61b6","timestamp":"11:35:25 AM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_93fd5614-d45b-4257-8e92-82b6c9dcd179","timestamp":"11:39:01 AM"}
+{"level":"info","message":"   ----> PDF Report. Chart 2 exporting. iframe_1b1cf457-f3cf-4eee-beb4-e79ab2c77121","timestamp":"11:39:01 AM"}
+{"level":"info","message":"   ----> PDF Report. Chart 3 exporting. iframe_8953e773-4478-45c2-a937-1f6d2c1d1c1c","timestamp":"11:39:02 AM"}
+{"level":"info","message":"   <---- PDF Report. Chart 2 exporting. iframe_1b1cf457-f3cf-4eee-beb4-e79ab2c77121","timestamp":"11:39:02 AM"}
+{"level":"info","message":"   <---- PDF Report. Chart 3 exporting. iframe_8953e773-4478-45c2-a937-1f6d2c1d1c1c","timestamp":"11:39:02 AM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_93fd5614-d45b-4257-8e92-82b6c9dcd179","timestamp":"11:39:02 AM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_d2d3a5a4-9cec-4a1b-bd3f-900cd6a2f4d8","timestamp":"11:43:03 AM"}
+{"level":"info","message":"   ----> PDF Report. Chart 2 exporting. iframe_0c232370-0cf2-42c8-bdbc-afa082b0aa9a","timestamp":"11:43:04 AM"}
+{"level":"info","message":"   ----> PDF Report. Chart 3 exporting. iframe_277d649c-c30b-4f71-a499-c6301f8214f1","timestamp":"11:43:04 AM"}
+{"level":"info","message":"   <---- PDF Report. Chart 2 exporting. iframe_0c232370-0cf2-42c8-bdbc-afa082b0aa9a","timestamp":"11:43:05 AM"}
+{"level":"info","message":"   <---- PDF Report. Chart 3 exporting. iframe_277d649c-c30b-4f71-a499-c6301f8214f1","timestamp":"11:43:05 AM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_d2d3a5a4-9cec-4a1b-bd3f-900cd6a2f4d8","timestamp":"11:43:05 AM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_5e427814-2d5d-422c-8b95-604c280e5f45","timestamp":"11:46:15 AM"}
+{"level":"info","message":"   ----> PDF Report. Chart 2 exporting. iframe_78e14844-fcea-4ec4-b52b-8a801129cd38","timestamp":"11:46:16 AM"}
+{"level":"info","message":"   ----> PDF Report. Chart 3 exporting. iframe_4790e2d7-8707-4862-83a1-00a460c9fb0d","timestamp":"11:46:16 AM"}
+{"level":"info","message":"   <---- PDF Report. Chart 2 exporting. iframe_78e14844-fcea-4ec4-b52b-8a801129cd38","timestamp":"11:46:16 AM"}
+{"level":"info","message":"   <---- PDF Report. Chart 3 exporting. iframe_4790e2d7-8707-4862-83a1-00a460c9fb0d","timestamp":"11:46:16 AM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_5e427814-2d5d-422c-8b95-604c280e5f45","timestamp":"11:46:17 AM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_9aecb76b-1939-41e7-ac01-e50be83c7d5c","timestamp":"11:46:21 AM"}
+{"level":"info","message":"   ----> PDF Report. Chart 2 exporting. iframe_14c6ec57-c2e8-461d-a5b0-a2ddce186621","timestamp":"11:46:22 AM"}
+{"level":"info","message":"   ----> PDF Report. Chart 3 exporting. iframe_8de87dc2-e66d-4e02-898e-4b55fb114ed9","timestamp":"11:46:22 AM"}
+{"level":"info","message":"   <---- PDF Report. Chart 2 exporting. iframe_14c6ec57-c2e8-461d-a5b0-a2ddce186621","timestamp":"11:46:22 AM"}
+{"level":"info","message":"   <---- PDF Report. Chart 3 exporting. iframe_8de87dc2-e66d-4e02-898e-4b55fb114ed9","timestamp":"11:46:22 AM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_9aecb76b-1939-41e7-ac01-e50be83c7d5c","timestamp":"11:46:22 AM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_ea55214a-8d16-4caf-867a-a32ec01c8aa6","timestamp":"12:20:18 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 2 exporting. iframe_5812f249-1df1-4bd6-944b-5997c113de86","timestamp":"12:20:19 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 3 exporting. iframe_251cf634-820a-46a9-8180-2e31a5e9bd06","timestamp":"12:20:19 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 3 exporting. iframe_251cf634-820a-46a9-8180-2e31a5e9bd06","timestamp":"12:20:20 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 2 exporting. iframe_5812f249-1df1-4bd6-944b-5997c113de86","timestamp":"12:20:20 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_ea55214a-8d16-4caf-867a-a32ec01c8aa6","timestamp":"12:20:20 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_34f5bbc5-4524-4045-951b-b15d4fb602dd","timestamp":"12:56:20 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 2 exporting. iframe_c649ef73-1a34-42cb-a788-808ff1a20ea6","timestamp":"12:56:21 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 3 exporting. iframe_a8b5c64c-4662-4b99-a1d5-e7ac07441733","timestamp":"12:56:21 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 2 exporting. iframe_c649ef73-1a34-42cb-a788-808ff1a20ea6","timestamp":"12:56:22 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 3 exporting. iframe_a8b5c64c-4662-4b99-a1d5-e7ac07441733","timestamp":"12:56:22 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_34f5bbc5-4524-4045-951b-b15d4fb602dd","timestamp":"12:56:22 PM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"1:32:48 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_ae038e8a-b5a1-435c-8f1a-b86dcaf3b07f","timestamp":"3:25:45 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 2 exporting. iframe_783ebbd9-c614-4871-be2d-9f848b60af20","timestamp":"3:25:46 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 3 exporting. iframe_d1f81d2a-fccf-4e38-8695-7e5f26dfb023","timestamp":"3:25:47 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 2 exporting. iframe_783ebbd9-c614-4871-be2d-9f848b60af20","timestamp":"3:25:47 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 3 exporting. iframe_d1f81d2a-fccf-4e38-8695-7e5f26dfb023","timestamp":"3:25:47 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_ae038e8a-b5a1-435c-8f1a-b86dcaf3b07f","timestamp":"3:25:47 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_a68e4c88-e946-4350-87ac-fcc49c001aa0","timestamp":"3:26:13 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_a68e4c88-e946-4350-87ac-fcc49c001aa0","timestamp":"3:26:14 PM"}
+{"message":"  ","stack":"TypeError: Cannot convert undefined or null to object\n    at DocPreprocessor.preprocessNode (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/docPreprocessor.js:25:20)\n    at DocPreprocessor.preprocessDocument (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/docPreprocessor.js:12:14)\n    at LayoutBuilder.tryLayoutDocument (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/layoutBuilder.js:131:38)\n    at LayoutBuilder.layoutDocument (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/layoutBuilder.js:119:20)\n    at PdfPrinter.createPdfKitDocument (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/printer.js:101:22)\n    at /Users/blackart/Work/node-export-server/index.js:352:28\n    at Object.imgConvertCallback (/Users/blackart/Work/node-export-server/index.js:188:11)\n    at Object.callback (/Users/blackart/Work/node-export-server/index.js:95:15)\n    at next (/Users/blackart/Work/AnyChart-NodeJS/node_modules/async/lib/async.js:798:43)\n    at /Users/blackart/Work/AnyChart-NodeJS/node_modules/async/lib/async.js:32:16","level":"error","timestamp":"3:26:14 PM"}
+{"level":"verbose","message":"log level: silly","timestamp":"3:26:49 PM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"3:26:51 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_8e0ae57e-3fd1-4ad7-ace9-b584ca6ef0bd","timestamp":"3:26:55 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_8e0ae57e-3fd1-4ad7-ace9-b584ca6ef0bd","timestamp":"3:26:55 PM"}
+{"message":"  ","stack":"TypeError: Cannot convert undefined or null to object\n    at DocPreprocessor.preprocessNode (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/docPreprocessor.js:25:20)\n    at DocPreprocessor.preprocessDocument (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/docPreprocessor.js:12:14)\n    at LayoutBuilder.tryLayoutDocument (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/layoutBuilder.js:131:38)\n    at LayoutBuilder.layoutDocument (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/layoutBuilder.js:119:20)\n    at PdfPrinter.createPdfKitDocument (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/printer.js:101:22)\n    at /Users/blackart/Work/node-export-server/index.js:352:28\n    at Object.imgConvertCallback (/Users/blackart/Work/node-export-server/index.js:188:11)\n    at Object.callback (/Users/blackart/Work/node-export-server/index.js:95:15)\n    at next (/Users/blackart/Work/AnyChart-NodeJS/node_modules/async/lib/async.js:798:43)\n    at /Users/blackart/Work/AnyChart-NodeJS/node_modules/async/lib/async.js:32:16","level":"error","timestamp":"3:26:55 PM"}
+{"level":"verbose","message":"log level: silly","timestamp":"3:29:13 PM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"3:29:15 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_6d5e9981-90d9-4e89-a052-681ca256cef4","timestamp":"3:29:20 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_6d5e9981-90d9-4e89-a052-681ca256cef4","timestamp":"3:29:21 PM"}
+{"message":"  ","stack":"TypeError: Cannot convert undefined or null to object\n    at DocPreprocessor.preprocessNode (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/docPreprocessor.js:25:20)\n    at DocPreprocessor.preprocessDocument (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/docPreprocessor.js:12:14)\n    at LayoutBuilder.tryLayoutDocument (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/layoutBuilder.js:131:38)\n    at LayoutBuilder.layoutDocument (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/layoutBuilder.js:119:20)\n    at PdfPrinter.createPdfKitDocument (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/printer.js:101:22)\n    at /Users/blackart/Work/node-export-server/index.js:353:28\n    at Object.imgConvertCallback (/Users/blackart/Work/node-export-server/index.js:189:11)\n    at Object.callback (/Users/blackart/Work/node-export-server/index.js:95:15)\n    at next (/Users/blackart/Work/AnyChart-NodeJS/node_modules/async/lib/async.js:798:43)\n    at /Users/blackart/Work/AnyChart-NodeJS/node_modules/async/lib/async.js:32:16","level":"error","timestamp":"3:29:21 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_d6b0de1c-bd5b-463d-9c26-2306d3fdc877","timestamp":"3:29:48 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 2 exporting. iframe_e55fe0f3-8655-4d51-aa58-2dc7102a410b","timestamp":"3:29:50 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 3 exporting. iframe_601f4732-b13b-4690-8382-4497db51ec23","timestamp":"3:29:50 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 2 exporting. iframe_e55fe0f3-8655-4d51-aa58-2dc7102a410b","timestamp":"3:29:50 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 3 exporting. iframe_601f4732-b13b-4690-8382-4497db51ec23","timestamp":"3:29:50 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_d6b0de1c-bd5b-463d-9c26-2306d3fdc877","timestamp":"3:29:50 PM"}
+{"level":"verbose","message":"log level: silly","timestamp":"3:34:06 PM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"3:34:08 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_1a44acca-ce99-4f07-8a46-bcebf7e5455a","timestamp":"3:34:22 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 2 exporting. iframe_dc636a55-1be3-4976-b7ea-fa405611a948","timestamp":"3:34:23 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 3 exporting. iframe_3f602ec6-cef4-456c-88c8-0628102e3408","timestamp":"3:34:23 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 3 exporting. iframe_3f602ec6-cef4-456c-88c8-0628102e3408","timestamp":"3:34:24 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 2 exporting. iframe_dc636a55-1be3-4976-b7ea-fa405611a948","timestamp":"3:34:24 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_1a44acca-ce99-4f07-8a46-bcebf7e5455a","timestamp":"3:34:24 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_7e4eb78f-1705-4446-a667-d90139c50bc5","timestamp":"3:36:03 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_7e4eb78f-1705-4446-a667-d90139c50bc5","timestamp":"3:36:03 PM"}
+{"level":"error","message":"  Something went wrong. Image wasn't generate","timestamp":"3:36:03 PM"}
+{"level":"error","message":"  Unrecognized document structure: {\"chart\":{\"data\":\"chart2.json\",\"dataType\":\"json\"},\"fit\":[250,300]}","timestamp":"3:36:03 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_b73a16fb-43b0-443a-b03d-127f017df7d1","timestamp":"3:39:28 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_b73a16fb-43b0-443a-b03d-127f017df7d1","timestamp":"3:39:29 PM"}
+{"message":"  ","stack":"TypeError: Cannot convert undefined or null to object\n    at DocPreprocessor.preprocessNode (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/docPreprocessor.js:25:20)\n    at DocPreprocessor.preprocessDocument (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/docPreprocessor.js:12:14)\n    at LayoutBuilder.tryLayoutDocument (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/layoutBuilder.js:131:38)\n    at LayoutBuilder.layoutDocument (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/layoutBuilder.js:119:20)\n    at PdfPrinter.createPdfKitDocument (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/printer.js:101:22)\n    at /Users/blackart/Work/node-export-server/index.js:353:28\n    at Object.imgConvertCallback (/Users/blackart/Work/node-export-server/index.js:189:11)\n    at Object.callback (/Users/blackart/Work/node-export-server/index.js:95:15)\n    at next (/Users/blackart/Work/AnyChart-NodeJS/node_modules/async/lib/async.js:798:43)\n    at /Users/blackart/Work/AnyChart-NodeJS/node_modules/async/lib/async.js:32:16","level":"error","timestamp":"3:39:29 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_759fb15c-447f-4c3d-bdc5-126e1c6cf95a","timestamp":"3:39:46 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_759fb15c-447f-4c3d-bdc5-126e1c6cf95a","timestamp":"3:39:47 PM"}
+{"message":"  ","stack":"TypeError: Cannot convert undefined or null to object\n    at DocPreprocessor.preprocessNode (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/docPreprocessor.js:25:20)\n    at DocPreprocessor.preprocessDocument (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/docPreprocessor.js:12:14)\n    at LayoutBuilder.tryLayoutDocument (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/layoutBuilder.js:131:38)\n    at LayoutBuilder.layoutDocument (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/layoutBuilder.js:119:20)\n    at PdfPrinter.createPdfKitDocument (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/printer.js:101:22)\n    at /Users/blackart/Work/node-export-server/index.js:353:28\n    at Object.imgConvertCallback (/Users/blackart/Work/node-export-server/index.js:189:11)\n    at Object.callback (/Users/blackart/Work/node-export-server/index.js:95:15)\n    at next (/Users/blackart/Work/AnyChart-NodeJS/node_modules/async/lib/async.js:798:43)\n    at /Users/blackart/Work/AnyChart-NodeJS/node_modules/async/lib/async.js:32:16","level":"error","timestamp":"3:39:47 PM"}
+{"level":"verbose","message":"log level: silly","timestamp":"3:43:02 PM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"3:43:03 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_fe7fbe58-e1ba-4aee-9448-11439039b820","timestamp":"3:43:05 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_fe7fbe58-e1ba-4aee-9448-11439039b820","timestamp":"3:43:05 PM"}
+{"message":"  ","stack":"TypeError: Cannot convert undefined or null to object\n    at DocPreprocessor.preprocessNode (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/docPreprocessor.js:25:20)\n    at DocPreprocessor.preprocessDocument (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/docPreprocessor.js:12:14)\n    at LayoutBuilder.tryLayoutDocument (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/layoutBuilder.js:131:38)\n    at LayoutBuilder.layoutDocument (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/layoutBuilder.js:119:20)\n    at PdfPrinter.createPdfKitDocument (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/printer.js:101:22)\n    at /Users/blackart/Work/node-export-server/index.js:355:28\n    at Object.imgConvertCallback (/Users/blackart/Work/node-export-server/index.js:191:11)\n    at Object.callback (/Users/blackart/Work/node-export-server/index.js:95:15)\n    at next (/Users/blackart/Work/AnyChart-NodeJS/node_modules/async/lib/async.js:798:43)\n    at /Users/blackart/Work/AnyChart-NodeJS/node_modules/async/lib/async.js:32:16","level":"error","timestamp":"3:43:05 PM"}
+{"level":"verbose","message":"log level: silly","timestamp":"3:43:46 PM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"3:43:47 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_a50da2d8-1441-4e25-9f30-b82900a6b292","timestamp":"3:43:55 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_a50da2d8-1441-4e25-9f30-b82900a6b292","timestamp":"3:43:56 PM"}
+{"message":"  ","stack":"TypeError: Cannot convert undefined or null to object\n    at DocPreprocessor.preprocessNode (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/docPreprocessor.js:25:20)\n    at DocPreprocessor.preprocessDocument (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/docPreprocessor.js:12:14)\n    at LayoutBuilder.tryLayoutDocument (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/layoutBuilder.js:131:38)\n    at LayoutBuilder.layoutDocument (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/layoutBuilder.js:119:20)\n    at PdfPrinter.createPdfKitDocument (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/printer.js:101:22)\n    at /Users/blackart/Work/node-export-server/index.js:355:28\n    at Object.imgConvertCallback (/Users/blackart/Work/node-export-server/index.js:191:11)\n    at Object.callback (/Users/blackart/Work/node-export-server/index.js:95:15)\n    at next (/Users/blackart/Work/AnyChart-NodeJS/node_modules/async/lib/async.js:798:43)\n    at /Users/blackart/Work/AnyChart-NodeJS/node_modules/async/lib/async.js:32:16","level":"error","timestamp":"3:43:56 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_184b4e65-1cca-42dd-bb60-9439bd29c101","timestamp":"3:45:54 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_184b4e65-1cca-42dd-bb60-9439bd29c101","timestamp":"3:45:55 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_2ac9a22f-bcc7-433a-ae7b-482bcf3ddfb0","timestamp":"3:46:34 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_2ac9a22f-bcc7-433a-ae7b-482bcf3ddfb0","timestamp":"3:46:35 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_2d56c021-7425-4ef5-b800-09f1fd34cd82","timestamp":"3:46:45 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_2d56c021-7425-4ef5-b800-09f1fd34cd82","timestamp":"3:46:45 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_6dcbb9f2-4a17-4166-bcbf-ec78e33d4d07","timestamp":"3:47:03 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_6dcbb9f2-4a17-4166-bcbf-ec78e33d4d07","timestamp":"3:47:04 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_1cc7ba95-645d-4150-aef4-85cbe4730041","timestamp":"3:47:09 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_1cc7ba95-645d-4150-aef4-85cbe4730041","timestamp":"3:47:09 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_0d03933c-cf41-49fa-a018-6973d4afe88b","timestamp":"3:47:34 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_0d03933c-cf41-49fa-a018-6973d4afe88b","timestamp":"3:47:35 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_ccb1ae12-be37-409f-9901-966dbd793707","timestamp":"4:10:51 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_ccb1ae12-be37-409f-9901-966dbd793707","timestamp":"4:10:51 PM"}
+{"message":"  ","stack":"TypeError: Cannot convert undefined or null to object\n    at DocPreprocessor.preprocessNode (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/docPreprocessor.js:25:20)\n    at DocPreprocessor.preprocessDocument (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/docPreprocessor.js:12:14)\n    at LayoutBuilder.tryLayoutDocument (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/layoutBuilder.js:131:38)\n    at LayoutBuilder.layoutDocument (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/layoutBuilder.js:119:20)\n    at PdfPrinter.createPdfKitDocument (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/printer.js:101:22)\n    at /Users/blackart/Work/node-export-server/index.js:355:28\n    at Object.imgConvertCallback (/Users/blackart/Work/node-export-server/index.js:191:11)\n    at Object.callback (/Users/blackart/Work/node-export-server/index.js:95:15)\n    at next (/Users/blackart/Work/AnyChart-NodeJS/node_modules/async/lib/async.js:798:43)\n    at /Users/blackart/Work/AnyChart-NodeJS/node_modules/async/lib/async.js:32:16","level":"error","timestamp":"4:10:51 PM"}
+{"message":"  ","stack":"TypeError: Cannot read property 'pageSize' of undefined\n    at PdfPrinter.createPdfKitDocument (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/printer.js:85:42)\n    at /Users/blackart/Work/node-export-server/index.js:355:28\n    at convertCharts (/Users/blackart/Work/node-export-server/index.js:206:5)\n    at /Users/blackart/Work/node-export-server/index.js:353:3\n    at Layer.handle [as handle_request] (/Users/blackart/Work/node-export-server/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/blackart/Work/node-export-server/node_modules/express/lib/router/route.js:137:13)\n    at Route.dispatch (/Users/blackart/Work/node-export-server/node_modules/express/lib/router/route.js:112:3)\n    at Layer.handle [as handle_request] (/Users/blackart/Work/node-export-server/node_modules/express/lib/router/layer.js:95:5)\n    at /Users/blackart/Work/node-export-server/node_modules/express/lib/router/index.js:281:22\n    at Function.process_params (/Users/blackart/Work/node-export-server/node_modules/express/lib/router/index.js:335:12)","level":"error","timestamp":"4:11:00 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_d81945c0-3ae4-4a33-9386-217985349726","timestamp":"4:14:00 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_d81945c0-3ae4-4a33-9386-217985349726","timestamp":"4:14:00 PM"}
+{"message":"  ","stack":"TypeError: Cannot convert undefined or null to object\n    at DocPreprocessor.preprocessNode (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/docPreprocessor.js:25:20)\n    at DocPreprocessor.preprocessDocument (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/docPreprocessor.js:12:14)\n    at LayoutBuilder.tryLayoutDocument (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/layoutBuilder.js:131:38)\n    at LayoutBuilder.layoutDocument (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/layoutBuilder.js:119:20)\n    at PdfPrinter.createPdfKitDocument (/Users/blackart/Work/node-export-server/node_modules/pdfmake/src/printer.js:101:22)\n    at /Users/blackart/Work/node-export-server/index.js:355:28\n    at Object.imgConvertCallback (/Users/blackart/Work/node-export-server/index.js:191:11)\n    at Object.callback (/Users/blackart/Work/node-export-server/index.js:95:15)\n    at next (/Users/blackart/Work/AnyChart-NodeJS/node_modules/async/lib/async.js:798:43)\n    at /Users/blackart/Work/AnyChart-NodeJS/node_modules/async/lib/async.js:32:16","level":"error","timestamp":"4:14:00 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_2ba57fa8-c993-4f56-ba85-1f8a3636ad35","timestamp":"4:14:07 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_2ba57fa8-c993-4f56-ba85-1f8a3636ad35","timestamp":"4:14:07 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_ab09f1c3-73f5-4c60-8438-8ad60d1dc9f0","timestamp":"4:16:37 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_ab09f1c3-73f5-4c60-8438-8ad60d1dc9f0","timestamp":"4:16:37 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_6d18e8bc-ff0c-42ba-a6c0-0544fbfacad1","timestamp":"4:16:46 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_6d18e8bc-ff0c-42ba-a6c0-0544fbfacad1","timestamp":"4:16:46 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_68093026-22e6-4ecf-b950-9efceae57c03","timestamp":"4:49:03 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_68093026-22e6-4ecf-b950-9efceae57c03","timestamp":"4:49:03 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_4208c5a2-f261-4df2-8681-b83f169edabf","timestamp":"4:49:16 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 2 exporting. iframe_877be122-03dc-46c5-9433-a969bf6d75af","timestamp":"4:49:18 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 3 exporting. iframe_c96355d7-9594-427b-b6bd-66d37c434d9c","timestamp":"4:49:18 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 3 exporting. iframe_c96355d7-9594-427b-b6bd-66d37c434d9c","timestamp":"4:49:18 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 2 exporting. iframe_877be122-03dc-46c5-9433-a969bf6d75af","timestamp":"4:49:18 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_4208c5a2-f261-4df2-8681-b83f169edabf","timestamp":"4:49:18 PM"}
+{"level":"verbose","message":"log level: silly","timestamp":"4:55:29 PM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"4:55:31 PM"}
+{"level":"verbose","message":"log level: silly","timestamp":"4:57:05 PM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"4:57:06 PM"}
+{"level":"verbose","message":"log level: silly","timestamp":"4:57:41 PM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"4:57:43 PM"}
+{"level":"verbose","message":"log level: silly","timestamp":"4:58:34 PM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"4:58:35 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_a3a52d31-4e49-46ad-a4c9-034f97c4f191","timestamp":"5:01:40 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_a3a52d31-4e49-46ad-a4c9-034f97c4f191","timestamp":"5:01:41 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_2773750a-cf86-4aa9-8108-02295869b072","timestamp":"5:01:56 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_2773750a-cf86-4aa9-8108-02295869b072","timestamp":"5:01:56 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_84e65a47-6862-46af-873b-f5776fad2785","timestamp":"5:08:33 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_84e65a47-6862-46af-873b-f5776fad2785","timestamp":"5:08:33 PM"}
+{"level":"error","message":"  Something went wrong. Image wasn't generate","timestamp":"5:08:33 PM"}
+{"level":"verbose","message":"log level: silly","timestamp":"5:09:20 PM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"5:09:22 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_8c039b5b-81d1-45ce-92a0-fcc7b263bfbb","timestamp":"5:09:23 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_8c039b5b-81d1-45ce-92a0-fcc7b263bfbb","timestamp":"5:09:24 PM"}
+{"level":"error","message":"  Something went wrong. Image wasn't generate","timestamp":"5:09:24 PM"}
+{"level":"verbose","message":"log level: silly","timestamp":"5:10:04 PM"}
+{"level":"info","message":"   Export server listening on port 3000!","timestamp":"5:10:06 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_797b019e-6eb8-4a11-a141-adf3374371c3","timestamp":"5:10:06 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_797b019e-6eb8-4a11-a141-adf3374371c3","timestamp":"5:10:07 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_98c9326c-37e1-4658-a389-5b9225c44027","timestamp":"5:10:08 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_98c9326c-37e1-4658-a389-5b9225c44027","timestamp":"5:10:08 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_8eca5ab5-b857-48a5-b8a4-b8d92cb59b45","timestamp":"5:10:10 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_8eca5ab5-b857-48a5-b8a4-b8d92cb59b45","timestamp":"5:10:10 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_cf619904-ee39-4869-a68a-f3e0a64ca193","timestamp":"5:10:17 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_cf619904-ee39-4869-a68a-f3e0a64ca193","timestamp":"5:10:18 PM"}
+{"level":"info","message":"   ----> PDF Report. Chart 1 exporting. iframe_36f205cf-27f8-4ab4-b36c-a0e7bb99ba65","timestamp":"5:11:31 PM"}
+{"level":"info","message":"   <---- PDF Report. Chart 1 exporting. iframe_36f205cf-27f8-4ab4-b36c-a0e7bb99ba65","timestamp":"5:11:31 PM"}
+{"level":"error","message":"  Something went wrong. Image wasn't generate","timestamp":"5:11:31 PM"}
