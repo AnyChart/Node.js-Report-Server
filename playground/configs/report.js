@@ -31,7 +31,7 @@
           "dataType": "javascript",
           "containerId": "customId"
         },
-        "fit": [500, 500]
+        "fit": [500, 400]
       },
       {
         "columns": [

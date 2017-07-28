@@ -5,44 +5,58 @@
 ## Installation and running
 
 ### Installation
-npm
+Первым делом необходимо убедиться, что уставновлен nodejs. Перейдите на [nodejs](https://nodejs.org/en/download/) чтобы загрузить и установить его.
+
+Установить можно через npm package manager:
+
 ```
 npm install anychart-export-server -g
 ```
-git
+Или склонировав git репозиторий:
+
 ```
 git clone git@github.com:AnyChart/node-export-server.git
 npm install
+npm link
 ```
-Binary dependency<br>
+
+Для работы сервера необходимо установить пакеты для работы с изображениями - ImageMagick и librsvg. Выберите способ установки относительно вашей платформы:
 
 Ububntu
+
 ```
 apt-get install imagemagick librsvg2-dev
 ```
+
 Mac OS X
+
 ```
 brew install imagemagick librsvg
 ```
+
 Windows
+
 - [imagemagick](https://www.imagemagick.org/script/download.php)<br>
 - [GTK+ bundle](http://win32builder.gnome.org/gtk+-bundle_3.6.4-20131201_win64.zip)<br>
 - [RSVG lib](https://downloads.sourceforge.net/project/tumagcc/converters/rsvg-convert.exe?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Ftumagcc%2Ffiles%2Frsvg-convert.exe%2Fdownload&ts=1500995628&use_mirror=netix)
 
 
 ### Running
-- Запускаем через консоль
+
 ```
-> anychart-export-server
+> anychart-export-server [arguments]
+1:32:48 PM - info:    Export server listening on port 3000!
 ```
 
 #### Options
 
 | Name  | Type | Description |
 | ------------- | ------------- | ------------- |
-| port  | number  | todo desc |
+| port  | number  | TCP port |
 | output-dir  | string | то куда будем сохранять все файлы |
-| disable-scripts-executing  | boolean | можно ли запускать скрипты |
+| disable-scripts-executing | boolean | можно ли запускать скрипты |
+| log-level | string | Уровень логирования, допустимые значения: error, warn, info, verbose, debug, silly |
+| disable-playground | boolean | Выключение приложения playground (который находится по роуту /playground ) |
 
 ### Tutorials
 - Running AnyChart Export Server on Digital Ocean
@@ -60,15 +74,62 @@ POST /pdf-report
 #### Input
 | Name  | Type | Description |
 | ------------- | ------------- | ------------- |
-| file_name  | string  | todo desc |
-| data | JSON, JavaScript | http://pdfmake.org/index.html#/gettingstarted |
-| data_type  | string  | JSON, JavaScript |
-| response_type  | string  | file, base64string or url |
+| file_name  | string  | Имя файла. Используется, если *response_type* задан как *file* |
+| data | javascript string | Формат данных описан ниже |
+| response_type  | string  | Тип данных, который отдаст сервер: *file*, *base64* or *url* |
 
+#####Data
+Формат данных - это self executing функция, которая возвращает объект формата [pdfmake](http://pdfmake.org/index.html#/gettingstarted). Ко всем возможностям *pdfmake* добавляется возможность вставлять в PDF документ anychart чарты. Чарт добавляется как поле *chart* которому соответсвует объект определенного формата. Объект, описывающий чарт имеет следующий формат:
 
-#### Example
+| Name  | Possible values | Description |
+| ------------- | ------------- | ------------- |
+| data  | javascript, JSON, XML, SVG string | Строка, определяющая непосредственно сам чарт. |
+| dataType | javascript, JSON, XML, SVG | Опеределяет тип данных в поле data |
+| containerId  | any string  | Определяет id контейнера который задан чарту в поле data. Этот id должен соответствовать контейнеру, в который будет отрисован чарт. |
+К чарту могут быть применены все свойства, которые можно применить к *image* в pdmake, смотрите пример ниже.
+
+#### Examples
+Пример данных для pdf report
+
 ```
-todo
+(function() {
+  return {
+    content: [
+      {
+        "chart": {
+          "data": "chart = anychart.line([1,2,3]); chart.container('custom_container_id').draw();",
+          "dataType": "javascript",
+          "containerId": "custom_container_id"
+        },
+        "fit": [500, 500]
+      }
+    ]
+  }
+})();
+```
+Чтобы данные такого формата отправить на сервер, их необходимо преврить в строку. Самое простое - заинлайнить их и превратить в строку
+
+```
+var data = "(function(){return {content:[{chart:{data: \"chart = anychart.line([1,2,3]); chart.container('custom_container_id').draw();\", dataType: 'javascript', containerId: 'custom_container_id'},fit: [500, 500]}]}})();"
+```
+Так же можно подгружать их из файла как текст, брать из html формы или каким-либо другим способом превращать в строку.
+
+Пример ajax запроса на сервер с помощью [jQuery.ajax()](http://api.jquery.com/jquery.ajax/)
+
+```
+  $.ajax({
+    method: 'POST',
+    dataType: 'json',
+    url: '/pdf-report',
+    data: {
+      response_type: 'base64',
+      data: data //from above snippet
+    }
+  }).done(function(resData) {
+    //to do something
+  }).fail(function(err) {
+    //to do something
+  });
 ```
 
 #### Curl

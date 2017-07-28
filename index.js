@@ -12,15 +12,53 @@ var XMLparser = new DOMParser();
 var csv = require('csv');
 var xlsx = require('xlsx');
 var path = require('path');
+var winston = require('winston');
+var winstonDRF = require('winston-daily-rotate-file');
 
 program
     .version('1.0.0')
     .option('-p, --port [value]', 'TCP port of server ', 3000)
     .option('-o, --output-dir [value]', 'Output directory', 'shared')
-    .option('-d, --disable-scripts-executing [value]', 'Whether script execution disabled', false);
+    .option('-d, --disable-scripts-executing [value]', 'Whether script execution disabled', false)
+    .option('--log-level [value]', 'Level of logging. Possible values: error, warn, info, verbose, debug, silly', 'info')
+    .option('--disable-playground [value]', 'Disable playground app.', false);
 
 program.parse(process.argv);
 
+function tsFormat() {return (new Date()).toLocaleTimeString()}
+
+
+var logLevel = program.logLevel;
+var logger = new (winston.Logger)({
+  transports: [
+    new (winston.transports.Console)({
+      timestamp: tsFormat,
+      level: logLevel,
+      colorize: true
+    }),
+    new (winstonDRF)({
+      name: 'all',
+      timestamp: tsFormat,
+      datePattern: 'yyyy-MM-dd',
+      prepend: true,
+      filename: path.join(__dirname, 'logs', '-all.log'),
+      level: logLevel
+    }),
+    new (winstonDRF)({
+      name: 'error-file',
+      timestamp: tsFormat,
+      datePattern: 'yyyy-MM-dd',
+      prepend: true,
+      filename: path.join(__dirname, 'logs', '-error.log'),
+      level: 'error'
+    })
+  ]
+});
+logger.cli();
+winston.addColors({error: 'red', warn: 'yellow', info: 'blue', verbose: 'grey', debug: 'black', silly: 'white'});
+logger.verbose('log level:', logLevel);
+
+var blankImage = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=';
 var rootDoc = jsdom('<body></body>');
 var window = rootDoc.defaultView;
 var iframeDoc = null;
@@ -48,7 +86,6 @@ var printer = new pdfMake(fontDescriptors);
 var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({parameterLimit: 100000, limit: '50mb', extended: true}));
-app.use(express.static(path.join(__dirname, 'example')));
 
 function partial(fn, var_args) {
   var args = Array.prototype.slice.call(arguments, 1);
@@ -133,16 +170,15 @@ function convertCharts(obj, callback) {
       }
 
       chartsToConvert++;
-      console.log('----> PDF Report. Chart ' + chartsToConvert + ' exporting.', iframeId);
+      logger.info('----> PDF Report. Chart ' + chartsToConvert + ' exporting.', iframeId);
       var imgConvertCallback = partial(function imgConvertCallback(id, chartNum, err, data) {
         clearSandbox(id);
-        console.log('<---- PDF Report. Chart ' + chartNum + ' exporting.', id);
-
+        logger.info('<---- PDF Report. Chart ' + chartNum + ' exporting.', id);
         if (data) {
           o.image = 'data:image/png;base64,' + data.toString('base64');
         } else {
-          o.image = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
-          console.warn('Something went wrong. Image wasn\'t generate');
+          o.image = blankImage;
+          logger.error('Something went wrong. Image wasn\'t generate');
         }
 
         delete o[key];
@@ -155,11 +191,15 @@ function convertCharts(obj, callback) {
       var params = {type: 'png', document: iframeDoc, containerId: containerId, iframeId: iframeId};
       applyImageParams(params, ch);
       anychart_nodejs.exportTo(chart, params, imgConvertCallback);
+    } else {
+      o.image = blankImage;
+      delete o[key];
+      logger.warn('Chart was replaced with blank Image');
     }
   });
 
   if (chartsToConvert === 0) {
-    callback(obj)
+    callback(obj)              
   }
 }
 
@@ -211,6 +251,8 @@ function getChartData(data, type) {
     case 'javascript':
       if (!program.disableScriptsExecuting) {
         chart = data;
+      } else {
+        logger.warn('Script executing disabled.');
       }
       break;
   }
@@ -242,18 +284,18 @@ function sendResult(req, res, data, fileType) {
       if (err) {
         if (err.code === 'ENOENT') {
           fs.mkdirSync(program.outputDir);
-          console.log('Directory ' + program.outputDir + ' was created.');
+          logger.info('Directory ' + program.outputDir + ' was created.');
         } else {
-          console.warn(err.message);
+          logger.error(err.message);
           return;
         }
       }
 
       fs.writeFile(path, data, function(err) {
         if (err) {
-          console.warn(err.message);
+          logger.error(err.message);
         } else {
-          console.log('Written to file ' + path);
+          logger.info('Written to file ' + path);
           res.send(JSON.stringify({'url': path}));
         }
       });
@@ -274,11 +316,12 @@ function generateOutput(req, res) {
       chart.container(containerId);
     }
 
-    console.log('----> Input. Convert ' + dataType.toUpperCase() + ' to ' + fileType.toUpperCase() + '. Image.', iframeId);
+    logger.info('----> Input. Convert %s to %s. Image.', dataType.toUpperCase(), fileType.toUpperCase());
     var imgConvertCallback = partial(function imgConvertCallback(id, fileType, dataType, err, data) {
-      console.log('<---- Output. Convert ' + dataType.toUpperCase() + ' to ' + fileType.toUpperCase() + '. Image.', id);
       if (err)
-        console.warn('Error. Output. Convert ' + dataType.toUpperCase() + ' to ' + fileType.toUpperCase() + '.', err.message.trim(), id);
+        logger.error('Error. Output. Convert %s to %s. Error: %s', dataType.toUpperCase(), fileType.toUpperCase(), err.message.trim());
+      else
+        logger.info('<---- Output. Convert %s to %s. Image.', dataType.toUpperCase(), fileType.toUpperCase());
 
       if (!data || err) {
         res.writeHead(500);
@@ -315,11 +358,11 @@ app.post('/pdf-report', function (req, res) {
         sendResult(req, res, Buffer.concat(chunks), fileType);
       });
       pdfDoc.on('error', function(e) {
-        console.warn(e.message)
+        logger.error(e)
       });
       pdfDoc.end();
     } catch (e) {
-      console.warn(e.message);
+      logger.error(e);
       res.writeHead(500);
       res.send();
     }
@@ -330,7 +373,7 @@ app.post('/vector-image', function (req, res) {
   try {
     generateOutput(req, res);
   } catch (e) {
-    console.warn(e.message);
+    logger.error(e.message);
   }
 });
 
@@ -338,7 +381,7 @@ app.post('/raster-image', function (req, res) {
   try {
     generateOutput(req, res);
   } catch (e) {
-    console.warn(e.message);
+    logger.error(e.message);
   }
 });
 
@@ -358,12 +401,19 @@ app.post('/data-file', function (req, res) {
   sendResult(req, res, outputData, fileType)
 });
 
+if (!program.disablePlayground) {
+  app.use(express.static(path.join(__dirname, 'playground')));
+  app.get('/playground', function(req, res) {
+    res.sendFile(path.join(__dirname + '/playground/template.html'));
+  });
+}
+
 app.get('/status', function (req, res) {
   res.send('ok');
 });
 
 app.listen(program.port, function () {
-  console.log('Export server listening on port ' + program.port + '!')
+  logger.info('Export server listening on port ' + program.port + '!')
 });
 
 module.exports = app;
