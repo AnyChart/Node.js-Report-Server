@@ -65,12 +65,10 @@ var iframeDoc = null;
 var iframes = {};
 var allowableImageParams = ['aspect-ratio', 'height', 'width', 'background', 'border', 'blur', 'contrast', 'crop', 'frame', 'gamma', 'monochrome', 'negative', 'noise', 'quality'];
 
-// console.time('anychart init');
 var anychart = require('anychart')(window);
 // var anychart = require('../ACDVF/out/anychart-bundle.min.js')(window);
 // var anychart_nodejs = require('anychart-nodejs')(anychart);
 var anychart_nodejs = require('../AnyChart-NodeJS')(anychart);
-// console.timeEnd('anychart init');
 
 var pdfMake = require('pdfmake');
 var fontDescriptors = {
@@ -144,9 +142,7 @@ function createSandbox(containerTd) {
 }
 
 function clearSandbox(iframeId) {
-  // console.time('clear sandbox');
   rootDoc.body.removeChild(rootDoc.getElementById(iframeId));
-  // console.timeEnd('clear sandbox');
 }
 
 function convertCharts(obj, callback) {
@@ -295,14 +291,14 @@ function sendResult(req, res, data, fileType) {
           fs.mkdirSync(program.outputDir);
           logger.info('Directory ' + program.outputDir + ' was created.');
         } else {
-          logger.error(err.message);
+          logger.error(err);
           return;
         }
       }
 
       fs.writeFile(path, data, function(err) {
         if (err) {
-          logger.error(err.message);
+          logger.error(err);
         } else {
           logger.info('Written to file ' + path);
 
@@ -356,7 +352,7 @@ app.post('/pdf-report', function (req, res) {
     var script = new vm.VM();
     var data = script.run(req.body.data);
   } catch (e) {
-    logger.error(e.message);
+    logger.error(e);
     res.status(500).send({error: e.message});
     return;
   }
@@ -389,7 +385,7 @@ app.post('/vector-image', function (req, res) {
 
     generateOutput(req, res);
   } catch (e) {
-    logger.error(e.message);
+    logger.error(e);
   }
 });
 
@@ -397,7 +393,7 @@ app.post('/raster-image', function (req, res) {
   try {
     generateOutput(req, res);
   } catch (e) {
-    logger.error(e.message);
+    logger.error(e);
   }
 });
 
@@ -419,7 +415,7 @@ app.post('/data-file', function (req, res) {
       sendResult(req, res, data, fileType)
     }
   } catch (e) {
-    logger.error(e.message);
+    logger.error(e);
   }
 });
 
