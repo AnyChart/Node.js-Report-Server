@@ -271,6 +271,7 @@ function convert(data, data_type, file_type, contentType, responseType, url) {
     $('#viewimage').css('display', 'inline-block');
     $('#viewpdf').css('display', 'none');
     $('#viewsvg').css('display', 'none');
+    console.log(e);
   });
 }
 
