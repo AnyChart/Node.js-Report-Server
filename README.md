@@ -164,17 +164,17 @@ POST /raster-image
 | file_name  | string  | Имя файла. Актуально, если *response_type* задан как *file* |
 | file_type  | string  | Output file type. Possible values: *PNG*, *JPG* or *TIFF*. Default: *PNG* |
 | response_type  | string  |  Output data format. Possible values: *file*, *base64* or *url*. Default: *file*|
-| background  | ???  | ??? |
-| border  | ???  | ??? |
-| blur  | ???  | ??? |
-| contrast  | ???  | ??? |
-| crop  | ???  | ??? |
-| frame  | ???  | ??? |
-| gamma  | ???  | ??? |
-| monochrome  | ???  | ??? |
-| negative  | ???  | ??? |
-| noize  | ???  | ??? |
-| quality  | ???  | ??? |
+| background  | ???  | Background color |
+| border  | Array\.\<number\>  | Surround the image with a border of color [width, height]  |
+| blur  | Array\.\<number\>  | Accepts a radius and optional sigma (standard deviation). [radius [, sigma]] |
+| contrast  | number | Increases or reduces the image contrast. Accepts a multiplier. [+-]multiplier |
+| crop  | Array\.\<number\> | Crops the image to the given width and height at the given x and y position. [width, height, x, y] |
+| frame  | Array\.\<number\>  | Surround the image with an ornamental border. [width, height, outer bevel width, inner bevel width] |
+| gamma  | number  | Level of gamma correction. Reasonable values extend from 0.8 to 2.3. |
+| monochrome  | -  | Transforms the image to black and white. |
+| negative  | -  | Replaces every pixel with its complementary color. |
+| noize  | string, number  | Add or reduce noise in the image. Radius or Type. To add noise pass one of the following: *uniform*, *gaussian*, *multiplicative*, *impulse*, *laplacian*, *poisson*. Otherwise the argument will be interpreted as a radius which adjusts the weight of the effect. |
+| quality  | number  | Adjusts the jpeg, png, tiff compression level. Value ranges from 0 to 100 (best). |
 
 
 #### Example
