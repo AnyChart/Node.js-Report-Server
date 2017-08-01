@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env node --expose-gc
 
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -21,55 +21,79 @@ program
     .option('-o, --output-dir [value]', 'Output directory', 'shared')
     .option('-d, --disable-scripts-executing [value]', 'Whether script execution disabled', false)
     .option('--log-level [value]', 'Level of logging. Possible values: error, warn, info, verbose, debug, silly', 'info')
+    .option('--log-file [value]', 'Path to log file. File will created and will rotate by daily.', null)
     .option('--disable-playground [value]', 'Disable playground app.', false);
 
 program.parse(process.argv);
 
+var blankImage = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=';
+var allowableImageParams = ['aspect-ratio', 'height', 'width', 'background', 'border', 'blur', 'contrast', 'crop', 'frame', 'gamma', 'monochrome', 'negative', 'noise', 'quality'];
+
+//region --- Configure logs
 function tsFormat() {return (new Date()).toLocaleTimeString()}
-
-
+var logTransports = [];
 var logLevel = program.logLevel;
-var logger = new (winston.Logger)({
-  transports: [
-    new (winston.transports.Console)({
-      timestamp: tsFormat,
-      level: logLevel,
-      colorize: true
-    }),
-    new (winstonDRF)({
-      name: 'all',
+var loggingToFile = !!program.logFile;
+if (program.logFile) {
+  if (!path.isAbsolute(program.logFile)) {
+    program.logFile  = path.join(__dirname, program.logFile);
+  }
+
+  var logDirName = path.dirname(program.logFile);
+  var logFileName = path.basename(program.logFile);
+  fs.access(logDirName, fs.constants.F_OK | fs.constants.R_OK | fs.constants.W_OK, function(err) {
+    if (err) {
+      if (err.code === 'ENOENT') {
+        fs.mkdirSync(logDirName);
+      } else {
+        loggingToFile = false;
+      }
+    }
+  });
+
+  if (loggingToFile) {
+    logTransports.push(new (winstonDRF)({
       timestamp: tsFormat,
       datePattern: 'yyyy-MM-dd',
       prepend: true,
-      filename: path.join(__dirname, 'logs', '-all.log'),
+      filename: path.join(logDirName, '-' + logFileName),
       level: logLevel
-    }),
-    new (winstonDRF)({
-      name: 'error-file',
-      timestamp: tsFormat,
-      datePattern: 'yyyy-MM-dd',
-      prepend: true,
-      filename: path.join(__dirname, 'logs', '-error.log'),
-      level: 'error'
-    })
-  ]
+    }))
+  }
+}
+if (!loggingToFile) {
+  logTransports.push(new (winston.transports.Console)({
+    timestamp: tsFormat,
+    level: logLevel,
+    colorize: true
+  }));
+}
+var logger = new (winston.Logger)({
+  transports: logTransports
 });
 logger.cli();
 winston.addColors({error: 'red', warn: 'yellow', info: 'blue', verbose: 'grey', debug: 'black', silly: 'white'});
 logger.verbose('log level:', logLevel);
 
-var blankImage = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=';
+
+//endregion
+//region --- Script exec sandbox configure
 var rootDoc = jsdom('<body></body>');
 var window = rootDoc.defaultView;
 var iframeDoc = null;
 var iframes = {};
-var allowableImageParams = ['aspect-ratio', 'height', 'width', 'background', 'border', 'blur', 'contrast', 'crop', 'frame', 'gamma', 'monochrome', 'negative', 'noise', 'quality'];
 
+
+//endregion
+//region --- AnyChart configure
 var anychart = require('anychart')(window);
 // var anychart = require('../ACDVF/out/anychart-bundle.min.js')(window);
-// var anychart_nodejs = require('anychart-nodejs')(anychart);
-var anychart_nodejs = require('../AnyChart-NodeJS')(anychart);
+var anychart_nodejs = require('anychart-nodejs')(anychart);
+// var anychart_nodejs = require('../AnyChart-NodeJS')(anychart);
 
+
+//endregion
+//region --- Pdfmake configure
 var pdfMake = require('pdfmake');
 var fontDescriptors = {
   Roboto: {
@@ -81,9 +105,21 @@ var fontDescriptors = {
 };
 var printer = new pdfMake(fontDescriptors);
 
+
+//endregion
+//region --- Express server configure
 var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({parameterLimit: 100000, limit: '50mb', extended: true}));
+
+
+//endregion
+
+function execGc() {
+  if (global.gc) {
+    global.gc();
+  }
+}
 
 function partial(fn, var_args) {
   var args = Array.prototype.slice.call(arguments, 1);
@@ -168,22 +204,24 @@ function convertCharts(obj, callback) {
       }
 
       logger.info('----> PDF Report. Chart ' + index + ' exporting.');
-      var imgConvertCallback = partial(function imgConvertCallback(id, chartNum, err, data) {
+      var imgConvertCallback = partial(function imgConvertCallback(id, fileType, dataType, chartNum, userData, err, data) {
         clearSandbox(id);
         logger.info('<---- PDF Report. Chart ' + chartNum + ' exporting.');
         if (data) {
           config.image = 'data:image/png;base64,' + data.toString('base64');
         } else {
           config.image = blankImage;
-          logger.warn('Image wasn\'t generated. Chart was replaced with blank Image. Error: ', err);
+          logger.error('PDF Report. Convert %s to %s. Data: %s. Container id: %s. Chart was replaced with blank Image.',
+              dataType.toUpperCase(), fileType.toUpperCase(), userData, containerId, err);
         }
 
+        execGc();
         delete config[key];
         chartsToConvert--;
         if (chartsToConvert === 0) {
           callback(obj)
         }
-      }, iframeId, index);
+      }, iframeId, fileType, dataType, index, data);
 
       var params = {type: 'png', document: iframeDoc, containerId: containerId, iframeId: iframeId};
       applyImageParams(params, chartConfig);
@@ -191,7 +229,8 @@ function convertCharts(obj, callback) {
     } else {
       config.image = blankImage;
       delete config[key];
-      logger.warn('Chart data not found. Chart was replaced with blank Image');
+      logger.error('Chart data not found. Chart was replaced with blank Image. Convert %s to %s. Data: %s. Container id: %s.',
+          dataType.toUpperCase(), fileType.toUpperCase(), data, containerId, err);
     }
   };
   
@@ -324,9 +363,10 @@ function generateOutput(req, res) {
     }
 
     logger.info('----> Input. Convert %s to %s. Image.', dataType.toUpperCase(), fileType.toUpperCase());
-    var imgConvertCallback = partial(function imgConvertCallback(id, fileType, dataType, err, data) {
+    var imgConvertCallback = partial(function imgConvertCallback(id, fileType, dataType, userData, err, data) {
       if (err)
-        logger.error('Error. Output. Convert %s to %s. Error: %s', dataType.toUpperCase(), fileType.toUpperCase(), err.message.trim());
+        logger.error('Convert %s to %s. Data: %s. Container id: %s.',
+            dataType.toUpperCase(), fileType.toUpperCase(), userData, containerId, err);
       else
         logger.info('<---- Output. Convert %s to %s. Image.', dataType.toUpperCase(), fileType.toUpperCase());
 
@@ -336,24 +376,34 @@ function generateOutput(req, res) {
         sendResult(req, res, data, fileType);
       }
       clearSandbox(iframeId);
-    }, iframeId, fileType, dataType);
+      execGc();
+    }, iframeId, fileType, dataType, data);
 
     var params = {type: fileType, document: iframeDoc, containerId: containerId, iframeId: iframeId};
-    
     applyImageParams(params, req.body);
+
     anychart_nodejs.exportTo(chart, params, imgConvertCallback);
   } else {
+    logger.error('Chart data not found. Convert %s to %s. Data: %s. Container id: %s.',
+        dataType.toUpperCase(), fileType.toUpperCase(), data, containerId, err);
     res.status(500).send({error: 'Chart data not found'});
   }
 }
 
 app.post('/pdf-report', function (req, res) {
-  try {
-    var script = new vm.VM();
-    var data = script.run(req.body.data);
-  } catch (e) {
-    logger.error(e);
-    res.status(500).send({error: e.message});
+  if (!program.disableScriptsExecuting) {
+    try {
+      var script = new vm.VM();
+      var data = script.run(req.body.data);
+      script = null;
+    } catch (e) {
+      logger.error('PDF config evaluating failed. DataL %s', req.body.data, e);
+      res.status(500).send({error: e.message});
+      return;
+    }
+  } else {
+    logger.warn('Script executing disabled.');
+    res.status(500).send({error: 'Script executing disabled.'});
     return;
   }
 
@@ -367,13 +417,14 @@ app.post('/pdf-report', function (req, res) {
       });
       pdfDoc.on('end', function() {
         sendResult(req, res, Buffer.concat(chunks), 'pdf');
+        pdfDoc = null;
       });
       pdfDoc.on('error', function(e) {
-        logger.error(e)
+        logger.error('PDF generation error. Data: %s', req.body.data, e)
       });
       pdfDoc.end();
     } catch (e) {
-      logger.error(e);
+      logger.error('PDF generation error. Data: %s', req.body.data, e);
     }
   });
 });
@@ -385,7 +436,7 @@ app.post('/vector-image', function (req, res) {
 
     generateOutput(req, res);
   } catch (e) {
-    logger.error(e);
+    logger.error('Vector image generation failed. Request body: %s.', req.body, e);
   }
 });
 
@@ -393,7 +444,7 @@ app.post('/raster-image', function (req, res) {
   try {
     generateOutput(req, res);
   } catch (e) {
-    logger.error(e);
+    logger.error('Raster image generation failed. Request body: %s.', req.body, e);
   }
 });
 
@@ -415,7 +466,7 @@ app.post('/data-file', function (req, res) {
       sendResult(req, res, data, fileType)
     }
   } catch (e) {
-    logger.error(e);
+    logger.error('Data file generation failed. Request body: %s.', req.body, e);
   }
 });
 

@@ -3,7 +3,7 @@
   "title": "",
   "description": "",
   "main": "./index.js",
-  "version": "1.0.0-dev-preview-8",
+  "version": "1.0.0-dev-preview-9",
   "homepage": "",
   "license": "Apache-2.0",
   "keywords": [],
@@ -16,7 +16,7 @@
   "bin": "./index.js",
   "dependencies": {
     "anychart": "8.0.0-dev-preview-2",
-    "anychart-nodejs": "1.3.0-dev-preview-4",
+    "anychart-nodejs": "1.3.0-dev-preview-5",
     "body-parser": "^1.16.0",
     "commander": "^2.9.0",
     "csv": "^1.1.1",
