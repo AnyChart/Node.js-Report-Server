@@ -56,6 +56,7 @@ Windows
 | output-dir  | string | то куда будем сохранять все файлы |
 | disable-scripts-executing | boolean | можно ли запускать скрипты |
 | log-level | string | Уровень логирования, допустимые значения: error, warn, info, verbose, debug, silly |
+| log-file | string | Путь до файла с логами, по умолчанию все логи валятся в консоль |
 | disable-playground | boolean | Выключение приложения playground (который находится по роуту /playground ) |
 
 ### Tutorials
