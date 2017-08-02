@@ -79,6 +79,7 @@ POST /pdf-report
 | file_name  | string  | Имя файла. Используется, если *response_type* задан как *file* |
 | data | javascript string | Input data. Data format describered [here](https://github.com/AnyChart/node-export-server/blob/master/pdf-report-data-format.md). |
 | response_type  | string  | Output data format. Possible values: *file*, *base64* or *url*. Default: *file* |
+| resources  | Array.<string>  | External resources to be included in process of image generation, see [External Resources](#user-content-external-resources) for details. |
 
 #### Example
 ```
@@ -117,6 +118,7 @@ POST /vector-image
 | file_name  | string  | Имя файла. Актуально, если *response_type* задан как *file* |
 | file_type  | string  | Output file type. Possible values: *PDF*, *SVG* or *PS*. Defauilt: *PDF*  |
 | response_type  | string  | Output data format. Possible values: *file*, *base64* or *url*. Default: *file* |
+| resources  | Array.<string>  | External resources to be included in process of image generation, see [External Resources](#user-content-external-resources) for details. |
 | width  | number | Output image width |
 | height  | number  | Output image height |
 | aspect-ratio  | boolean  | Whether to preserve the aspect ratio (default: false) |
@@ -165,6 +167,7 @@ POST /raster-image
 | file_name  | string  | Имя файла. Актуально, если *response_type* задан как *file* |
 | file_type  | string  | Output file type. Possible values: *PNG*, *JPG* or *TIFF*. Default: *PNG* |
 | response_type  | string  |  Output data format. Possible values: *file*, *base64* or *url*. Default: *file*|
+| resources  | Array.<string>  | External resources to be included in process of image generation, see [External Resources](#user-content-external-resources) for details. |
 | background  | ???  | Background color |
 | border  | Array\.\<number\>  | Surround the image with a border of color [width, height]  |
 | blur  | Array\.\<number\>  | Accepts a radius and optional sigma (standard deviation). [radius [, sigma]] |
@@ -237,6 +240,13 @@ Content-Disposition: attachment; filename=anychart.xlsx
 ```
 
 ### Get server status
+
+## External resources
+Когда это нужно
+- Если нужно подключить внешние данные
+- Если нужно подключить карту
+- Если нужно подключить картинку для hatch fill
+
 
 ## Security recommendations
  - allow access origin
