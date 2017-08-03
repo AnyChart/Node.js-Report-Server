@@ -168,13 +168,11 @@ function createSandbox(containerTd) {
   iframeDoc = iframe.contentDocument;
   var div = iframeDoc.createElement('div');
   div.setAttribute('id', containerTd);
-  iframeDoc.documentElement.appendChild(div);
+  iframeDoc.body.appendChild(div);
   var window = iframeDoc.defaultView;
   window.isNodeJS = true;
   window.anychart = anychart;
   window.acgraph = anychart.graphics;
-  window.window = window;
-  window.document = iframeDoc;
   anychart.global(window);
 
   return iframeId;
