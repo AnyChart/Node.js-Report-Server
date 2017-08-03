@@ -1,0 +1,627 @@
+<svg xmlns="http://www.w3.org/2000/svg" border="0" data-ac-wrapper-id="6" width="1000" height="700"
+     class="anychart-ui-support" role="presentation" style="display: block;">
+    <defs>
+        <clipPath clip-rule="nonzero" id="ac_clip_l">
+            <path data-ac-wrapper-id="69" fill="none" stroke="black"
+                  d="M 0 -30 L 109.140625 -30 109.140625 21 0 21 0 -30 Z"></path>
+        </clipPath>
+        <clipPath clip-rule="nonzero" id="ac_clip_n">
+            <path data-ac-wrapper-id="81" fill="none" stroke="black"
+                  d="M 225 73 L 771 73 771 619 225 619 225 73 Z"></path>
+        </clipPath>
+        <clipPath clip-rule="nonzero" id="ac_clip_p">
+            <path data-ac-wrapper-id="93" fill="none" stroke="black"
+                  d="M 225 73 L 771 73 771 619 225 619 225 73 Z"></path>
+        </clipPath>
+        <clipPath clip-rule="nonzero" id="ac_clip_r">
+            <path data-ac-wrapper-id="95" fill="none" stroke="black"
+                  d="M 225 73 L 771 73 771 619 225 619 225 73 Z"></path>
+        </clipPath>
+        <clipPath clip-rule="nonzero" id="ac_clip_t">
+            <path data-ac-wrapper-id="99" fill="none" stroke="black"
+                  d="M 225 73 L 771 73 771 619 225 619 225 73 Z"></path>
+        </clipPath>
+        <clipPath clip-rule="nonzero" id="ac_clip_v">
+            <path data-ac-wrapper-id="103" fill="none" stroke="black"
+                  d="M 225 73 L 771 73 771 619 225 619 225 73 Z"></path>
+        </clipPath>
+        <clipPath clip-rule="nonzero" id="ac_clip_x">
+            <path data-ac-wrapper-id="105" fill="none" stroke="black"
+                  d="M 225 73 L 771 73 771 619 225 619 225 73 Z"></path>
+        </clipPath>
+        <path data-ac-wrapper-id="15"
+              d="M 366.285018756875 70.97628631937499 C 390.61151725268354 59.32578427265963 416.3762343530546 50.954320218880355 442.90477833466286 46.08101731192181"
+              fill="none" stroke="black" id="ac_path_0"></path>
+        <path data-ac-wrapper-id="17"
+              d="M 457.718610075 43.73473744812503 C 484.4546881135182 40.17175300732782 511.545314862744 40.17175300732782 538.2813929012622 43.73473744812503"
+              fill="none" stroke="black" id="ac_path_1"></path>
+        <path data-ac-wrapper-id="19"
+              d="M 553.09522318125 46.08101805437502 C 579.6237671628584 50.954320961333565 605.3884842632294 59.3257850151129 629.714982759038 70.97628706182826"
+              fill="none" stroke="black" id="ac_path_2"></path>
+        <path data-ac-wrapper-id="21"
+              d="M 643.078733008125 77.78545836125 C 666.8029442126692 90.61801577313324 688.7197216410614 106.54148665168819 708.2553934287093 125.13907399016824"
+              fill="none" stroke="black" id="ac_path_3"></path>
+        <path data-ac-wrapper-id="23"
+              d="M 718.8609253375 135.7446057525 C 737.4585126759802 155.2802775401479 753.381983554535 177.19705496854013 766.2145409664183 200.92126617308426"
+              fill="none" stroke="black" id="ac_path_4"></path>
+        <path data-ac-wrapper-id="25"
+              d="M 773.023713680625 214.285018756875 C 784.6742157273403 238.61151725268354 793.0456797811196 264.3762343530546 797.9189826880781 290.90477833466286"
+              fill="none" stroke="black" id="ac_path_5"></path>
+        <path data-ac-wrapper-id="27"
+              d="M 800.2652625518749 305.718610075 C 803.8282469926721 332.45468811351816 803.8282469926721 359.545314862744 800.2652625518749 386.28139290126217"
+              fill="none" stroke="black" id="ac_path_6"></path>
+        <path data-ac-wrapper-id="29"
+              d="M 773.023713680625 477.714981243125 C 784.6742157273402 453.3884827473164 793.0456797811196 427.6237656469454 797.918982688078 401.0952216653371"
+              fill="none" stroke="black" id="ac_path_7"></path>
+        <path data-ac-wrapper-id="31"
+              d="M 718.8609253375 556.2553942475 C 737.4585126759802 536.7197224598522 753.381983554535 514.8029450314599 766.2145409664182 491.0787338269157"
+              fill="none" stroke="black" id="ac_path_8"></path>
+        <path data-ac-wrapper-id="33"
+              d="M 643.078733008125 614.21454163875 C 666.8029442126691 601.3819842268667 688.7197216410614 585.4585133483118 708.2553934287092 566.8609260098317"
+              fill="none" stroke="black" id="ac_path_9"></path>
+        <path data-ac-wrapper-id="35"
+              d="M 553.09522318125 645.918981945625 C 579.6237671628584 641.0456790386664 605.3884842632294 632.6742149848872 629.714982759038 621.0237129381718"
+              fill="none" stroke="black" id="ac_path_a"></path>
+        <path data-ac-wrapper-id="37"
+              d="M 457.718610075 648.2652625518749 C 484.45468811351816 651.8282469926721 511.545314862744 651.8282469926721 538.2813929012622 648.2652625518749"
+              fill="none" stroke="black" id="ac_path_b"></path>
+        <path data-ac-wrapper-id="39"
+              d="M 366.285018756875 621.023713680625 C 390.6115172526836 632.6742157273402 416.37623435305443 641.0456797811195 442.9047783346627 645.9189826880779"
+              fill="none" stroke="black" id="ac_path_c"></path>
+        <path data-ac-wrapper-id="41"
+              d="M 287.7446057525 566.8609253375 C 307.2802775401479 585.45851267598 329.19705496854 601.3819835545348 352.92126617308406 614.214540966418"
+              fill="none" stroke="black" id="ac_path_d"></path>
+        <path data-ac-wrapper-id="43"
+              d="M 229.78545836125 491.078733008125 C 242.61801577313315 514.8029442126691 258.54148665168793 536.7197216410611 277.13907399016796 556.2553934287091"
+              fill="none" stroke="black" id="ac_path_e"></path>
+        <path data-ac-wrapper-id="45"
+              d="M 198.08101805437502 401.09522318125 C 202.95432096133356 427.6237671628583 211.32578501511279 453.3884842632291 222.9762870618281 477.7149827590377"
+              fill="none" stroke="black" id="ac_path_f"></path>
+        <path data-ac-wrapper-id="47"
+              d="M 195.73473744812503 386.281389925 C 192.17175300732788 359.54531188648184 192.17175300732788 332.45468513725626 195.7347374481251 305.71860709873806"
+              fill="none" stroke="black" id="ac_path_g"></path>
+        <path data-ac-wrapper-id="49"
+              d="M 198.08101805437502 290.90477681875 C 202.95432096133356 264.37623283714174 211.32578501511284 238.61151573677097 222.97628706182815 214.28501724096236"
+              fill="none" stroke="black" id="ac_path_h"></path>
+        <path data-ac-wrapper-id="51"
+              d="M 229.78545836125 200.921266991875 C 242.61801577313318 177.1970557873309 258.54148665168793 155.28027835893883 277.13907399016796 135.74460657129092"
+              fill="none" stroke="black" id="ac_path_i"></path>
+        <path data-ac-wrapper-id="53"
+              d="M 287.7446057525 125.13907466250001 C 307.28027754014784 106.5414873240199 329.1970549685399 90.61801644546512 352.92126617308395 77.78545903358184"
+              fill="none" stroke="black" id="ac_path_j"></path>
+    </defs>
+    <g data-ac-wrapper-id="7">
+        <g data-ac-wrapper-id="55" role="article"
+           aria-label="polar chart , with 1 polygon series, 1 rangeColumn series, . Y-scale minimum value is 2 , maximum value is 10. X-scale with 20 categories: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, . ">
+            <g data-ac-wrapper-id="56">
+                <path data-ac-wrapper-id="57" fill="#FEFEFE" stroke="none"
+                      d="M 0 0 L 1005 0 1005 0 1005 718 1005 718 0 718 0 718 0 0 0 0 Z"></path>
+            </g>
+            <g data-ac-wrapper-id="70" clip-path="url(#ac_clip_n)" clipPathUnits="userSpaceOnUse">
+                <path data-ac-wrapper-id="71" fill="#fefefe" stroke="none"
+                      d="M 540.706608955983 76.36108301752739 A 273 273 0 0 0 455.29339104401697 76.36108301752739 L 475.4952887978902 361.454060104375 M 493.7293391044017 319.03610830175273 A 27.3 27.3 0 0 1 502.2706608955983 319.03610830175273 Z"></path>
+                <path data-ac-wrapper-id="72" fill="#fefefe" stroke="none"
+                      d="M 691.0401512639274 152.95984873607247 A 273 273 0 0 0 621.9394064288963 102.75521889657554 L 516.2067958907792 366.3421381224174 M 510.3939406428896 321.67552188965755 A 27.3 27.3 0 0 1 517.3040151263928 326.69598487360724 Z"></path>
+                <path data-ac-wrapper-id="73" fill="#fefefe" stroke="none"
+                      d="M 767.6389169824727 303.2933910440169 A 273 273 0 0 0 741.2447811034244 222.06059357110368 L 515.8450936451554 325.3398297975154 M 522.3244781103424 333.6060593571104 A 27.3 27.3 0 0 1 524.9638916982472 341.7293391044017 Z"></path>
+                <path data-ac-wrapper-id="74" fill="#fefefe" stroke="none"
+                      d="M 741.2447811034244 469.9394064288963 A 273 273 0 0 0 767.6389169824727 388.70660895598303 L 490.0246105215663 372.10906284544296 M 524.9638916982473 350.2706608955983 A 27.3 27.3 0 0 1 522.3244781103424 358.3939406428896 Z"></path>
+                <path data-ac-wrapper-id="75" fill="#fefefe" stroke="none"
+                      d="M 621.9394064288963 589.2447811034244 A 273 273 0 0 0 691.0401512639276 539.0401512639274 L 524.9149766772036 350.56881061826664 M 517.3040151263928 365.30401512639276 A 27.3 27.3 0 0 1 510.3939406428896 370.32447811034245 Z"></path>
+                <path data-ac-wrapper-id="76" fill="#fefefe" stroke="none"
+                      d="M 455.2933910440169 615.6389169824727 A 273 273 0 0 0 540.706608955983 615.6389169824727 L 499.0871100347327 318.7216534267125 M 502.2706608955983 372.96389169824727 A 27.3 27.3 0 0 1 493.7293391044017 372.96389169824727 Z"></path>
+                <path data-ac-wrapper-id="77" fill="#fefefe" stroke="none"
+                      d="M 304.95984873607256 539.0401512639276 A 273 273 0 0 0 374.0605935711037 589.2447811034244 L 470.80680210064565 348.41246513063925 M 485.6060593571104 370.32447811034245 A 27.3 27.3 0 0 1 478.69598487360724 365.30401512639276 Z"></path>
+                <path data-ac-wrapper-id="78" fill="#fefefe" stroke="none"
+                      d="M 228.3610830175274 388.70660895598303 A 273 273 0 0 0 254.7552188965756 469.9394064288963 L 503.87237383720645 372.66093069485936 M 473.67552188965755 358.3939406428896 A 27.3 27.3 0 0 1 471.03610830175273 350.2706608955983 Z"></path>
+                <path data-ac-wrapper-id="79" fill="#fefefe" stroke="none"
+                      d="M 254.7552188965755 222.06059357110388 A 273 273 0 0 0 228.3610830175274 303.293391044017 L 523.6902966531936 336.7642727481313 M 471.03610830175273 341.7293391044017 A 27.3 27.3 0 0 1 473.67552188965755 333.6060593571104 Z"></path>
+                <path data-ac-wrapper-id="80" fill="#fefefe" stroke="none"
+                      d="M 374.0605935711037 102.7552188965756 A 273 273 0 0 0 304.95984873607244 152.95984873607253 L 485.5527758680631 321.70274477622365 M 478.69598487360724 326.69598487360724 A 27.3 27.3 0 0 1 485.6060593571104 321.67552188965755 Z"></path>
+            </g>
+            <g data-ac-wrapper-id="82" clip-path="url(#ac_clip_p)" clipPathUnits="userSpaceOnUse">
+                <path data-ac-wrapper-id="83" fill="#fefefe" stroke="none"
+                      d="M 455.2933910440169 76.36108301752739 A 273 273 0 0 0 374.0605935711037 102.7552188965756 L 471.5339611298106 339.303822992063 M 485.6060593571104 321.67552188965755 A 27.3 27.3 0 0 1 493.7293391044017 319.03610830175273 Z"></path>
+                <path data-ac-wrapper-id="84" fill="#fefefe" stroke="none"
+                      d="M 621.9394064288963 102.75521889657554 A 273 273 0 0 0 540.706608955983 76.36108301752739 L 494.74556522826776 373.1053252021912 M 502.2706608955983 319.03610830175273 A 27.3 27.3 0 0 1 510.3939406428896 321.67552188965755 Z"></path>
+                <path data-ac-wrapper-id="85" fill="#fefefe" stroke="none"
+                      d="M 741.2447811034244 222.06059357110368 A 273 273 0 0 0 691.0401512639274 152.95984873607247 L 525.2989378322745 345.7591821650909 M 517.3040151263928 326.69598487360724 A 27.3 27.3 0 0 1 522.3244781103424 333.6060593571104 Z"></path>
+                <path data-ac-wrapper-id="86" fill="#fefefe" stroke="none"
+                      d="M 767.6389169824727 388.70660895598303 A 273 273 0 0 0 767.6389169824727 303.29339104401697 L 473.1261438505483 357.25083464709996 M 524.9638916982473 341.7293391044017 A 27.3 27.3 0 0 1 524.9638916982473 350.2706608955983 Z"></path>
+                <path data-ac-wrapper-id="87" fill="#fefefe" stroke="none"
+                      d="M 691.0401512639276 539.0401512639274 A 273 273 0 0 0 741.2447811034244 469.9394064288963 L 512.341290294724 369.22966621978145 M 522.3244781103424 358.3939406428896 A 27.3 27.3 0 0 1 517.3040151263926 365.30401512639276 Z"></path>
+                <path data-ac-wrapper-id="88" fill="#fefefe" stroke="none"
+                      d="M 540.706608955983 615.6389169824727 A 273 273 0 0 0 621.9394064288963 589.2447811034244 L 519.2035273091906 328.80405775630743 M 510.3939406428896 370.32447811034245 A 27.3 27.3 0 0 1 502.2706608955983 372.96389169824727 Z"></path>
+                <path data-ac-wrapper-id="89" fill="#fefefe" stroke="none"
+                      d="M 374.0605935711037 589.2447811034244 A 273 273 0 0 0 455.2933910440169 615.6389169824727 L 478.23214653007705 327.17124621246387 M 493.7293391044017 372.96389169824727 A 27.3 27.3 0 0 1 485.6060593571104 370.32447811034245 Z"></path>
+                <path data-ac-wrapper-id="90" fill="#fefefe" stroke="none"
+                      d="M 254.7552188965756 469.9394064288963 A 273 273 0 0 0 304.95984873607256 539.0401512639276 L 481.8556076228599 368.0147358551708 M 478.69598487360724 365.30401512639276 A 27.3 27.3 0 0 1 473.67552188965755 358.3939406428896 Z"></path>
+                <path data-ac-wrapper-id="91" fill="#fefefe" stroke="none"
+                      d="M 228.3610830175274 303.293391044017 A 273 273 0 0 0 228.3610830175274 388.70660895598303 L 521.8996455006657 359.19458013513537 M 471.03610830175273 350.2706608955983 A 27.3 27.3 0 0 1 471.03610830175273 341.7293391044017 Z"></path>
+                <path data-ac-wrapper-id="92" fill="#fefefe" stroke="none"
+                      d="M 304.95984873607244 152.95984873607253 A 273 273 0 0 0 254.7552188965755 222.06059357110388 L 508.0278187390357 320.60840983047643 M 473.67552188965755 333.6060593571104 A 27.3 27.3 0 0 1 478.69598487360724 326.69598487360724 Z"></path>
+            </g>
+            <path data-ac-wrapper-id="94" clip-path="url(#ac_clip_r)" clipPathUnits="userSpaceOnUse" fill="none"
+                  stroke="#CECECE"
+                  d="M 374 103 L 486 322 M 455 76 L 494 319 M 541 76 L 502 319 M 622 103 L 510 322 M 691 153 L 517 327 M 741 222 L 522 334 M 768 303 L 525 342 M 768 389 L 525 350 M 741 470 L 522 358 M 691 539 L 517 365 M 622 589 L 510 370 M 541 616 L 502 373 M 455 616 L 494 373 M 374 589 L 486 370 M 305 539 L 479 365 M 255 470 L 474 358 M 228 389 L 471 350 M 228 303 L 471 342 M 255 222 L 474 334 M 305 153 L 479 327"></path>
+            <g data-ac-wrapper-id="96" clip-path="url(#ac_clip_t)" clipPathUnits="userSpaceOnUse">
+                <path data-ac-wrapper-id="97" fill="none" stroke="none"
+                      d="M 648.15 346 A 150.15 150.15 0 0 1 347.85 346 A 150.15 150.15 0 0 1 648.15 345.99999999999994 L 587 346 M 586.725 346 A 88.725 88.725 0 0 0 409.275 346 A 88.725 88.725 0 0 0 586.725 346 Z"></path>
+                <path data-ac-wrapper-id="98" fill="none" stroke="none"
+                      d="M 771 346 A 273 273 0 0 1 225 346.00000000000006 A 273 273 0 0 1 771 345.99999999999994 L 710 346 M 709.575 345.99999999999994 A 211.575 211.575 0 0 0 286.42500000000007 346 A 211.575 211.575 0 0 0 709.575 346 Z"></path>
+            </g>
+            <g data-ac-wrapper-id="100" clip-path="url(#ac_clip_v)" clipPathUnits="userSpaceOnUse">
+                <path data-ac-wrapper-id="101" fill="none" stroke="none"
+                      d="M 586.725 346 A 88.725 88.725 0 0 1 409.275 346 A 88.725 88.725 0 0 1 586.725 346 L 525 346 M 525.3 346 A 27.3 27.3 0 0 0 470.69999999999993 346 A 27.3 27.3 0 0 0 525.3 346 Z"></path>
+                <path data-ac-wrapper-id="102" fill="none" stroke="none"
+                      d="M 709.575 346 A 211.575 211.575 0 0 1 286.42500000000007 346 A 211.575 211.575 0 0 1 709.575 345.99999999999994 L 648 346 M 648.15 345.99999999999994 A 150.15 150.15 0 0 0 347.85 346 A 150.15 150.15 0 0 0 648.15 346 Z"></path>
+            </g>
+            <path data-ac-wrapper-id="104" clip-path="url(#ac_clip_x)" clipPathUnits="userSpaceOnUse" fill="none"
+                  stroke="#CECECE"
+                  d="M 525.3 346 A 27.3 27.3 0 0 1 470.69999999999993 346 A 27.3 27.3 0 0 1 525.3 346 M 586.725 346 A 88.725 88.725 0 0 1 409.275 346 A 88.725 88.725 0 0 1 586.725 346 M 648.15 346 A 150.15 150.15 0 0 1 347.85 346 A 150.15 150.15 0 0 1 648.15 345.99999999999994 M 709.575 346 A 211.575 211.575 0 0 1 286.42500000000007 346 A 211.575 211.575 0 0 1 709.575 345.99999999999994 M 771 346 A 273 273 0 0 1 225 346.00000000000006 A 273 273 0 0 1 771 345.99999999999994"></path>
+            <path data-ac-wrapper-id="106" fill="rgb(237,236,239)" stroke="none"
+                  d="M 771 346 A 273 273 0 0 1 225 346.00000000000006 A 273 273 0 0 1 771 345.99999999999994 M 834 346 A 336 336 0 0 0 162 345.99999999999994 A 336 336 0 0 0 834 346.00000000000006"></path>
+            <path data-ac-wrapper-id="107" fill="none" stroke="none"
+                  d="M 771 346 A 273 273 0 0 1 225 346.00000000000006 A 273 273 0 0 1 771 345.99999999999994"></path>
+            <path data-ac-wrapper-id="108" fill="none" stroke="#FEFEFE"
+                  d="M 374 103 L 345 47 M 455 76 L 445 14 M 541 76 L 551 14 M 622 103 L 651 47 M 691 153 L 736 108 M 741 222 L 797 193 M 768 303 L 830 293 M 768 389 L 830 399 M 741 470 L 797 499 M 691 539 L 736 584 M 622 589 L 651 645 M 541 616 L 551 678 M 455 616 L 445 678 M 374 589 L 345 645 M 305 539 L 260 584 M 255 470 L 199 499 M 228 389 L 166 399 M 228 303 L 166 293 M 255 222 L 199 193 M 305 153 L 260 108"></path>
+            <g data-ac-wrapper-id="109">
+                <g data-ac-wrapper-id="110">
+                    <text data-ac-wrapper-id="16" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="10" font-weight="normal"
+                          fill="#4C4C4C" letter-spacing="normal" text-decoration="none" direction="ltr"
+                          x="401.52694411187497" y="0" style="user-select: none; opacity: 1;" aria-hidden="true">
+                        <textPath xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ac_path_0">
+                            <tspan x="10.832500000000003" dy="-14.03125">Capacità di</tspan>
+                            <tspan x="4.699687500000003" dy="12">pianificazione</tspan>
+                            <tspan x="32.5434375" dy="12">ed</tspan>
+                            <tspan x="3.137187500000003" dy="12">organizzazione</tspan>
+                        </textPath>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="111">
+                    <text data-ac-wrapper-id="18" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="10" font-weight="normal"
+                          fill="#CD4A2D" letter-spacing="normal" text-decoration="none" direction="ltr" x="496.625"
+                          y="0" style="user-select: none; opacity: 1;" aria-hidden="true">
+                        <textPath xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ac_path_1">
+                            <tspan x="0.12937500000000313" dy="-2">Flessibilità/Ad</tspan>
+                            <tspan dy="0">...</tspan>
+                            <tspan x="0.2934375000000031" dy="12">al cambiamento</tspan>
+                        </textPath>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="112">
+                    <text data-ac-wrapper-id="20" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="10" font-weight="normal"
+                          fill="#4C4C4C" letter-spacing="normal" text-decoration="none" direction="ltr"
+                          x="591.418368388125" y="0" style="user-select: none; opacity: 1;" aria-hidden="true">
+                        <textPath xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ac_path_2">
+                            <tspan x="4.074687500000003" dy="-2">Orientamento</tspan>
+                            <tspan x="2.105937500000003" dy="12">verso I risultati</tspan>
+                        </textPath>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="113">
+                    <text data-ac-wrapper-id="22" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="10" font-weight="normal"
+                          fill="#CD4A2D" letter-spacing="normal" text-decoration="none" direction="ltr"
+                          x="678.784639671875" y="0" style="user-select: none; opacity: 1;" aria-hidden="true">
+                        <textPath xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ac_path_3">
+                            <tspan x="2.270000000000003" dy="-14.03125">Partecipazione</tspan>
+                            <tspan x="12.262187500000003" dy="12">impegno e</tspan>
+                            <tspan x="15.027812500000003" dy="12.0625">senso del</tspan>
+                            <tspan x="23.199687500000003" dy="12">dovere</tspan>
+                        </textPath>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="114">
+                    <text data-ac-wrapper-id="24" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="10" font-weight="normal"
+                          fill="#4C4C4C" letter-spacing="normal" text-decoration="none" direction="ltr"
+                          x="750.887118388125" y="0" style="user-select: none; opacity: 1;" aria-hidden="true">
+                        <textPath xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ac_path_4">
+                            <tspan x="18.004375000000003" dy="-14.0625">Efficacia</tspan>
+                            <tspan x="5.527812500000003" dy="12">comunicativa</tspan>
+                            <tspan x="0.051250000000003126" dy="12">(adeguatezza e</tspan>
+                            <tspan x="12.762187500000003" dy="12.0625">precisione)</tspan>
+                        </textPath>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="115">
+                    <text data-ac-wrapper-id="26" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="10" font-weight="normal"
+                          fill="#CD4A2D" letter-spacing="normal" text-decoration="none" direction="ltr"
+                          x="799.5752975675" y="0" style="user-select: none; opacity: 1;" aria-hidden="true">
+                        <textPath xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ac_path_5">
+                            <tspan x="3.520000000000003" dy="-8">Sviluppo delle</tspan>
+                            <tspan x="3.316875000000003" dy="12">opportunità di</tspan>
+                            <tspan x="18.793437500000003" dy="12">business</tspan>
+                        </textPath>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="116">
+                    <text data-ac-wrapper-id="28" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="10" font-weight="normal"
+                          fill="#4C4C4C" letter-spacing="normal" text-decoration="none" direction="ltr" x="822.453125"
+                          y="0" style="user-select: none; opacity: 1;" aria-hidden="true">
+                        <textPath xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ac_path_6">
+                            <tspan x="14.332500000000003" dy="3.96875">Single line</tspan>
+                        </textPath>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="117">
+                    <text data-ac-wrapper-id="30" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="10" font-weight="normal"
+                          fill="#CD4A2D" letter-spacing="normal" text-decoration="none" direction="ltr"
+                          x="805.0440475675" y="0" style="user-select: none; opacity: 1;" aria-hidden="true">
+                        <textPath xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ac_path_7">
+                            <tspan x="0.21531250000000313" dy="-2">Apprendimento</tspan>
+                            <tspan x="5.785625000000003" dy="12">e innovazione</tspan>
+                        </textPath>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="118">
+                    <text data-ac-wrapper-id="32" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="10" font-weight="normal"
+                          fill="#4C4C4C" letter-spacing="normal" text-decoration="none" direction="ltr"
+                          x="750.629305888125" y="0" style="user-select: none; opacity: 1;" aria-hidden="true">
+                        <textPath xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ac_path_8">
+                            <tspan x="14.332500000000003" dy="3.96875">Single line</tspan>
+                        </textPath>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="119">
+                    <text data-ac-wrapper-id="34" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="10" font-weight="normal"
+                          fill="#CD4A2D" letter-spacing="normal" text-decoration="none" direction="ltr"
+                          x="681.315889671875" y="0" style="user-select: none; opacity: 1;" aria-hidden="true">
+                        <textPath xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ac_path_9">
+                            <tspan x="1.0278125000000031" dy="3.96875">Multi-line string</tspan>
+                        </textPath>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="120">
+                    <text data-ac-wrapper-id="36" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="10" font-weight="normal"
+                          fill="#4C4C4C" letter-spacing="normal" text-decoration="none" direction="ltr"
+                          x="591.683993388125" y="0" style="user-select: none; opacity: 1;" aria-hidden="true">
+                        <textPath xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ac_path_a">
+                            <tspan x="14.332500000000003" dy="3.96875">Single line</tspan>
+                        </textPath>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="121">
+                    <text data-ac-wrapper-id="38" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="10" font-weight="normal"
+                          fill="#CD4A2D" letter-spacing="normal" text-decoration="none" direction="ltr" x="497.40625"
+                          y="0" style="user-select: none; opacity: 1;" aria-hidden="true">
+                        <textPath xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ac_path_b">
+                            <tspan x="1.0278125000000031" dy="3.96875">Multi-line string</tspan>
+                        </textPath>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="122">
+                    <text data-ac-wrapper-id="40" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="10" font-weight="normal"
+                          fill="#4C4C4C" letter-spacing="normal" text-decoration="none" direction="ltr"
+                          x="403.23006911187497" y="0" style="user-select: none; opacity: 1;" aria-hidden="true">
+                        <textPath xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ac_path_c">
+                            <tspan x="14.332500000000003" dy="3.96875">Single line</tspan>
+                        </textPath>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="123">
+                    <text data-ac-wrapper-id="42" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="10" font-weight="normal"
+                          fill="#CD4A2D" letter-spacing="normal" text-decoration="none" direction="ltr"
+                          x="322.87161032812503" y="0" style="user-select: none; opacity: 1;" aria-hidden="true">
+                        <textPath xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ac_path_d">
+                            <tspan x="1.0278125000000031" dy="3.96875">Multi-line string</tspan>
+                        </textPath>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="124">
+                    <text data-ac-wrapper-id="44" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="10" font-weight="normal"
+                          fill="#4C4C4C" letter-spacing="normal" text-decoration="none" direction="ltr"
+                          x="257.22225661187497" y="0" style="user-select: none; opacity: 1;" aria-hidden="true">
+                        <textPath xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ac_path_e">
+                            <tspan x="14.332500000000003" dy="3.96875">Single line</tspan>
+                        </textPath>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="125">
+                    <text data-ac-wrapper-id="46" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="10" font-weight="normal"
+                          fill="#CD4A2D" letter-spacing="normal" text-decoration="none" direction="ltr"
+                          x="229.5497024325" y="0" style="user-select: none; opacity: 1;" aria-hidden="true">
+                        <textPath xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ac_path_f">
+                            <tspan x="1.0278125000000031" dy="3.96875">Multi-line string</tspan>
+                        </textPath>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="126">
+                    <text data-ac-wrapper-id="48" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="10" font-weight="normal"
+                          fill="#4C4C4C" letter-spacing="normal" text-decoration="none" direction="ltr" x="212.5859375"
+                          y="0" style="user-select: none; opacity: 1;" aria-hidden="true">
+                        <textPath xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ac_path_g">
+                            <tspan x="14.332500000000003" dy="3.96875">Single line</tspan>
+                        </textPath>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="127">
+                    <text data-ac-wrapper-id="50" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="10" font-weight="normal"
+                          fill="#CD4A2D" letter-spacing="normal" text-decoration="none" direction="ltr"
+                          x="229.5262649325" y="0" style="user-select: none; opacity: 1;" aria-hidden="true">
+                        <textPath xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ac_path_h">
+                            <tspan x="1.0278125000000031" dy="3.96875">Multi-line string</tspan>
+                        </textPath>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="128">
+                    <text data-ac-wrapper-id="52" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="10" font-weight="normal"
+                          fill="#4C4C4C" letter-spacing="normal" text-decoration="none" direction="ltr"
+                          x="257.22225661187497" y="0" style="user-select: none; opacity: 1;" aria-hidden="true">
+                        <textPath xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ac_path_i">
+                            <tspan x="14.332500000000003" dy="3.96875">Single line</tspan>
+                        </textPath>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="129">
+                    <text data-ac-wrapper-id="54" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="10" font-weight="normal"
+                          fill="#CD4A2D" letter-spacing="normal" text-decoration="none" direction="ltr"
+                          x="322.85598532812503" y="0" style="user-select: none; opacity: 1;" aria-hidden="true">
+                        <textPath xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ac_path_j">
+                            <tspan x="1.0278125000000031" dy="3.96875">Multi-line string</tspan>
+                        </textPath>
+                    </text>
+                </g>
+            </g>
+            <g data-ac-wrapper-id="130"></g>
+            <g data-ac-wrapper-id="176">
+                <path data-ac-wrapper-id="177" vector-effect="non-scaling-stroke" fill="#E2DFE0" fill-opacity="0.85"
+                      stroke="#E2DFE0" stroke-width="1.5"
+                      d="M 606.638914602961 242.35344321256719 C 615.8552864719819 252.00648357655635 623.8096425181133 262.95433579399156 630.1426119173484 274.70236598833696 L 684.2009531562637 245.53515207447487 C 675.2772235482506 228.98110952789716 664.0688127559748 213.5545904942385 651.082106940536 199.95257907225374 Z"></path>
+                <path data-ac-wrapper-id="178" vector-effect="non-scaling-stroke" fill="#E2DFE0" fill-opacity="0.85"
+                      stroke="#E2DFE0" stroke-width="1.5"
+                      d="M 585.9357074923655 334.19165664383297 C 586.9880979680306 342.0174662351644 586.9877773594088 349.9857938718189 585.9355339850055 357.80963537845054 L 707.692427195013 374.16143821015123 C 710.2016229339752 355.50458538664515 710.2023874622265 336.50318871462264 707.6928409433331 317.8416427660633 Z"></path>
+                <path data-ac-wrapper-id="179" vector-effect="non-scaling-stroke" fill="#E2DFE0" fill-opacity="0.85"
+                      stroke="#E2DFE0" stroke-width="1.5"
+                      d="M 524.1167485174739 540.472911477248 C 506.8044224497549 542.8009562814065 489.1854929898775 542.7997320348935 471.8818228054491 540.4727196076523 L 461.6616665119291 616.5707403236902 C 485.73633807287297 619.8083228311558 510.2496312344415 619.8100261306528 534.336345763442 616.5710072726929 Z"></path>
+                <path data-ac-wrapper-id="180" vector-effect="non-scaling-stroke" fill="#E2DFE0" fill-opacity="0.85"
+                      stroke="#E2DFE0" stroke-width="1.5"
+                      d="M 465.51285181310203 523.9208506862884 C 449.69310985312563 521.0384022475331 434.1907589602888 516.0003583737254 419.70522632806933 509.0373341351948 L 406.40988740264714 536.7229191770203 C 423.35522746297926 544.8683437579431 441.4900530357318 550.7619045159819 459.9961662719307 554.1338253311299 Z"></path>
+            </g>
+            <g data-ac-wrapper-id="181"></g>
+            <g data-ac-wrapper-id="131">
+                <path data-ac-wrapper-id="132" vector-effect="non-scaling-stroke" fill="rgb(180, 180, 180)" opacity=".3"
+                      stroke="none"
+                      d="M 489.5630645410294 320.03640779743364 L 461.0884073670035 232.40928411377223 498.0013161553035 226.5625000072518 553.8812873075746 173.98684458711213 604.3072111589288 199.6783653663583 718.8669705699721 185.5419640178682 699.2180797456383 280.61448930781404 648.15 346 670.008182393495 401.89659288307433 644.3228060893293 452.305598744349 586.2532584127919 467.47586130390266 534.912427115995 459.5904447154617 497.9995612815655 465.43749999919424 442.10277529596937 518.0079770726844 409.7458491780823 467.47521295598625 401.3712160991118 416.2011006187613 384.409419698389 382.91200987474474 378.562500003223 345.9991225631309 384.40996205218204 309.08632116324253 376.5251112204304 257.7454029753056 391.69601368313965 199.67602247275136 461.0884073670035 232.40928411377223 489.5630645410294 320.03640779743364 Z"></path>
+                <path data-ac-wrapper-id="133" vector-effect="non-scaling-stroke" fill="none" stroke="#CD4A2D"
+                      stroke-width="1.5"
+                      d="M 461.0884073670035 232.40928411377223 L 498.0013161553035 226.5625000072518 553.8812873075746 173.98684458711213 604.3072111589288 199.6783653663583 718.8669705699721 185.5419640178682 699.2180797456383 280.61448930781404 648.15 346 670.008182393495 401.89659288307433 644.3228060893293 452.305598744349 586.2532584127919 467.47586130390266 534.912427115995 459.5904447154617 497.9995612815655 465.43749999919424 442.10277529596937 518.0079770726844 409.7458491780823 467.47521295598625 401.3712160991118 416.2011006187613 384.409419698389 382.91200987474474 378.562500003223 345.9991225631309 384.40996205218204 309.08632116324253 376.5251112204304 257.7454029753056 391.69601368313965 199.67602247275136 461.0884073670035 232.40928411377223"></path>
+            </g>
+            <g data-ac-wrapper-id="134">
+                <g data-ac-wrapper-id="135">
+                    <text data-ac-wrapper-id="136" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="11" font-weight="bold"
+                          fill="#CD4A2D" letter-spacing="normal" text-decoration="none" direction="ltr"
+                          text-anchor="start" x="449.2759073670035" y="226.40928411377223" aria-hidden="true"
+                          style="user-select: none; opacity: 1;">
+                        <tspan x="449.2759073670035" dy="0">5</tspan>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="137">
+                    <text data-ac-wrapper-id="138" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="11" font-weight="bold"
+                          fill="#CD4A2D" letter-spacing="normal" text-decoration="none" direction="ltr"
+                          text-anchor="start" x="494.0950661553035" y="220.5625000072518" aria-hidden="true"
+                          style="user-select: none; opacity: 1;">
+                        <tspan x="494.0950661553035" dy="0">5</tspan>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="139">
+                    <text data-ac-wrapper-id="140" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="11" font-weight="bold"
+                          fill="#CD4A2D" letter-spacing="normal" text-decoration="none" direction="ltr"
+                          text-anchor="start" x="557.8812873075746" y="167.98684458711213" aria-hidden="true"
+                          style="user-select: none; opacity: 1;">
+                        <tspan x="557.8812873075746" dy="0">7</tspan>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="141">
+                    <text data-ac-wrapper-id="142" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="11" font-weight="bold"
+                          fill="#CD4A2D" letter-spacing="normal" text-decoration="none" direction="ltr"
+                          text-anchor="start" x="608.3072111589288" y="193.6783653663583" aria-hidden="true"
+                          style="user-select: none; opacity: 1;">
+                        <tspan x="608.3072111589288" dy="0">7</tspan>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="143">
+                    <text data-ac-wrapper-id="144" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="11" font-weight="bold"
+                          fill="#CD4A2D" letter-spacing="normal" text-decoration="none" direction="ltr"
+                          text-anchor="start" x="699.2263455699721" y="200.5419640178682" aria-hidden="true"
+                          style="user-select: none; opacity: 1;">
+                        <tspan x="699.2263455699721" dy="0">10</tspan>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="145">
+                    <text data-ac-wrapper-id="146" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="11" font-weight="bold"
+                          fill="#CD4A2D" letter-spacing="normal" text-decoration="none" direction="ltr"
+                          text-anchor="start" x="703.2180797456383" y="274.61448930781404" aria-hidden="true"
+                          style="user-select: none; opacity: 1;">
+                        <tspan x="703.2180797456383" dy="0">8</tspan>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="147">
+                    <text data-ac-wrapper-id="148" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="11" font-weight="bold"
+                          fill="#CD4A2D" letter-spacing="normal" text-decoration="none" direction="ltr"
+                          text-anchor="start" x="652.15" y="350.5" aria-hidden="true"
+                          style="user-select: none; opacity: 1;">
+                        <tspan x="652.15" dy="0">6</tspan>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="149">
+                    <text data-ac-wrapper-id="150" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="11" font-weight="bold"
+                          fill="#CD4A2D" letter-spacing="normal" text-decoration="none" direction="ltr"
+                          text-anchor="start" x="674.008182393495" y="416.89659288307433" aria-hidden="true"
+                          style="user-select: none; opacity: 1;">
+                        <tspan x="674.008182393495" dy="0">7</tspan>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="151">
+                    <text data-ac-wrapper-id="152" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="11" font-weight="bold"
+                          fill="#CD4A2D" letter-spacing="normal" text-decoration="none" direction="ltr"
+                          text-anchor="start" x="648.3228060893293" y="467.305598744349" aria-hidden="true"
+                          style="user-select: none; opacity: 1;">
+                        <tspan x="648.3228060893293" dy="0">7</tspan>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="153">
+                    <text data-ac-wrapper-id="154" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="11" font-weight="bold"
+                          fill="#CD4A2D" letter-spacing="normal" text-decoration="none" direction="ltr"
+                          text-anchor="start" x="590.2532584127919" y="482.47586130390266" aria-hidden="true"
+                          style="user-select: none; opacity: 1;">
+                        <tspan x="590.2532584127919" dy="0">6</tspan>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="155">
+                    <text data-ac-wrapper-id="156" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="11" font-weight="bold"
+                          fill="#CD4A2D" letter-spacing="normal" text-decoration="none" direction="ltr"
+                          text-anchor="start" x="538.912427115995" y="474.5904447154617" aria-hidden="true"
+                          style="user-select: none; opacity: 1;">
+                        <tspan x="538.912427115995" dy="0">5</tspan>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="157">
+                    <text data-ac-wrapper-id="158" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="11" font-weight="bold"
+                          fill="#CD4A2D" letter-spacing="normal" text-decoration="none" direction="ltr"
+                          text-anchor="start" x="494.0933112815655" y="480.43749999919424" aria-hidden="true"
+                          style="user-select: none; opacity: 1;">
+                        <tspan x="494.0933112815655" dy="0">5</tspan>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="159">
+                    <text data-ac-wrapper-id="160" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="11" font-weight="bold"
+                          fill="#CD4A2D" letter-spacing="normal" text-decoration="none" direction="ltr"
+                          text-anchor="start" x="430.29027529596937" y="533.0079770726844" aria-hidden="true"
+                          style="user-select: none; opacity: 1;">
+                        <tspan x="430.29027529596937" dy="0">7</tspan>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="161">
+                    <text data-ac-wrapper-id="162" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="11" font-weight="bold"
+                          fill="#CD4A2D" letter-spacing="normal" text-decoration="none" direction="ltr"
+                          text-anchor="start" x="397.9333491780823" y="482.47521295598625" aria-hidden="true"
+                          style="user-select: none; opacity: 1;">
+                        <tspan x="397.9333491780823" dy="0">6</tspan>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="163">
+                    <text data-ac-wrapper-id="164" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="11" font-weight="bold"
+                          fill="#CD4A2D" letter-spacing="normal" text-decoration="none" direction="ltr"
+                          text-anchor="start" x="389.5587160991118" y="431.2011006187613" aria-hidden="true"
+                          style="user-select: none; opacity: 1;">
+                        <tspan x="389.5587160991118" dy="0">5</tspan>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="165">
+                    <text data-ac-wrapper-id="166" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="11" font-weight="bold"
+                          fill="#CD4A2D" letter-spacing="normal" text-decoration="none" direction="ltr"
+                          text-anchor="start" x="372.596919698389" y="397.91200987474474" aria-hidden="true"
+                          style="user-select: none; opacity: 1;">
+                        <tspan x="372.596919698389" dy="0">5</tspan>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="167">
+                    <text data-ac-wrapper-id="168" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="11" font-weight="bold"
+                          fill="#CD4A2D" letter-spacing="normal" text-decoration="none" direction="ltr"
+                          text-anchor="start" x="366.750000003223" y="350.4991225631309" aria-hidden="true"
+                          style="user-select: none; opacity: 1;">
+                        <tspan x="366.750000003223" dy="0">5</tspan>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="169">
+                    <text data-ac-wrapper-id="170" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="11" font-weight="bold"
+                          fill="#CD4A2D" letter-spacing="normal" text-decoration="none" direction="ltr"
+                          text-anchor="start" x="372.59746205218204" y="303.08632116324253" aria-hidden="true"
+                          style="user-select: none; opacity: 1;">
+                        <tspan x="372.59746205218204" dy="0">5</tspan>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="171">
+                    <text data-ac-wrapper-id="172" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="11" font-weight="bold"
+                          fill="#CD4A2D" letter-spacing="normal" text-decoration="none" direction="ltr"
+                          text-anchor="start" x="364.7126112204304" y="251.74540297530558" aria-hidden="true"
+                          style="user-select: none; opacity: 1;">
+                        <tspan x="364.7126112204304" dy="0">6</tspan>
+                    </text>
+                </g>
+                <g data-ac-wrapper-id="173">
+                    <text data-ac-wrapper-id="174" font-style="normal" font-variant="normal"
+                          font-family="Verdana, Helvetica, Arial, sans-serif" font-size="11" font-weight="bold"
+                          fill="#CD4A2D" letter-spacing="normal" text-decoration="none" direction="ltr"
+                          text-anchor="start" x="379.88351368313965" y="193.67602247275136" aria-hidden="true"
+                          style="user-select: none; opacity: 1;">
+                        <tspan x="379.88351368313965" dy="0">7</tspan>
+                    </text>
+                </g>
+            </g>
+            <g data-ac-wrapper-id="175"></g>
+            <g data-ac-wrapper-id="58" transform="matrix(1,0,0,1,10,682)" clip-path="url(#ac_clip_l)"
+               clipPathUnits="userSpaceOnUse">
+                <g data-ac-wrapper-id="59">
+                    <g data-ac-wrapper-id="60" transform="matrix(1,0,0,1,10,-30)">
+                        <text data-ac-wrapper-id="61" font-style="normal" font-variant="normal"
+                              font-family="Verdana, Helvetica, Arial, sans-serif" font-size="12" font-weight="normal"
+                              fill="#7c868e" letter-spacing="normal" text-decoration="none" direction="ltr"
+                              text-anchor="start" x="20" y="15" aria-hidden="true"
+                              style="user-select: none; opacity: 1; cursor: pointer;">
+                            <tspan x="20" dy="0">Applicant1</tspan>
+                        </text>
+                        <path data-ac-wrapper-id="62" transform="matrix(1,0,0,1,0,3)" fill="none" stroke="#CD4A2D"
+                              d="M 0 7.5 L 15 7.5 Z" style="cursor: pointer;" stroke-width="6"></path>
+                        <path data-ac-wrapper-id="64" fill="none" stroke="none" d="M 0,0"
+                              style="cursor: pointer;"></path>
+                        <path data-ac-wrapper-id="63" fill="#FFFFFF" fill-opacity="0.00001" stroke="none"
+                              d="M 0 0 L 89.140625 0 89.140625 21 0 21 0 0 Z" style="cursor: pointer;"></path>
+                    </g>
+                    <g data-ac-wrapper-id="65" transform="matrix(1,0,0,1,10,-4)">
+                        <text data-ac-wrapper-id="66" font-style="normal" font-variant="normal"
+                              font-family="Verdana, Helvetica, Arial, sans-serif" font-size="12" font-weight="normal"
+                              fill="#7c868e" letter-spacing="normal" text-decoration="none" direction="ltr"
+                              text-anchor="start" x="20" y="12" aria-hidden="true"
+                              style="user-select: none; opacity: 1; cursor: pointer;">
+                            <tspan x="20" dy="0">Company</tspan>
+                        </text>
+                        <path data-ac-wrapper-id="67" fill="#E2DFE0" stroke="none" d="M 0 0 L 15 0 15 15 0 15 Z"
+                              style="cursor: pointer;" fill-opacity="0.85"></path>
+                        <path data-ac-wrapper-id="68" fill="#FFFFFF" fill-opacity="0.00001" stroke="none"
+                              d="M 0 0 L 76.703125 0 76.703125 15 0 15 0 0 Z" style="cursor: pointer;"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
