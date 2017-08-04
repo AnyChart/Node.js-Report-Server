@@ -1,15 +1,12 @@
 #!/usr/bin/env node
 
 var express = require('express');
-var request = require('request');
 var bodyParser = require('body-parser');
 var program = require('commander');
 var uuidv4 = require('uuid/v4');
 var fs = require('fs');
 var vm = require('vm2');
 var jsdom = require('jsdom').jsdom;
-var DOMParser = require('xmldom').DOMParser;
-var XMLparser = new DOMParser();
 var csv = require('csv');
 var xlsx = require('xlsx');
 var path = require('path');
@@ -87,10 +84,10 @@ var iframes = {};
 
 //endregion
 //region --- AnyChart configure
-// var anychart = require('anychart')(window);
-var anychart = require('../ACDVF/out/anychart-bundle.min.js')(window);
-// var anychart_nodejs = require('anychart-nodejs')(anychart);
-var anychart_nodejs = require('../AnyChart-NodeJS')(anychart);
+var anychart = require('anychart')(window);
+// var anychart = require('../ACDVF/out/anychart-bundle.min.js')(window);
+var anychart_nodejs = require('anychart-nodejs')(anychart);
+// var anychart_nodejs = require('../AnyChart-NodeJS')(anychart);
 
 
 //endregion
@@ -115,12 +112,6 @@ app.use(bodyParser.urlencoded({parameterLimit: 100000, limit: '50mb', extended: 
 
 
 //endregion
-
-function execGc() {
-  if (global.gc) {
-    global.gc();
-  }
-}
 
 function partial(fn, var_args) {
   var args = Array.prototype.slice.call(arguments, 1);
@@ -169,11 +160,6 @@ function createSandbox(containerTd) {
   var div = iframeDoc.createElement('div');
   div.setAttribute('id', containerTd);
   iframeDoc.body.appendChild(div);
-  var window = iframeDoc.defaultView;
-  window.isNodeJS = true;
-  window.anychart = anychart;
-  window.acgraph = anychart.graphics;
-  anychart.global(window);
 
   return iframeId;
 }
@@ -197,13 +183,13 @@ function convertCharts(obj, callback) {
     var dataType = chartConfig.dataType;
     var containerId = chartConfig.containerId || 'container';
 
-    var chart = getChartData(data, dataType);
-    if (chart) {
-      var iframeId = createSandbox(containerId);
-      if (dataType !== 'svg' && dataType !== 'javascript') {
-        chart.container(containerId);
-      }
+    if (dataType === 'javascript' && program.disableScriptsExecuting) {
+      logger.warn('Script executing disabled.');
+      data = null;
+    }
 
+    if (data) {
+      var iframeId = createSandbox(containerId);
       logger.info('----> PDF Report. Chart ' + index + ' exporting.');
       var imgConvertCallback = partial(function imgConvertCallback(id, dataType, chartNum, userData, err, data) {
         clearSandbox(id);
@@ -216,7 +202,6 @@ function convertCharts(obj, callback) {
               dataType.toUpperCase(), 'PDF', userData, containerId, err);
         }
 
-        execGc();
         delete config[key];
         chartsToConvert--;
         if (chartsToConvert === 0) {
@@ -224,9 +209,9 @@ function convertCharts(obj, callback) {
         }
       }, iframeId, dataType, index, data);
 
-      var params = {type: 'png', document: iframeDoc, containerId: containerId, iframeId: iframeId};
+      var params = {type: 'png', dataType: dataType, document: iframeDoc, containerId: containerId, iframeId: iframeId};
       applyImageParams(params, chartConfig);
-      anychart_nodejs.exportTo(chart, params, imgConvertCallback);
+      anychart_nodejs.exportTo(data, params, imgConvertCallback);
     } else {
       config.image = blankImage;
       delete config[key];
@@ -280,30 +265,6 @@ function getContentType(type) {
   return contentType;
 }
 
-function getChartData(data, type) {
-  var chart = null;
-  switch (type) {
-    case 'json':
-      chart = anychart.fromJson(data);
-      break;
-    case 'xml':
-      chart = anychart.fromXml(XMLparser.parseFromString(data));
-      break;
-    case 'svg':
-      chart = data;
-      break;
-    case 'javascript':
-      if (!program.disableScriptsExecuting) {
-        chart = data;
-      } else {
-        logger.warn('Script executing disabled.');
-      }
-      break;
-  }
-
-  return chart;
-}
-
 function sendResult(req, res, data, fileType) {
   var autoFileName = 'anychart_' + uuidv4() + '.' + fileType;
   var responseType = (req.body.response_type || 'file').toLowerCase();
@@ -350,75 +311,52 @@ function sendResult(req, res, data, fileType) {
   }
 }
 
-function loadExternalResources(resources, callback) {
-  if (Object.prototype.toString.call(resources) === '[object Array]') {
-    var loadedResources = [];
-    for (var i = 0, len = resources.length; i < len; i++) {
-      request
-          .get(resources[i], function(err, response, body) {
-            if (err) {
-              loadedResources.push('');
-            } else {
-              loadedResources.push({
-                type: response.headers['content-type'],
-                body: body
-              });
-            }
-
-            if (resources.length === loadedResources.length) {
-              callback(null, loadedResources);
-            }
-          });
-    }
-    if (resources.length === loadedResources.length) {
-      callback(null, loadedResources);
-    }
-  } else {
-    callback(null, []);
-  }
-}
-
 function generateOutput(req, res) {
-  loadExternalResources(req.body.resources, function(err, resources) {
-    var dataType = req.body.data_type && req.body.data_type.toLowerCase();
-    var fileType = (req.body.file_type || 'png').toLowerCase();
-    var data = req.body.data;
-    var containerId = req.body.containerId || 'container';
+  var dataType = req.body.data_type && req.body.data_type.toLowerCase();
+  var fileType = (req.body.file_type || 'png').toLowerCase();
+  var data = req.body.data;
+  var containerId = req.body.containerId || 'container';
+  var resources = req.body.resources || [];
 
-    var chart = getChartData(data, dataType);
-    if (chart) {
-      var iframeId = createSandbox(containerId);
-      if (dataType !== 'svg' && dataType !== 'javascript') {
-        chart.container(containerId);
+  if (dataType === 'javascript' && program.disableScriptsExecuting) {
+    logger.warn('Script executing disabled.');
+    data = null;
+  }
+
+  if (data) {
+    var iframeId = createSandbox(containerId);
+    logger.info('----> Input. Convert %s to %s. Image.', dataType.toUpperCase(), fileType.toUpperCase());
+    var imgConvertCallback = partial(function imgConvertCallback(id, fileType, dataType, userData, err, data) {
+      if (err)
+        logger.error('Convert %s to %s. Data: %s. Container id: %s.',
+            dataType.toUpperCase(), fileType.toUpperCase(), userData, containerId, err);
+      else
+        logger.info('<---- Output. Convert %s to %s. Image.', dataType.toUpperCase(), fileType.toUpperCase());
+
+      if (!data || err) {
+        res.status(500).send({error: err ? err.message : 'Image generation error'});
+      } else {
+        sendResult(req, res, data, fileType);
       }
+      clearSandbox(iframeId);
+    }, iframeId, fileType, dataType, data);
 
-      logger.info('----> Input. Convert %s to %s. Image.', dataType.toUpperCase(), fileType.toUpperCase());
-      var imgConvertCallback = partial(function imgConvertCallback(id, fileType, dataType, userData, err, data) {
-        if (err)
-          logger.error('Convert %s to %s. Data: %s. Container id: %s.',
-              dataType.toUpperCase(), fileType.toUpperCase(), userData, containerId, err);
-        else
-          logger.info('<---- Output. Convert %s to %s. Image.', dataType.toUpperCase(), fileType.toUpperCase());
+    var params = {
+      type: fileType,
+      dataType: dataType,
+      document: iframeDoc,
+      containerId: containerId,
+      iframeId: iframeId,
+      resources: resources
+    };
+    applyImageParams(params, req.body);
 
-        if (!data || err) {
-          res.status(500).send({error: err ? err.message : 'Image generation error'});
-        } else {
-          sendResult(req, res, data, fileType);
-        }
-        clearSandbox(iframeId);
-        execGc();
-      }, iframeId, fileType, dataType, data);
-
-      var params = {type: fileType, document: iframeDoc, containerId: containerId, iframeId: iframeId, resources: resources};
-      applyImageParams(params, req.body);
-
-      anychart_nodejs.exportTo(chart, params, imgConvertCallback);
-    } else {
-      logger.error('Chart data not found. Convert %s to %s. Data: %s. Container id: %s.',
-          dataType.toUpperCase(), fileType.toUpperCase(), data, containerId, err);
-      res.status(500).send({error: 'Chart data not found'});
-    }
-  });
+    anychart_nodejs.exportTo(data, params, imgConvertCallback);
+  } else {
+    logger.error('Chart data not found. Convert %s to %s. Data: %s. Container id: %s.',
+        dataType.toUpperCase(), fileType.toUpperCase(), data, containerId, err);
+    res.status(500).send({error: 'Chart data not found'});
+  }
 }
 
 app.post('/pdf-report', function (req, res) {

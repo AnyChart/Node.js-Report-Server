@@ -265,10 +265,10 @@ function convert(data, data_type, file_type, contentType, responseType, url) {
       data: data,
       resources: [
           // 'https://code.jquery.com/jquery-latest.min.js',
-          // 'https://cdn.anychart.com/geodata/1.2.0/countries/canada/canada.js',
+          'https://cdn.anychart.com/geodata/1.2.0/countries/canada/canada.js',
           // 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css',
-          // 'https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.15/proj4.js',
-        "https://cdnjs.cloudflare.com/ajax/libs/fontfaceobserver/2.0.7/fontfaceobserver.js"
+          'https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.15/proj4.js',
+        // "https://cdn.anychart.com/fonts/interdex/interdex.css"
       ]
     }
   }).done(function(resData) {
