@@ -76,7 +76,7 @@ logger.verbose('log level:', logLevel);
 
 //endregion
 //region --- Script exec sandbox configure
-var rootDoc = jsdom('<body></body>');
+var rootDoc = jsdom('<body><div id="container"></div></body>');
 var window = rootDoc.defaultView;
 var iframeDoc = null;
 var iframes = {};
@@ -84,11 +84,11 @@ var iframes = {};
 
 //endregion
 //region --- AnyChart configure
-var anychart = require('anychart')(window);
-// var anychart = require('../ACDVF/out/anychart-bundle.min.js')(window);
+// var anychart = require('anychart')(window);
+var anychart = require('../ACDVF/out/anychart-bundle.min.js')(window);
 
-var anychart_nodejs = require('anychart-nodejs')(anychart);
-// var anychart_nodejs = require('../AnyChart-NodeJS')(anychart);
+// var anychart_nodejs = require('anychart-nodejs')(anychart);
+var anychart_nodejs = require('../AnyChart-NodeJS')(anychart);
 
 
 //endregion
@@ -221,7 +221,7 @@ function convertCharts(obj, callback) {
       config.image = blankImage;
       delete config[key];
       logger.error('Chart data not found. Chart was replaced with blank Image. Convert %s to %s. Data: %s. Container id: %s.',
-          dataType.toUpperCase(), 'PDF', data, containerId, err);
+          dataType.toUpperCase(), 'PDF', data, containerId);
     }
   };
   
@@ -329,34 +329,35 @@ function generateOutput(req, res) {
   }
 
   if (data) {
-    var iframeId = createSandbox(containerId);
+    // var iframeId = createSandbox(containerId);
     logger.info('----> Input. Convert %s to %s. Image.', dataType.toUpperCase(), fileType.toUpperCase());
-    var imgConvertCallback = partial(function imgConvertCallback(id, fileType, dataType, userData, err, data) {
-      if (err)
-        logger.error('Convert %s to %s. Data: %s. Container id: %s.',
-            dataType.toUpperCase(), fileType.toUpperCase(), userData, containerId, err);
-      else
-        logger.info('<---- Output. Convert %s to %s. Image.', dataType.toUpperCase(), fileType.toUpperCase());
-
-      if (!data || err) {
-        res.status(500).send({error: err ? err.message : 'Image generation error'});
-      } else {
-        sendResult(req, res, data, fileType);
-      }
-      clearSandbox(iframeId);
-    }, iframeId, fileType, dataType, data);
+    // var imgConvertCallback = partial(function imgConvertCallback(id, fileType, dataType, userData, err, data) {
+    //   if (err)
+    //     logger.error('Convert %s to %s. Data: %s. Container id: %s.',
+    //         dataType.toUpperCase(), fileType.toUpperCase(), userData, containerId, err);
+    //   else
+    //     logger.info('<---- Output. Convert %s to %s. Image.', dataType.toUpperCase(), fileType.toUpperCase());
+    //
+    //   if (!data || err) {
+    //     res.status(500).send({error: err ? err.message : 'Image generation error'});
+    //   } else {
+    //     sendResult(req, res, data, fileType);
+    //   }
+    //   clearSandbox(iframeId);
+    // }, iframeId, fileType, dataType, data);
 
     var params = {
       type: fileType,
       dataType: dataType,
-      document: iframeDoc,
+      // document: iframeDoc,
       containerId: containerId,
-      iframeId: iframeId,
+      // iframeId: iframeId,
       resources: resources
     };
-    applyImageParams(params, req.body);
 
-    anychart_nodejs.exportTo(data, params, imgConvertCallback);
+    anychart_nodejs.exportTo(data, params, function(err, data) {
+      sendResult(req, res, data, 'png');
+    });
   } else {
     logger.error('Chart data not found. Convert %s to %s. Data: %s. Container id: %s.',
         dataType.toUpperCase(), fileType.toUpperCase(), data, containerId, err);
