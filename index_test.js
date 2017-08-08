@@ -13,6 +13,18 @@ var params = {
   containerId: 'container'
 };
 
-anychart_nodejs.exportTo(data, params, function(err, data) {
-  console.log(err, data);
-});
+var chartCount = 1000;
+var cur = 0;
+
+var inertval = setInterval(function() {
+  anychart_nodejs.exportTo(data, params, function(err, data) {
+    if (cur > chartCount) {
+      clearInterval(inertval);
+      console.log('interval cleared');
+    } else {
+      cur++;
+      console.log(cur, err, data);
+    }
+  });
+}, 1);
+                                                         
