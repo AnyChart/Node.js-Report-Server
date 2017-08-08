@@ -86,6 +86,7 @@ var iframes = {};
 //region --- AnyChart configure
 var anychart = require('anychart')(window);
 // var anychart = require('../ACDVF/out/anychart-bundle.min.js')(window);
+
 var anychart_nodejs = require('anychart-nodejs')(anychart);
 // var anychart_nodejs = require('../AnyChart-NodeJS')(anychart);
 
@@ -165,7 +166,11 @@ function createSandbox(containerTd) {
 }
 
 function clearSandbox(iframeId) {
-  rootDoc.body.removeChild(rootDoc.getElementById(iframeId));
+  var iFrame = rootDoc.getElementById(iframeId);
+  iframeDoc = iFrame.contentDocument;
+  iframeDoc.body.innerHTML = '';
+  iFrame.contentDocument = null;
+  rootDoc.body.removeChild(iFrame);
 }
 
 function convertCharts(obj, callback) {

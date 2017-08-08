@@ -264,10 +264,10 @@ function convert(data, data_type, file_type, contentType, responseType, url) {
       response_type: responseType,
       data: data,
       resources: [
-          // 'https://code.jquery.com/jquery-latest.min.js',
-          'https://cdn.anychart.com/geodata/1.2.0/countries/canada/canada.js',
-          // 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css',
-          'https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.15/proj4.js',
+        // 'https://code.jquery.com/jquery-latest.min.js',
+        'https://cdn.anychart.com/geodata/1.2.0/countries/canada/canada.js',
+        // 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css',
+        'https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.15/proj4.js'
         // "https://cdn.anychart.com/fonts/interdex/interdex.css"
       ]
     }
