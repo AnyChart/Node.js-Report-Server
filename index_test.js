@@ -1,5 +1,7 @@
 #!/usr/bin/env node
+// var gc = require("js-gc");
 var jsdom = require('jsdom').jsdom;
+var vm = require('vm2');
 var opentype = require('opentype.js');
 var defaultFontsDir = __dirname + '/node_modules/anychart-nodejs/fonts';
 var defaultBounds = {left: 0, top: 0, width: 1024, height: 768};
@@ -14,7 +16,6 @@ window.isNodeJS = true;
 window.defaultBounds = defaultBounds;
 
 // window.setTimeout = function(code,delay,arguments) {
-//   debugger
 //   console.log('setTimeout', code, delay, arguments);
 // };
 //
@@ -96,7 +97,7 @@ var params = {
   document: rootDoc
 };
 
-var chartCount = 3000;
+var chartCount = 1000;
 var cur = 0;
 
 
@@ -115,100 +116,55 @@ var cur = 0;
 //     }
 //   });
 // }, 1);
-function getData() {
-  return [{
-    x: 'A',
-    name: 'Data Science',
-    value: 100,
-    stroke: 'none',
-    label: {
-      fontColor: '#3b8ad8',
-      fontSize: 14
+
+var inertval = setInterval(function() {
+  var target = "anychart.onDocumentReady(function () {var chart = anychart.cartesian(); chart.line([1,2,3]); chart.container('container').draw();});";
+  var script = new vm.VM({
+    timeout: 10000,
+    sandbox: {
+      anychart: window.anychart
     }
-  }, {
-    x: 'B',
-    name: 'Computer Science',
-    value: 25
-  }, {
-    x: 'C',
-    name: 'Math and Statistics',
-    value: 25
-  }, {
-    x: 'D',
-    name: 'Subject Matter Expertise',
-    value: 25
-  }, {
-    x: ['A', 'B'],
-    name: 'Computer Science',
-    value: 50
-  }, {
-    x: ['A', 'C'],
-    name: 'Math and Statistics',
-    value: 50
-  }, {
-    x: ['A', 'D'],
-    name: 'Subject Matter Expertise',
-    value: 50
-  },
+  });
+  script.run(target);
 
-    {
-      x: ['B', 'C'],
-      name: 'Machine\nLearning',
-      value: 5
-    }, {
-      x: ['C', 'D'],
-      name: 'Traditional\nResearch',
-      value: 5
-    }, {
-      x: ['D', 'B'],
-      name: 'Traditional\nSoftware',
-      value: 5
-    }, {
-      x: ['B', 'C', 'D'],
-      name: 'Unicorn',
-      value: 5
-    }];
-}
+  var xmlNs = '<?xml version="1.0" encoding="UTF-8" standalone="no"?>';
 
-anychart.onDocumentReady(function () {
-  var data = getData();
+  var svgElements = rootDoc.getElementsByTagName('svg');
+  var svgElement = svgElements[0];
+  var svg = xmlNs + (svgElement ? svgElement.outerHTML : '');
 
-  // create venn diagram
-  var chart = anychart.venn(data);
+  for (var i = 0, len = svgElements.length; i < len; i++) {
+    svgElement = svgElements[i];
+    var id = svgElement.getAttribute('ac-id');
+    var stage = anychart.graphics.getStage(id);
+    if (stage) {
+      var charts = stage.getCharts();
+      for (var chart in charts) {
+        charts[chart].dispose();
+      }
+      stage.dispose();
+    }
+  }
 
-  // set chart stroke
-  chart.stroke('2 #fff');
+  script.options.sandbox.anychart = null;
+  script._context = null;
+  script._internal = null;
 
-  // set labels settings
-  chart.labels().format('{%Name}');
-
-  // set font color for hover intersections labels
-  chart.intersections().hoverFill('black 0.25');
-
-  // set intersections labels settings
-  chart.intersections().labels()
-      .fontWeight('bold')
-      .format('{%Name}');
-
-  // set legend settings
-  chart.legend()
-      .position('right')
-      .itemsLayout('vertical')
-      .padding({left: 35});
-
-  // set tooltip settings
-  chart.tooltip().titleFormat('{%Name}');
-
-  // set container id for the chart
-  chart.container('container');
-  // initiate chart drawing
-  chart.draw();
-
-  console.log(rootDoc.body.innerHTML);
-});
+  if (cur > chartCount) {
+    clearInterval(inertval);
+    console.log('interval cleared');
+  } else {
+    cur++;
+    console.log(cur);
+    // gc()
+  }
+}, 1);
 
 
 
+setInterval(function() {
+  gc()
+}, 3000);
 
 
 // for (var i = 0, len = 5000; i < len; i++) {

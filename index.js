@@ -462,6 +462,10 @@ app.listen(program.port, function () {
   logger.info('Export server listening on port ' + program.port + '!')
 });
 
+setInterval(function() {
+  gc()
+}, 3000);
+
 module.exports = app;
 
 
