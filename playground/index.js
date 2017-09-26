@@ -273,6 +273,8 @@ function convert(data, data_type, file_type, contentType, responseType, url) {
     }
   }).done(function(resData) {
     showContent(contentType, resData);
+
+
   }).fail(function(e) {
     $('#viewimage').attr("src", img500);
     $('#viewimage').css('display', 'inline-block');
@@ -311,6 +313,7 @@ $(document).ready(function() {
 
   $('#refresh').click(function() {
     generate();
+    lockButton(this);
   });
 
   $('#outputType').on('change', function() {

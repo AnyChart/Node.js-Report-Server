@@ -76,7 +76,7 @@ logger.verbose('log level:', logLevel);
 
 //endregion
 //region --- Script exec sandbox configure
-var rootDoc = jsdom('<body><div id="container"></div></body>');
+var rootDoc = jsdom('<body></body>');
 var window = rootDoc.defaultView;
 var iframeDoc = null;
 var iframes = {};
@@ -84,11 +84,11 @@ var iframes = {};
 
 //endregion
 //region --- AnyChart configure
-// var anychart = require('anychart')(window);
-var anychart = require('../ACDVF/out/anychart-bundle.min.js')(window);
+var anychart = require('anychart')(window);
+// var anychart = require('../ACDVF/out/anychart-bundle.min.js')(window);
 
-// var anychart_nodejs = require('anychart-nodejs')(anychart);
-var anychart_nodejs = require('../AnyChart-NodeJS')(anychart);
+var anychart_nodejs = require('anychart-nodejs')(anychart);
+// var anychart_nodejs = require('../AnyChart-NodeJS')(anychart);
 
 
 //endregion
@@ -449,7 +449,7 @@ app.post('/data-file', function (req, res) {
 
 if (!program.disablePlayground) {
   app.use(express.static(path.join(__dirname, 'playground')));
-  app.get('/playground', function(req, res) {
+  app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/playground/template.html'));
   });
 }
@@ -462,9 +462,11 @@ app.listen(program.port, function () {
   logger.info('Export server listening on port ' + program.port + '!')
 });
 
-setInterval(function() {
-  gc()
-}, 3000);
+if (global.gc) {
+  setInterval(function() {
+    global.gc()
+  }, 3000);
+}
 
 module.exports = app;
 

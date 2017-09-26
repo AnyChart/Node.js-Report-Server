@@ -15,13 +15,13 @@ window.anychart = anychart;
 window.isNodeJS = true;
 window.defaultBounds = defaultBounds;
 
-// window.setTimeout = function(code,delay,arguments) {
-//   console.log('setTimeout', code, delay, arguments);
-// };
-//
-// window.setInterval = function(code,delay,arguments) {
-//   console.log('setInterval', code, delay, arguments);
-// };
+window.setTimeout = function(code,delay,arguments) {
+  // console.log('setTimeout', code, delay, arguments);
+};
+
+window.setInterval = function(code,delay,arguments) {
+  // console.log('setInterval', code, delay, arguments);
+};
 
 var fs = require('fs');
 var fonts = {};
@@ -90,22 +90,22 @@ loadDefaultFontsSync();
 anychartify(rootDoc);
 anychart.global(window);
 
-var params = {
-  type: 'png',
-  dataType: 'json',
-  containerId: 'container',
-  document: rootDoc
-};
+// var params = {
+//   type: 'png',
+//   dataType: 'json',
+//   containerId: 'container',
+//   document: rootDoc
+// };
 
 var chartCount = 1000;
 var cur = 0;
 
 
 // var inertval = setInterval(function() {
-  // var target = anychart.fromJson(data);
-  // target.container('container').draw();
-  // target.dispose();
-
+//   var target = anychart.fromJson(data);
+//   target.container('container').draw();
+//   target.dispose();
+//
 //   anychart_nodejs.exportTo(data, params, function(err, data) {
 //     if (cur > chartCount) {
 //       clearInterval(inertval);
@@ -120,7 +120,7 @@ var cur = 0;
 var inertval = setInterval(function() {
   var target = "anychart.onDocumentReady(function () {var chart = anychart.cartesian(); chart.line([1,2,3]); chart.container('container').draw();});";
   var script = new vm.VM({
-    timeout: 10000,
+    // timeout: 10000,
     sandbox: {
       anychart: window.anychart
     }
@@ -163,7 +163,7 @@ var inertval = setInterval(function() {
 
 
 setInterval(function() {
-  gc()
+  // gc()
 }, 3000);
 
 

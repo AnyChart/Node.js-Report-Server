@@ -11,7 +11,7 @@ anychart.onDocumentReady(function () {
   chart.labels().format('{%Name}');
 
   // set font color for hover intersections labels
-  chart.intersections().hoverFill('black 0.25');
+  chart.intersections().hovered().fill('black 0.25');
 
   // set intersections labels settings
   chart.intersections().labels()
