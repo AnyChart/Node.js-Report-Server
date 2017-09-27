@@ -11,24 +11,19 @@
       "bottom": 5,
       "right": 40
     },
-    "tooltip": {
-      "format": "${%Value}",
-      "offsetX": 5,
-      "offsetY": 0,
-      "positionMode": "point",
-      "enabled": true
-    },
-    "credits": {
-      "text": "AnyChart",
-      "url": "https://www.anychart.com/?utm_source=registered",
-      "alt": "AnyChart - JavaScript Charts designed to be embedded and integrated",
-      "imgAlt": "AnyChart - JavaScript Charts",
-      "logoSrc": "https://static.anychart.com/logo.png",
+    "animation": {
       "enabled": false
     },
-    "selectMarqueeFill": {
-      "color": "#d3d3d3",
-      "opacity": 0.4
+    "tooltip": {
+      "enabled": true,
+      "format": "${%Value}",
+      "anchor": "left-center",
+      "offsetX": 5,
+      "offsetY": 0,
+      "positionMode": "point"
+    },
+    "credits": {
+      "enabled": false
     },
     "legend": {
       "enabled": true,
@@ -48,13 +43,28 @@
         "seriesType": "bar",
         "meta": {},
         "name": "Florida",
-        "labels": {
-          "enabled": true,
-          "fontColor": "#fff",
-          "format": "${%Value}{groupsSeparator: }",
-          "position": "rightCenter",
-          "anchor": "leftCenter",
-          "offsetY": -65
+        "normal": {
+          "labels": {
+            "enabled": true,
+            "fontColor": "#fff",
+            "format": "${%Value}{groupsSeparator: }",
+            "position": "right-center",
+            "anchor": "left-center",
+            "offsetY": -65
+          },
+          "outlierMarkers": {
+            "enabled": null
+          }
+        },
+        "hovered": {
+          "outlierMarkers": {
+            "enabled": null
+          }
+        },
+        "selected": {
+          "outlierMarkers": {
+            "enabled": null
+          }
         },
         "data": [
           {
@@ -66,7 +76,7 @@
             "value": 7012
           },
           {
-            "x": "Pomade",
+            "x": "Lipstick",
             "value": 8814
           }
         ],
@@ -78,13 +88,28 @@
         "seriesType": "bar",
         "meta": {},
         "name": "Texas",
-        "labels": {
-          "enabled": true,
-          "fontColor": "#fff",
-          "format": "${%Value}{groupsSeparator: }",
-          "position": "rightCenter",
-          "anchor": "leftCenter",
-          "offsetY": -65
+        "normal": {
+          "labels": {
+            "enabled": true,
+            "fontColor": "#fff",
+            "format": "${%Value}{groupsSeparator: }",
+            "position": "right-center",
+            "anchor": "left-center",
+            "offsetY": -65
+          },
+          "outlierMarkers": {
+            "enabled": null
+          }
+        },
+        "hovered": {
+          "outlierMarkers": {
+            "enabled": null
+          }
+        },
+        "selected": {
+          "outlierMarkers": {
+            "enabled": null
+          }
         },
         "data": [
           {
@@ -96,7 +121,7 @@
             "value": 5067
           },
           {
-            "x": "Pomade",
+            "x": "Lipstick",
             "value": 9054
           }
         ],
@@ -108,13 +133,28 @@
         "seriesType": "bar",
         "meta": {},
         "name": "Arizona",
-        "labels": {
-          "enabled": true,
-          "fontColor": "#fff",
-          "format": "${%Value}{groupsSeparator: }",
-          "position": "rightCenter",
-          "anchor": "leftCenter",
-          "offsetY": -65
+        "normal": {
+          "labels": {
+            "enabled": true,
+            "fontColor": "#fff",
+            "format": "${%Value}{groupsSeparator: }",
+            "position": "right-center",
+            "anchor": "left-center",
+            "offsetY": -65
+          },
+          "outlierMarkers": {
+            "enabled": null
+          }
+        },
+        "hovered": {
+          "outlierMarkers": {
+            "enabled": null
+          }
+        },
+        "selected": {
+          "outlierMarkers": {
+            "enabled": null
+          }
         },
         "data": [
           {
@@ -126,7 +166,7 @@
             "value": 8987
           },
           {
-            "x": "Pomade",
+            "x": "Lipstick",
             "value": 4376
           }
         ],
@@ -138,13 +178,28 @@
         "seriesType": "bar",
         "meta": {},
         "name": "Nevada",
-        "labels": {
-          "enabled": true,
-          "fontColor": "#fff",
-          "format": "${%Value}{groupsSeparator: }",
-          "position": "rightCenter",
-          "anchor": "leftCenter",
-          "offsetY": -65
+        "normal": {
+          "labels": {
+            "enabled": true,
+            "fontColor": "#fff",
+            "format": "${%Value}{groupsSeparator: }",
+            "position": "right-center",
+            "anchor": "left-center",
+            "offsetY": -65
+          },
+          "outlierMarkers": {
+            "enabled": null
+          }
+        },
+        "hovered": {
+          "outlierMarkers": {
+            "enabled": null
+          }
+        },
+        "selected": {
+          "outlierMarkers": {
+            "enabled": null
+          }
         },
         "data": [
           {
@@ -156,7 +211,7 @@
             "value": 3932
           },
           {
-            "x": "Pomade",
+            "x": "Lipstick",
             "value": 9256
           }
         ],
@@ -195,7 +250,9 @@
     "scales": [
       {},
       {
-        "minimum": 0
+        "minimum": 0,
+        "softMinimum": null,
+        "comparisonMode": "none"
       }
     ],
     "type": "bar-3d"

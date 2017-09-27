@@ -1,10 +1,36 @@
 var loadedFiles = {};
 var pathToConfigs = 'configs/';
+var showPreload = true;
 
-var img500;
+var img500, jsonSchema, xmlSchema;
 $.get('500.img', function(data) {
   img500 = data;
 });
+
+$.get('http://cdn.anychart.com/releases/8.0.0/json-schema.json', function(data) {
+  jsonSchema = data;
+});
+
+$.get({url: 'http://cdn.anychart.com/releases/8.0.0/xml-schema.xsd'}, function(data) {
+  xmlSchema = data;
+});
+
+function showPreloader() {
+  if (showPreload) {
+    $('#output').append('<div id="loader-wrapper" class="anychart-loader"><div class="rotating-cover"><div class="rotating-plane"><div class="chart-row"><span class="chart-col green"></span><span class="chart-col orange"></span><span class="chart-col red"></span></div></div></div></div>');
+    $('#refresh').attr('disabled', 'disabled');
+
+    $('#tabs li').addClass('disabled').removeAttr('data-toggle');
+  }
+}
+
+function hidePreloader() {
+  $('#loader-wrapper').remove();
+  showPreload = false;
+  $('#refresh').attr('disabled', false);
+
+  $('#tabs li').removeClass('disabled').attr('data-toggle', 'tab');
+}
 
 function parseReport(data) {
   var regex = /chart"*:\s*{\s*\n*\s*"*data"*:\s*"*(.*[^",])"*[,\n]\s*\n*\s*"*dataType"*:\s*"*(.*[^",])"*[,\n]/g;
@@ -223,6 +249,7 @@ function saveFile() {
 }
 
 function showContent(contentType, resData) {
+  console.log(resData);
   if (contentType === 'application/pdf' || contentType === 'image/tiff') {
     $('#viewpdf').attr("src", 'data:' + contentType + ';base64,' + resData.data);
     $('#viewpdf').attr("type", contentType);
@@ -231,11 +258,11 @@ function showContent(contentType, resData) {
     $('#viewsvg').css('display', 'none');
     $('#viewpdf').css('display', 'inline-block');
   } else if (contentType === 'image/svf+xm') {
-    $('#viewsvg').html(resData.data);
+    $('#viewimage').attr("src", 'data:image/svg+xml;base64,' + resData.data);
 
-    $('#viewimage').css('display', 'none');
+    $('#viewimage').css('display', 'inline-block');
     $('#viewpdf').css('display', 'none');
-    $('#viewsvg').css('display', 'inline-block');
+    $('#viewsvg').css('display', 'none');
   } else {
     $('#viewimage').attr("src", 'data:' + contentType + ';base64,' + resData.data);
 
@@ -254,34 +281,68 @@ function convert(data, data_type, file_type, contentType, responseType, url) {
     file_type = 'png';
   }
 
-  $.ajax({
-    method: 'POST',
-    dataType: 'json',
-    url: url,
-    data: {
-      data_type: data_type,
-      file_type: file_type,
-      response_type: responseType,
-      data: data,
-      resources: [
-        // 'https://code.jquery.com/jquery-latest.min.js',
-        // 'https://cdn.anychart.com/geodata/1.2.0/countries/canada/canada.js',
-        // 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css',
-        // 'https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.15/proj4.js'
-        // "https://cdn.anychart.com/fonts/interdex/interdex.css"
-      ]
+  var isValid = true, valid = '';
+  if (data_type == 'json') {
+    try {
+      var json = JSON.parse(data);
+      valid = tv4.validateResult(json, jsonSchema);
+      isValid = valid.valid;
+      console.log(valid);
+    } catch (e) {
+      valid = e;
+      isValid = false;
     }
-  }).done(function(resData) {
-    showContent(contentType, resData);
+  } else if (data_type == 'xml') {
+    var Module = {
+      xml: data,
+      schema: xmlSchema,
+      arguments: ["--noout", "--schema", 'schema', 'xml']
+    };
 
+    valid = validateXML(Module);
+    isValid = valid === 'xml validates\n';
+  }
 
-  }).fail(function(e) {
-    $('#viewimage').attr("src", img500);
-    $('#viewimage').css('display', 'inline-block');
+  if (isValid) {
+    $.ajax({
+      method: 'POST',
+      dataType: 'json',
+      url: url,
+      data: {
+        data_type: data_type,
+        file_type: file_type,
+        response_type: responseType,
+        data: data,
+        resources: [
+          // 'https://code.jquery.com/jquery-latest.min.js',
+          // 'https://cdn.anychart.com/geodata/1.2.0/countries/canada/canada.js',
+          // 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css',
+          // 'https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.15/proj4.js'
+          // "https://cdn.anychart.com/fonts/interdex/interdex.css"
+        ]
+      },
+      beforeSend: function() {
+        showPreload = true;
+        setTimeout(showPreloader, 20);
+      }
+    }).done(function(resData) {
+      showContent(contentType, resData);
+
+      hidePreloader();
+    }).fail(function(e) {
+      $('#viewimage').attr("src", img500);
+      $('#viewimage').css('display', 'inline-block');
+      $('#viewpdf').css('display', 'none');
+      $('#viewsvg').css('display', 'none');
+      console.log(e.responseJSON.error);
+      hidePreloader();
+    });
+  } else {
+    $('#viewimage').css('display', 'none');
     $('#viewpdf').css('display', 'none');
-    $('#viewsvg').css('display', 'none');
-    console.log(e.responseJSON.error);
-  });
+    $('#viewsvg').css('display', 'inline-block');
+    $('#viewsvg').html('<div class="panel panel-warning" style="margin: 15px"><div class="panel-heading">Invalid ' + data_type + ' config</div><div class="panel-body"><samp>' + valid + '</samp></div></div>');
+  }
 }
 
 function resize() {
@@ -313,7 +374,6 @@ $(document).ready(function() {
 
   $('#refresh').click(function() {
     generate();
-    lockButton(this);
   });
 
   $('#outputType').on('change', function() {

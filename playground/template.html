@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Chart exporting</title>
+    <title>AnyChart Report Server</title>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -28,13 +28,28 @@
             crossorigin="anonymous"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.8/ace.js"></script>
+    <script src="./tv4.min.js"></script>
+    <script src="./xmllint.js"></script>
     <script src="./index.js"></script>
 
     <link rel="stylesheet" href="./index.css">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5B8NXZ');
+    </script>
+    <!-- End Google Tag Manager -->
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5B8NXZ"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div class="col-md-6">
-        <h2>Chart converter</h2>
+        <h1>AnyChart Report Server</h1>
         <nav class="navbar navbar-default">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -78,15 +93,14 @@
             </div>
         </nav>
         <ul class="nav nav-tabs" id="tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#report" aria-controls="report" role="tab" data-toggle="tab">PDF
-                Report</a></li>
+            <li role="presentation" class="active"><a href="#js" aria-controls="js" role="tab" data-toggle="tab">JavaScripts</a></li>
             <li role="presentation"><a href="#json" aria-controls="json" role="tab" data-toggle="tab">JSON</a></li>
             <li role="presentation"><a href="#xml" aria-controls="xml" role="tab" data-toggle="tab">XML</a></li>
-            <li role="presentation"><a href="#js" aria-controls="js" role="tab" data-toggle="tab">JS</a></li>
             <li role="presentation"><a href="#svg" aria-controls="svg" role="tab" data-toggle="tab">SVG</a></li>
+            <li role="presentation"><a href="#report" aria-controls="report" role="tab" data-toggle="tab">PDF Report</a></li>
         </ul>
         <div class="tab-content" id="tab-panes">
-            <div role="tabpanel" class="tab-pane active" id="report">
+            <div role="tabpanel" class="tab-pane" id="report">
                 <div id="content"></div>
             </div>
             <div role="tabpanel" class="tab-pane" id="json">
@@ -95,7 +109,7 @@
             <div role="tabpanel" class="tab-pane" id="xml">
                 <div id="xml_data"></div>
             </div>
-            <div role="tabpanel" class="tab-pane" id="js">
+            <div role="tabpanel" class="tab-pane active" id="js">
                 <div id="js_data"></div>
             </div>
             <div role="tabpanel" class="tab-pane" id="svg">
@@ -103,7 +117,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-6" style="padding: 0; margin: 0;">
+    <div class="col-md-6" style="padding: 0; margin: 0;" id="output">
         <embed width="100%" height="630px" name="plugin" id="viewpdf" src="" type="application/pdf" internalinstanceid="19"></embed>
         <img id="viewimage" style="width: 100%; display: none" src="#">
         <div id="viewsvg" style="width: 100%; height: 630px; display: none"></div>
