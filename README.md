@@ -289,7 +289,7 @@ External resources are required when:
 - check fonts are installed
 
 ## Tests
-*tests*
+*coming soon*
 
 - how to run
 - how to add new
