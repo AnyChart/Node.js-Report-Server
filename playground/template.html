@@ -48,79 +48,63 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5B8NXZ"
                       height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <div class="col-md-6">
-        <h1>AnyChart Report Server</h1>
-        <nav class="navbar navbar-default">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Settings</a>
+    <div>
+        <header class="col-xd-12">
+            <div class="logo">
+                <img src="https://hsto.org/getpro/moikrug/uploads/company/100/005/108/8/logo/medium_f62e632d3c988952dd9fa6e8b10e86ca.png">
             </div>
-
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <!--<form class="navbar-form navbar-left">-->
-                    <!--<div class="form-group">-->
-                        <!--<span>Response type:</span>-->
-                        <!--<select id="responseType" class="form-control" name="response_type">-->
-                            <!--<option>file</option>-->
-                            <!--<option>base64</option>-->
-                            <!--<option>url</option>-->
-                        <!--</select>-->
-                    <!--</div>-->
-                <!--</form>-->
-                <form class="navbar-form navbar-left">
-                    <div class="form-group">
-                        <span>Output type:</span>
-                        <select id="outputType" class="form-control" name="file_type">
-                            <option>png</option>
-                            <option>jpg</option>
-                            <option>tiff</option>
-                            <option>pdf</option>
-                            <option>svg</option>
-                            <option>ps</option>
-                        </select>
-                    </div>
-                </form>
-                <form class="navbar-form navbar-right">
-                    <input type="button" class="btn btn-default" value="Save as file" id="save">
-                    <input type="button" class="btn btn-default" value="Send" id="refresh">
-                </form>
+            <div class="logo-label">
+                <h1>AnyChart Report Server</h1>
             </div>
-        </nav>
-        <ul class="nav nav-tabs" id="tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#js" aria-controls="js" role="tab" data-toggle="tab">JavaScripts</a></li>
-            <li role="presentation"><a href="#json" aria-controls="json" role="tab" data-toggle="tab">JSON</a></li>
-            <li role="presentation"><a href="#xml" aria-controls="xml" role="tab" data-toggle="tab">XML</a></li>
-            <li role="presentation"><a href="#svg" aria-controls="svg" role="tab" data-toggle="tab">SVG</a></li>
-            <li role="presentation"><a href="#report" aria-controls="report" role="tab" data-toggle="tab">PDF Report</a></li>
-        </ul>
-        <div class="tab-content" id="tab-panes">
-            <div role="tabpanel" class="tab-pane" id="report">
-                <div id="content"></div>
-            </div>
-            <div role="tabpanel" class="tab-pane" id="json">
-                <div id="json_data"></div>
-            </div>
-            <div role="tabpanel" class="tab-pane" id="xml">
-                <div id="xml_data"></div>
-            </div>
-            <div role="tabpanel" class="tab-pane active" id="js">
-                <div id="js_data"></div>
-            </div>
-            <div role="tabpanel" class="tab-pane" id="svg">
-                <div id="svg_data"></div>
+        </header>
+        <div class="col-xs-6 playground-panel" id="source">
+            <ul class="nav nav-tabs" id="tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#js" aria-controls="js" role="tab" data-toggle="tab">JavaScripts</a></li>
+                <li role="presentation"><a href="#json" aria-controls="json" role="tab" data-toggle="tab">JSON</a></li>
+                <li role="presentation"><a href="#xml" aria-controls="xml" role="tab" data-toggle="tab">XML</a></li>
+                <li role="presentation"><a href="#svg" aria-controls="svg" role="tab" data-toggle="tab">SVG</a></li>
+                <li role="presentation"><a href="#report" aria-controls="report" role="tab" data-toggle="tab">PDF Report</a></li>
+            </ul>
+            <div class="tab-content" id="tab-panes">
+                <div role="tabpanel" class="tab-pane" id="report">
+                    <div id="content"></div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="json">
+                    <div id="json_data"></div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="xml">
+                    <div id="xml_data"></div>
+                </div>
+                <div role="tabpanel" class="tab-pane active" id="js">
+                    <div id="js_data"></div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="svg">
+                    <div id="svg_data"></div>
+                </div>
             </div>
         </div>
+        <div class="col-xs-6 playground-panel" id="output">
+            <embed id="viewpdf" class="output-image full-height" name="plugin" src="" type="application/pdf" internalinstanceid="19"></embed>
+            <img id="viewimage" class="output-image" src="#">
+            <div id="viewsvg" class="output-image full-height"></div>
+        </div>
+        <div class="col-xs-6">
+            <form class="navbar-form navbar-right">
+                <input type="button" class="btn btn-default" value="Run" id="refresh">
+            </form>
+        </div>
+        <div class="col-xs-6">
+            <form class="navbar-form navbar-right">
+                <div class="form-group">
+                    <span>Output type:</span>
+                    <select id="outputType" class="form-control" name="file_type"></select>
+                </div>
+                <input type="button" class="btn btn-default" value="Save as file" id="save">
+            </form>
+        </div>
     </div>
-    <div class="col-md-6" style="padding: 0; margin: 0;" id="output">
-        <embed width="100%" height="630px" name="plugin" id="viewpdf" src="" type="application/pdf" internalinstanceid="19"></embed>
-        <img id="viewimage" style="width: 100%; display: none" src="#">
-        <div id="viewsvg" style="width: 100%; height: 630px; display: none"></div>
-    </div>
+    <footer class="footer">
+        <span class="footer-text">© 2017 AnyChart.Com All rights reserved.</span>
+    </footer>
 </body>
 </html>

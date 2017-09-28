@@ -1,14 +1,100 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    /*background: red;*/
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 25px;
+    background-color: #f5f5f5;
+}
+.footer-text {
+    font-size: 11px;
+    margin-top: 5px;
+    display: table;
+    padding-left: 5%;
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+}
+/*-------------------------------------------------- */
+
+
 html, body, #content, #viewpdf {
     margin: 0;
     padding: 0;
 }
 
+.logo {
+    display: inline-block;
+    padding: 0px 5px 0px 5px;
+}
+
+.logo img {
+    width: 55px;
+    height: 55px;
+    vertical-align: middle;
+}
+
+.logo-label {
+    /*float: right;*/
+    display: inline-block;
+    vertical-align: middle;
+}
+
 h1 {
+    /*padding-left: 15px;*/
     color: #333
 }
 
+
+
+/*Disable ace code line highlight------------------------------------------------------------------------------------------------------------------------------------*/
+.noselection .ace_marker-layer .ace_selection {
+    background: transparent;
+}
+
+.noselection .ace_cursor {
+    color: transparent;
+}
+/*End Disable ace code line highlight------------------------------------------------------------------------------------------------------------------------------------*/
+
+
 .img-responsive {
     margin: 0 auto;
+}
+
+.playground-panel {
+    padding: 0;
+    margin: 0;
+}
+
+#source {
+    border-bottom: 1px solid #ddd;
+}
+
+#output {
+    border: 1px solid #ddd;
+    border-right: 0;
+    margin-top: 41px;
+    overflow: auto;
+}
+
+.output-image {
+    width: 100%;
+    display: none;
+}
+
+.full-height {
+    height: 100%;
 }
 
 

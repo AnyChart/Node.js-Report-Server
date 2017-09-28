@@ -181,7 +181,7 @@ function generateAvailableOutputTypes() {
     case 'xml':
     case 'javascript':
     case 'svg':
-      types = ['png', 'jpg', 'tiff', 'pdf', 'svg', 'ps'];
+      types = ['png', 'jpg', 'pdf', 'svg', 'ps'];
       break;
   }
   var outputTypeControl = $('#outputType');
@@ -249,7 +249,6 @@ function saveFile() {
 }
 
 function showContent(contentType, resData) {
-  console.log(resData);
   if (contentType === 'application/pdf' || contentType === 'image/tiff') {
     $('#viewpdf').attr("src", 'data:' + contentType + ';base64,' + resData.data);
     $('#viewpdf').attr("type", contentType);
@@ -347,13 +346,13 @@ function convert(data, data_type, file_type, contentType, responseType, url) {
 
 function resize() {
   var offsetContent = $('#tab-panes').offset();
-  var offsetOffset = $('#viewpdf').offset();
   var docHeight = $(window).height();
+  var offset = 130;
 
-  $('#content, #json_data, #xml_data, #js_data, #svg_data').height(docHeight - offsetContent.top - 5);
-  $('#tab-panes').height(docHeight - offsetContent.top - 5);
-  $('#viewpdf').height(docHeight - offsetOffset.top - 5);
-  $('#viewsvg').height(docHeight - offsetOffset.top - 5);
+  $('#content, #json_data, #xml_data, #js_data, #svg_data').height(docHeight - offsetContent.top - offset);
+  $('#tab-panes').height(docHeight - offsetContent.top - offset);
+  $('#source').height(docHeight - offsetContent.top - offset + 42);
+  $('#output').height(docHeight - offsetContent.top - offset);
 }
 
 $(document).ready(function() {
