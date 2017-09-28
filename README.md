@@ -1,6 +1,7 @@
 [<img src="https://cdn.anychart.com/images/logo-transparent-segoe.png" width="234px" alt="AnyChart - Robust JavaScript/HTML5 Chart library for any project">](https://anychart.com)
 
 # AnyChart Node.js Report Server 
+AnyChart Node.js Report Server is a lightweight web server that provides API for generating vector graphics (PDF, SVG, or PS), bitmap images (PNG, JPG, or TIFF), PDF reports, and data in CSV and XLSX (Excel). It uses the JavaScript code as well as JSON and XML configurations as input data. The server is very easy to install and customize, you can run it on any major platform: Linux, Windows, and macOS. It is ideal for creating report systems that send charts via email or social network sharing tools.
 
 ## Installation
 
