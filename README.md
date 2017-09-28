@@ -215,7 +215,7 @@ Content-Type: image/png
 ```
 
 ### Export as data file - CSV/XLSX (Excel)
-Экспорт CSV данных в XLSX и CSV файлы.
+Export chart data as CSV or XLSX file.
 
 ```
 POST /data-file
