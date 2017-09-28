@@ -1,18 +1,42 @@
 [<img src="https://cdn.anychart.com/images/logo-transparent-segoe.png" width="234px" alt="AnyChart - Robust JavaScript/HTML5 Chart library for any project">](https://anychart.com)
 
-# AnyChart Export Server 
+# AnyChart Node.js Report Server 
+AnyChart Node.js Report Server is a lightweight web server that provides API for generating [vector graphics (PDF, SVG, or PS)](https://github.com/AnyChart/Node.js-Report-Server#generate-vector-image---pdfsvgps), [bitmap images (PNG, JPG, or TIFF)](https://github.com/AnyChart/Node.js-Report-Server#generate-raster-image---pngjpgtiff), [PDF reports](https://github.com/AnyChart/Node.js-Report-Server#generate-pdf-report), and [data in CSV and XLSX (Excel)](https://github.com/AnyChart/Node.js-Report-Server#export-as-data-file---csvxlsx-excel). It uses the JavaScript code as well as JSON and XML configurations as input data. The server is very easy to install and customize, you can run it on any major platform: Linux, Windows, and macOS. It is ideal for creating report systems that send charts via email or social network sharing tools.
 
-## Installation and running
+## Installation
 
-### Installation
-Первым делом необходимо убедиться, что уставновлен nodejs. Перейдите на [nodejs](https://nodejs.org/en/download/) чтобы загрузить и установить его.
+### Prerequisite
 
-Установить можно через npm package manager:
+1. Make sure you have nodejs is installed. Navigate to  [https://nodejs.org/en/download/](https://nodejs.org/en/download/) to get it.
+
+2. [ImageMagick](https://www.imagemagick.org/script/index.php) and [librsvg](https://github.com/GNOME/librsvg) are required. 
+
+Install ImageMagick and librsvg on Linux:
+
+```
+apt-get install imagemagick librsvg2-dev
+```
+
+Install ImageMagick and librsvg on Mac OS X
+
+```
+brew install imagemagick librsvg
+```
+
+Install ImageMagick and librsvg on Windows
+
+- [imagemagick](https://www.imagemagick.org/script/download.php)<br>
+- [GTK+ bundle](http://win32builder.gnome.org/gtk+-bundle_3.6.4-20131201_win64.zip)<br>
+- [RSVG lib](https://downloads.sourceforge.net/project/tumagcc/converters/rsvg-convert.exe?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Ftumagcc%2Ffiles%2Frsvg-convert.exe%2Fdownload&ts=1500995628&use_mirror=netix)
+
+### AnyChart Report Server
+
+Installl AnyChart Node.js Report Server using npm package manager:
 
 ```
 npm install anychart-export-server -g
 ```
-Или склонировав git репозиторий:
+Or clone git repository:
 
 ```
 git clone git@github.com:AnyChart/node-export-server.git
@@ -20,54 +44,40 @@ npm install
 npm link
 ```
 
-Для работы сервера необходимо установить пакеты для работы с изображениями - ImageMagick и librsvg. Выберите способ установки относительно вашей платформы:
+## Running
 
-Ububntu
-
-```
-apt-get install imagemagick librsvg2-dev
-```
-
-Mac OS X
-
-```
-brew install imagemagick librsvg
-```
-
-Windows
-
-- [imagemagick](https://www.imagemagick.org/script/download.php)<br>
-- [GTK+ bundle](http://win32builder.gnome.org/gtk+-bundle_3.6.4-20131201_win64.zip)<br>
-- [RSVG lib](https://downloads.sourceforge.net/project/tumagcc/converters/rsvg-convert.exe?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Ftumagcc%2Ffiles%2Frsvg-convert.exe%2Fdownload&ts=1500995628&use_mirror=netix)
-
-
-### Running
+To run the server:
 
 ```
 > anychart-export-server [arguments]
 1:32:48 PM - info:    Export server listening on port 3000!
 ```
 
-#### Options
+### Options
 
 | Name  | Type | Description |
 | ------------- | ------------- | ------------- |
 | port  | number  | TCP port |
-| output-dir  | string | то куда будем сохранять все файлы |
-| disable-scripts-executing | boolean | можно ли запускать скрипты |
-| log-level | string | Уровень логирования, допустимые значения: error, warn, info, verbose, debug, silly |
-| log-file | string | Путь до файла с логами, по умолчанию все логи валятся в консоль |
-| disable-playground | boolean | Выключение приложения playground (который находится по роуту /playground ) |
+| output-dir  | string | Output folder. |
+| disable-scripts-executing | boolean | Disable or enable scripts. |
+| log-level | string | Log level: error, warn, info, verbose, debug, silly |
+| log-file | string | Path to log file, by default log goes only to a console output. |
+| disable-playground | boolean | Turns on and off playground app that is accessible in /playground ) |
 
-### Tutorials
-- Running AnyChart Export Server on Digital Ocean
+## Tutorials
+
+*coming soon*
+
+*Contributions are welcomed!*
+
+- Running AnyChart Export Server on Digital Ocean 
 - Running AnyChart Export Server on AWS S2
 - Running AnyChart Export Server on Microsoft Asure
 
 ## Server API
 
 ### Generate PDF report
-Генерация PDF отчетов, включающих в себя форматирование текта, колонки, таблицы, изображение и anychart графики.
+Generate PDF reports with anychart charts, text, columns, tables, and images.
 
 ```
 POST /pdf-report
@@ -76,10 +86,10 @@ POST /pdf-report
 #### Input
 | Name  | Type | Description |
 | ------------- | ------------- | ------------- |
-| file_name  | string  | Имя файла. Используется, если *response_type* задан как *file* |
-| data | javascript string | Input data. Data format describered [here](https://github.com/AnyChart/node-export-server/blob/master/pdf-report-data-format.md). |
+| file_name  | string  | File name. Used when *response_type* set to *file*. |
+| data | javascript string | Input data.  [Data format description](https://github.com/AnyChart/node-export-server/blob/master/pdf-report-data-format.md). |
 | response_type  | string  | Output data format. Possible values: *file*, *base64* or *url*. Default: *file* |
-| resources  | Array.<string>  | External resources to be included in process of image generation, see [External Resources](#user-content-external-resources) for details. |
+| resources  | Array.<string>  | External resources to be included in the process of image generation, see [External Resources](#user-content-external-resources). |
 
 #### Example
 ```
@@ -104,7 +114,8 @@ Content-Type: application/json; charset=utf-8
 ```
 
 ### Generate vector image - PDF/SVG/PS
-Генерация векторных изображений на основе переданных данных чарта. PDF и PS файлы именно с векторным изображением чарта, что дает возможность масштабировать изображение без потери качества, а так же копировать текст.
+
+Generate vector images. PDF and PS files allow quality scaling and copying texts.
 
 ```
 POST /vector-image
@@ -115,7 +126,7 @@ POST /vector-image
 | ------------- | ------------- | ------------- |
 | data  | string | **required** Input data. JavaScript, SVG, JSON or XML. |
 | data_type  | string  | **required** Type of input data: *javascript*, *svg*, *json*, *xml* |
-| file_name  | string  | Имя файла. Актуально, если *response_type* задан как *file* |
+| file_name  | string  | File name, if *response_type* set to *file* |
 | file_type  | string  | Output file type. Possible values: *PDF*, *SVG* or *PS*. Defauilt: *PDF*  |
 | response_type  | string  | Output data format. Possible values: *file*, *base64* or *url*. Default: *file* |
 | resources  | Array.<string>  | External resources to be included in process of image generation, see [External Resources](#user-content-external-resources) for details. |
@@ -153,7 +164,8 @@ Content-Type:application/json; charset=utf-8
 ```
 
 ### Generate raster image - PNG/JPG/TIFF
-Генерация растровых изображений на основе переданных данных чарта. 
+
+Generate raster images from charts. 
 
 ```
 POST /raster-image
@@ -164,7 +176,7 @@ POST /raster-image
 | ------------- | ------------- | ------------- |
 | data  | string | **required** Input data. JavaScript, SVG, JSON or XML string. |
 | data_type  | string  | **required** Type of input data. Possible values: *javascript*, *svg*, *json* or *xml*|
-| file_name  | string  | Имя файла. Актуально, если *response_type* задан как *file* |
+| file_name  | string  | File name. Needed when  *response_type* is set to *file* |
 | file_type  | string  | Output file type. Possible values: *PNG*, *JPG* or *TIFF*. Default: *PNG* |
 | response_type  | string  |  Output data format. Possible values: *file*, *base64* or *url*. Default: *file*|
 | resources  | Array.<string>  | External resources to be included in process of image generation, see [External Resources](#user-content-external-resources) for details. |
@@ -204,7 +216,7 @@ Content-Type: image/png
 ```
 
 ### Export as data file - CSV/XLSX (Excel)
-Экспорт CSV данных в XLSX и CSV файлы.
+Export chart data as CSV or XLSX file.
 
 ```
 POST /data-file
@@ -241,36 +253,47 @@ Content-Disposition: attachment; filename=anychart.xlsx
 
 ### Get server status
 
+*coming soon*
+
 ## External resources
-Когда это нужно
-- Если нужно подключить внешние данные
-- Если нужно подключить карту
-- Если нужно подключить картинку для hatch fill
+*coming soon*
+
+External resources are required when:
+
+- You need external data files
+- You need to add geo data
+- You need image for hatch fill or image fill
 
 
 ## Security recommendations
+*coming soon*
+
  - allow access origin
  - https
- - авторизация
+ - authorization
  
 ## System recommendations 
-- рассказываем про аналог супервизора
-- рассказываем про рекомендованную мощность
-- рассказываем про логирование
+*coming soon*
+
+- supervisor
+- performance
+- logging
  
 ## CJK and Custom fonts 
-Рассказываем как сетапить фонты
+*coming soon*
 
 ## Troubleshooting
-Рассказываем что делать в проблемных случаях
-- как проверить что image magic или кто у нас там второй установлен
-- как провер курлом или чем нибудь еще что /status доступен
-- как понять что нужно ставить доп шрифты
+*coming soon*
+
+- check image magic and librsvg are installed
+- curl /status
+- check fonts are installed
 
 ## Tests
-Рассказываем как у нас устроены тесты
-- как запустить
-- как добавить свой
+*coming soon*
+
+- how to run
+- how to add new
 
 
 ## License
