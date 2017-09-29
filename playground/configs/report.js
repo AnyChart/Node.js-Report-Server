@@ -132,7 +132,7 @@
       "style": "footer",
       "columns": [
         {
-          "text": "Created by node-export-server (https://github.com/AnyChart/node-export-server)",
+          "text": "Created by anychart-report-server (https://github.com/AnyChart/node-export-server)",
           "alignment": "left",
           "width": "auto"
         },

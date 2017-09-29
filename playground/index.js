@@ -152,6 +152,7 @@ function generate() {
       async: false,
       success: function(data) {
         var editor = ace.edit(container.attr('id'));
+        editor.setShowPrintMargin(false);
         var session = editor.getSession();
         session.setMode(mode);
         session.setValue(data);
@@ -344,17 +345,6 @@ function convert(data, data_type, file_type, contentType, responseType, url) {
   }
 }
 
-function resize() {
-  var offsetContent = $('#tab-panes').offset();
-  var docHeight = $(window).height();
-  var offset = 130;
-
-  $('#content, #json_data, #xml_data, #js_data, #svg_data').height(docHeight - offsetContent.top - offset);
-  $('#tab-panes').height(docHeight - offsetContent.top - offset);
-  $('#source').height(docHeight - offsetContent.top - offset + 42);
-  $('#output').height(docHeight - offsetContent.top - offset);
-}
-
 $(document).ready(function() {
   generateAvailableOutputTypes();
   generate();
@@ -383,5 +373,31 @@ $(document).ready(function() {
     resize();
   });
 
+  $('#viewimage').on('load', function(e) {
+    resize();
+  });
+
   resize();
 });
+
+function resize() {
+  var offsetContent = $('#tab-panes').offset();
+  var docHeight = $(window).height();
+  var offset = 130;
+
+  var output = $('#output');
+  var viewImage = $('#viewimage');
+
+  $('#content, #json_data, #xml_data, #js_data, #svg_data').height(docHeight - offsetContent.top - offset);
+  $('#tab-panes').height(docHeight - offsetContent.top - offset);
+  $('#source').height(docHeight - offsetContent.top - offset + 42);
+  output.height(docHeight - offsetContent.top - offset);
+
+  if (viewImage.height() && viewImage.width()) {
+    if (viewImage.height() / output.height() > viewImage.width() / output.width()) {
+      viewImage.css({width: 'auto', height: '100%'});
+    } else {
+      viewImage.css({width: '100%', height: 'auto'});
+    }
+  }
+}
