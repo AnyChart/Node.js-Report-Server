@@ -8,11 +8,11 @@ $.get('img/500.img', function(data) {
   img500 = data;
 });
 
-$.get('http://cdn.anychart.com/releases/8.0.0/json-schema.json', function(data) {
+$.get('https://cdn.anychart.com/releases/8.0.0/json-schema.json', function(data) {
   jsonSchema = data;
 });
 
-$.get({url: 'http://cdn.anychart.com/releases/8.0.0/xml-schema.xsd'}, function(data) {
+$.get({url: 'https://cdn.anychart.com/releases/8.0.0/xml-schema.xsd'}, function(data) {
   xmlSchema = data;
 });
 
