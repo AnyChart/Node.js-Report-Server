@@ -1,9 +1,10 @@
 var loadedFiles = {};
 var pathToConfigs = 'configs/';
-var showPreload = true;
+var showPreload = false;
+var lastSelectedType = 'png';
 
 var img500, jsonSchema, xmlSchema;
-$.get('500.img', function(data) {
+$.get('img/500.img', function(data) {
   img500 = data;
 });
 
@@ -18,18 +19,20 @@ $.get({url: 'http://cdn.anychart.com/releases/8.0.0/xml-schema.xsd'}, function(d
 function showPreloader() {
   if (showPreload) {
     $('#output').append('<div id="loader-wrapper" class="anychart-loader"><div class="rotating-cover"><div class="rotating-plane"><div class="chart-row"><span class="chart-col green"></span><span class="chart-col orange"></span><span class="chart-col red"></span></div></div></div></div>');
-    $('#refresh').attr('disabled', 'disabled');
+    $('#refresh, #outputType, #save').attr('disabled', 'disabled');
 
-    $('#tabs li').addClass('disabled').removeAttr('data-toggle');
+    $('#tabs li').addClass('disabled');
+    $('#tabs li a').removeAttr('data-toggle');
   }
 }
 
 function hidePreloader() {
   $('#loader-wrapper').remove();
   showPreload = false;
-  $('#refresh').attr('disabled', false);
+  $('#refresh, #outputType, #save').attr('disabled', false);
 
-  $('#tabs li').removeClass('disabled').attr('data-toggle', 'tab');
+  $('#tabs li').removeClass('disabled');
+  $('#tabs li a').attr('data-toggle', 'tab');
 }
 
 function parseReport(data) {
@@ -186,7 +189,7 @@ function generateAvailableOutputTypes() {
       break;
   }
   var outputTypeControl = $('#outputType');
-  var value = outputTypeControl.val();
+  var value = lastSelectedType || outputTypeControl.val();
   outputTypeControl.html('');
   $(types).each(function(index, elem) {
     var option = $('<option>' + elem + '</option>');
@@ -273,6 +276,9 @@ function showContent(contentType, resData) {
 }
 
 function convert(data, data_type, file_type, contentType, responseType, url) {
+  if (showPreload)
+    return;
+
   if (data_type === 'report') {
     data = parseReport(data);
   }
@@ -287,7 +293,6 @@ function convert(data, data_type, file_type, contentType, responseType, url) {
       var json = JSON.parse(data);
       valid = tv4.validateResult(json, jsonSchema);
       isValid = valid.valid;
-      console.log(valid);
     } catch (e) {
       valid = e;
       isValid = false;
@@ -350,11 +355,13 @@ $(document).ready(function() {
   generate();
 
   $('#tabs').find('a').click(function (e) {
-    e.preventDefault();
-    $(this).tab('show');
+    if (!showPreload) {
+      e.preventDefault();
+      $(this).tab('show');
 
-    generateAvailableOutputTypes();
-    generate();
+      generateAvailableOutputTypes();
+      generate();
+    }
   });
 
   $('#save').click(function() {
@@ -366,6 +373,7 @@ $(document).ready(function() {
   });
 
   $('#outputType').on('change', function() {
+    lastSelectedType = $(this).val();
     generate();
   });
 
