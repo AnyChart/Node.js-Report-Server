@@ -225,7 +225,7 @@ POST /data-file
 #### Input
 | Name  | Type | Description |
 | ------------- | ------------- | ------------- |
-| file_name  | string  | Имя файла. Актуально, если *response_type* задан как *file* |
+| file_name  | string  | File name. Works when *response_type* is set to *file* |
 | file_type  | string  | Output file type. Possible values: *CSV* or *XLSX*. Default: *XLSX* |
 | data  | string | Input data. CSV string. |
 | response_type  | string  | Output data format. Possible values: *file*, *url*. Default: *file* |
