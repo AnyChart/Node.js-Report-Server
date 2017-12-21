@@ -87,8 +87,8 @@ var iframes = {};
 var anychart = require('anychart')(window);
 // var anychart = require('../ACDVF/out/anychart-bundle.min.js')(window);
 
-var anychart_nodejs = require('anychart-nodejs')(anychart);
-// var anychart_nodejs = require('../AnyChart-NodeJS')(anychart);
+// var anychart_nodejs = require('anychart-nodejs')(anychart);
+var anychart_nodejs = require('../AnyChart-NodeJS')(anychart);
 
 
 //endregion
@@ -216,7 +216,13 @@ function convertCharts(obj, callback) {
         }
       }, iframeId, dataType, index, data);
 
-      var params = {type: 'png', dataType: dataType, document: iframeDoc, containerId: containerId, iframeId: iframeId};
+      var params = {
+        type: 'png',
+        dataType: dataType,
+        document: iframeDoc,
+        containerId: containerId
+      };
+
       applyImageParams(params, chartConfig);
       anychart_nodejs.exportTo(data, params, imgConvertCallback);
     } else {
@@ -353,7 +359,6 @@ function generateOutput(req, res) {
       dataType: dataType,
       document: iframeDoc,
       containerId: containerId,
-      iframeId: iframeId,
       resources: resources
     };
 
