@@ -216,7 +216,13 @@ function convertCharts(obj, callback) {
         }
       }, iframeId, dataType, index, data);
 
-      var params = {type: 'png', dataType: dataType, document: iframeDoc, containerId: containerId, iframeId: iframeId};
+      var params = {
+        type: 'png',
+        dataType: dataType,
+        document: iframeDoc,
+        containerId: containerId
+      };
+
       applyImageParams(params, chartConfig);
       anychart_nodejs.exportTo(data, params, imgConvertCallback);
     } else {
@@ -353,7 +359,6 @@ function generateOutput(req, res) {
       dataType: dataType,
       document: iframeDoc,
       containerId: containerId,
-      iframeId: iframeId,
       resources: resources
     };
 
