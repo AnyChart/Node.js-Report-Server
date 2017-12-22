@@ -75,21 +75,10 @@ logger.verbose('log level:', logLevel);
 
 
 //endregion
-//region --- Script exec sandbox configure
-var rootDoc = jsdom('<body></body>');
-var window = rootDoc.defaultView;
-var iframeDoc = null;
-var iframes = {};
+//region --- AnyChart module configure
 
-
-//endregion
-//region --- AnyChart configure
-var anychart = require('anychart')(window);
-// var anychart = require('../ACDVF/out/anychart-bundle.min.js')(window);
-
-var anychart_nodejs = require('anychart-nodejs')(anychart);
-// var anychart_nodejs = require('../AnyChart-NodeJS')(anychart);
-
+// var anychart_nodejs = require('anychart-nodejs');
+var anychart_nodejs = require('../AnyChart-NodeJS');
 
 //endregion
 //region --- Pdfmake configure
@@ -151,30 +140,6 @@ function recursiveTraverse(obj, func) {
   }
 }
 
-function createSandbox(containerTd) {
-  var iframeId = 'iframe_' + uuidv4();
-  var iframe = rootDoc.createElement('iframe');
-  iframes[iframeId] = iframe;
-  iframe.setAttribute('id', iframeId);
-  rootDoc.body.appendChild(iframe);
-  iframeDoc = iframe.contentDocument;
-  var div = iframeDoc.createElement('div');
-  div.setAttribute('id', containerTd);
-  iframeDoc.body.appendChild(div);
-
-  return iframeId;
-}
-
-function clearSandbox(iframeId) {
-  var iFrame = rootDoc.getElementById(iframeId);
-  iframeDoc = iFrame.contentDocument;
-  iframeDoc.createElementNS = null;
-  iframeDoc.body.innerHTML = '';
-  iFrame.contentDocument = null;
-  rootDoc.body.removeChild(iFrame);
-  delete iframes[iframeId];
-}
-
 function convertCharts(obj, callback) {
   var charts = [];
 
@@ -196,10 +161,8 @@ function convertCharts(obj, callback) {
     }
 
     if (data) {
-      var iframeId = createSandbox(containerId);
       logger.info('----> PDF Report. Chart ' + index + ' exporting.');
-      var imgConvertCallback = partial(function imgConvertCallback(id, dataType, chartNum, userData, err, data) {
-        clearSandbox(id);
+      var imgConvertCallback = partial(function imgConvertCallback(dataType, chartNum, userData, err, data) {
         logger.info('<---- PDF Report. Chart ' + chartNum + ' exporting.');
         if (data) {
           config.image = 'data:image/png;base64,' + data.toString('base64');
@@ -214,12 +177,12 @@ function convertCharts(obj, callback) {
         if (chartsToConvert === 0) {
           callback(obj)
         }
-      }, iframeId, dataType, index, data);
+      }, dataType, index, data);
 
       var params = {
         type: 'png',
         dataType: dataType,
-        document: iframeDoc,
+        // document: iframeDoc,
         containerId: containerId
       };
 
@@ -337,9 +300,8 @@ function generateOutput(req, res) {
   }
 
   if (data) {
-    var iframeId = createSandbox(containerId);
     logger.info('----> Input. Convert %s to %s. Image.', dataType.toUpperCase(), fileType.toUpperCase());
-    var imgConvertCallback = partial(function imgConvertCallback(id, fileType, dataType, userData, err, data) {
+    var imgConvertCallback = partial(function imgConvertCallback(fileType, dataType, userData, err, data) {
       if (err)
         logger.error('Convert %s to %s. Data: %s. Container id: %s.',
             dataType.toUpperCase(), fileType.toUpperCase(), userData, containerId, err);
@@ -351,13 +313,12 @@ function generateOutput(req, res) {
       } else {
         sendResult(req, res, data, fileType);
       }
-      clearSandbox(iframeId);
-    }, iframeId, fileType, dataType, data);
+    }, fileType, dataType, data);
 
     var params = {
       type: fileType,
       dataType: dataType,
-      document: iframeDoc,
+      // document: iframeDoc,
       containerId: containerId,
       resources: resources
     };
