@@ -23,7 +23,7 @@ Install ImageMagick and librsvg on Mac OS X
 brew install imagemagick librsvg
 ```
 
-Install ImageMagick and librsvg on Windows
+Install ImageMagick and librsvg on Windows:
 
 - [imagemagick](https://www.imagemagick.org/script/download.php)<br>
 - [GTK+ bundle](http://win32builder.gnome.org/gtk+-bundle_3.6.4-20131201_win64.zip)<br>

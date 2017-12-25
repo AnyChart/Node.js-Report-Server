@@ -77,8 +77,8 @@ logger.verbose('log level:', logLevel);
 //endregion
 //region --- AnyChart module configure
 
-// var anychart_nodejs = require('anychart-nodejs');
-var anychart_nodejs = require('../AnyChart-NodeJS');
+var anychart_nodejs = require('anychart-nodejs');
+// var anychart_nodejs = require('../AnyChart-NodeJS');
 
 //endregion
 //region --- Pdfmake configure
@@ -180,7 +180,7 @@ function convertCharts(obj, callback) {
       }, dataType, index, data);
 
       var params = {
-        type: 'png',
+        outputType: 'png',
         dataType: dataType,
         // document: iframeDoc,
         containerId: containerId
@@ -316,7 +316,7 @@ function generateOutput(req, res) {
     }, fileType, dataType, data);
 
     var params = {
-      type: fileType,
+      outputType: fileType,
       dataType: dataType,
       // document: iframeDoc,
       containerId: containerId,
