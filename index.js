@@ -6,7 +6,6 @@ var program = require('commander');
 var uuidv4 = require('uuid/v4');
 var fs = require('fs');
 var vm = require('vm2');
-var jsdom = require('jsdom').jsdom;
 var csv = require('csv');
 var xlsx = require('xlsx');
 var path = require('path');

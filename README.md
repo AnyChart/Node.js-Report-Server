@@ -1,5 +1,7 @@
 [<img src="https://cdn.anychart.com/images/logo-transparent-segoe.png" width="234px" alt="AnyChart - Robust JavaScript/HTML5 Chart library for any project">](https://anychart.com)
 
+[![NPM Version][npm-image]][npm-url] [![NPM Downloads][downloads-image]][downloads-url] [![Package Quality][quality-image]][quality-url]
+
 # AnyChart Node.js Report Server 
 AnyChart Node.js Report Server is a lightweight web server that provides API for generating [vector graphics (PDF, SVG, or PS)](https://github.com/AnyChart/Node.js-Report-Server#generate-vector-image---pdfsvgps), [bitmap images (PNG, JPG, or TIFF)](https://github.com/AnyChart/Node.js-Report-Server#generate-raster-image---pngjpgtiff), [PDF reports](https://github.com/AnyChart/Node.js-Report-Server#generate-pdf-report), and [data in CSV and XLSX (Excel)](https://github.com/AnyChart/Node.js-Report-Server#export-as-data-file---csvxlsx-excel). It uses the JavaScript code as well as JSON and XML configurations as input data. The server is very easy to install and customize, you can run it on any major platform: Linux, Windows, and macOS. It is ideal for creating report systems that send charts via email or social network sharing tools.
 
@@ -299,3 +301,9 @@ External resources are required when:
 ## License
 [© AnyChart.com - JavaScript charts](http://www.anychart.com). AnyChart Export Server released under the [Apache 2.0 License](https://github.com/AnyChart/node-export-server/blob/master/LICENSE).
 
+[npm-image]: https://img.shields.io/npm/v/anychart-export-server.svg?style=flat-square
+[npm-url]: https://www.npmjs.com/package/anychart-export-server
+[downloads-image]: https://img.shields.io/npm/dm/anychart-export-server.svg?style=flat-square
+[downloads-url]: https://www.npmjs.com/package/anychart-export-server
+[quality-image]: http://npm.packagequality.com/shield/anychart-export-server.svg?style=flat-square
+[quality-url]: http://packagequality.com/#?package=anychart-export-server
