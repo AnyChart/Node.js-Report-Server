@@ -36,7 +36,7 @@ Install ImageMagick and librsvg on Windows:
 Installl AnyChart Node.js Report Server using npm package manager:
 
 ```
-npm install anychart-export-server -g
+npm install anychart-report-server -g
 ```
 Or clone git repository:
 
@@ -51,7 +51,7 @@ npm link
 To run the server:
 
 ```
-> anychart-export-server [arguments]
+> anychart-report-server [arguments]
 1:32:48 PM - info:    Export server listening on port 3000!
 ```
 
@@ -301,9 +301,9 @@ External resources are required when:
 ## License
 [© AnyChart.com - JavaScript charts](http://www.anychart.com). AnyChart Export Server released under the [Apache 2.0 License](https://github.com/AnyChart/node-export-server/blob/master/LICENSE).
 
-[npm-image]: https://img.shields.io/npm/v/anychart-export-server.svg?style=flat-square
-[npm-url]: https://www.npmjs.com/package/anychart-export-server
-[downloads-image]: https://img.shields.io/npm/dm/anychart-export-server.svg?style=flat-square
-[downloads-url]: https://www.npmjs.com/package/anychart-export-server
-[quality-image]: http://npm.packagequality.com/shield/anychart-export-server.svg?style=flat-square
-[quality-url]: http://packagequality.com/#?package=anychart-export-server
+[npm-image]: https://img.shields.io/npm/v/anychart-report-server.svg?style=flat-square
+[npm-url]: https://www.npmjs.com/package/anychart-report-server
+[downloads-image]: https://img.shields.io/npm/dm/anychart-report-server.svg?style=flat-square
+[downloads-url]: https://www.npmjs.com/package/anychart-report-server
+[quality-image]: http://npm.packagequality.com/shield/anychart-report-server.svg?style=flat-square
+[quality-url]: http://packagequality.com/#?package=anychart-report-server
